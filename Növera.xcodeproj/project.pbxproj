@@ -35,7 +35,6 @@
 		AA27 /* NotificationsView.swift */ = {isa = PBXBuildFile; fileRef = FA27; };
 		AA28 /* ProfileView.swift */ = {isa = PBXBuildFile; fileRef = FA28; };
 		AA29 /* PremiumView.swift */ = {isa = PBXBuildFile; fileRef = FA29; };
-		AA30 /* SettingsView.swift */ = {isa = PBXBuildFile; fileRef = FA30; };
 		AA31 /* User.swift */ = {isa = PBXBuildFile; fileRef = FA31; };
 		AA32 /* Shift.swift */ = {isa = PBXBuildFile; fileRef = FA32; };
 		AA33 /* Team.swift */ = {isa = PBXBuildFile; fileRef = FA33; };
@@ -89,7 +88,6 @@
 		FA27 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		FA28 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FA29 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
-		FA30 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA31 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA32 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
 		FA33 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -151,7 +149,7 @@
 		};
 		FEATD = {
 			isa = PBXGroup;
-			children = (FA14, FA15, FA16, FA17, FA18, FA19, FA20, FA21, FA22, FA23, FA24, FA25, FA26, FA27, FA28, FA29, FA30, FA50);
+			children = (FA14, FA15, FA16, FA17, FA18, FA19, FA20, FA21, FA22, FA23, FA24, FA25, FA26, FA27, FA28, FA29, FA50);
 			path = Features;
 			sourceTree = "<group>";
 		};
@@ -223,7 +221,7 @@
 			files = (
 				AA01, AA02, AA03, AA04, AA05, AA06, AA07, AA08, AA09, AA10,
 				AA11, AA12, AA13, AA14, AA15, AA16, AA17, AA18, AA19, AA20,
-				AA21, AA22, AA23, AA24, AA25, AA26, AA27, AA28, AA29, AA30,
+				AA21, AA22, AA23, AA24, AA25, AA26, AA27, AA28, AA29,
 				AA31, AA32, AA33, AA34, AA35, AA36, AA37, AA38, AA39, AA40,
 				AA41, AA42, AA43, AA44, AA45, AA46, AA47, AA48, AA49, AA50,
 			);
