@@ -54,7 +54,6 @@
 		AA47 /* StoreKitService.swift */ = {isa = PBXBuildFile; fileRef = FA47; };
 		AA48 /* CalendarSyncService.swift */ = {isa = PBXBuildFile; fileRef = FA48; };
 		AA49 /* KeychainService.swift */ = {isa = PBXBuildFile; fileRef = FA49; };
-		AA50 /* NoveraWidget.swift */ = {isa = PBXBuildFile; fileRef = FA50; };
 		AA51 /* Assets.xcassets */ = {isa = PBXBuildFile; fileRef = FA51; };
 /* End PBXBuildFile section */
 
@@ -223,7 +222,7 @@
 				AA11, AA12, AA13, AA14, AA15, AA16, AA17, AA18, AA19, AA20,
 				AA21, AA22, AA23, AA24, AA25, AA26, AA27, AA28, AA29,
 				AA31, AA32, AA33, AA34, AA35, AA36, AA37, AA38, AA39, AA40,
-				AA41, AA42, AA43, AA44, AA45, AA46, AA47, AA48, AA49, AA50,
+				AA41, AA42, AA43, AA44, AA45, AA46, AA47, AA48, AA49,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
