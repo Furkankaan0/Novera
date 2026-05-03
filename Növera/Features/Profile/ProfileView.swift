@@ -203,7 +203,7 @@ struct ProfileView: View {
 // MARK: - Settings Section
 struct SettingsSection<Content: View>: View {
     let title: String
-    let content: () -> Content
+    @ViewBuilder let content: () -> Content
 
     var body: some View {
         VStack(alignment: .leading, spacing: NoveraSpacing.xs) {

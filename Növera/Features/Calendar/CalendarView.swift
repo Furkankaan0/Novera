@@ -111,7 +111,6 @@ struct CalendarView: View {
             // Day cells
             let days = vm.daysInDisplayedMonth
             let offset = vm.firstWeekdayOffset
-            let totalCells = days.count + offset
 
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 4), count: 7), spacing: 4) {
                 // Empty cells for offset
