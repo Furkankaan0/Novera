@@ -56,6 +56,7 @@
 		AA48 /* CalendarSyncService.swift */ = {isa = PBXBuildFile; fileRef = FA48; };
 		AA49 /* KeychainService.swift */ = {isa = PBXBuildFile; fileRef = FA49; };
 		AA50 /* NoveraWidget.swift */ = {isa = PBXBuildFile; fileRef = FA50; };
+		AA51 /* Assets.xcassets */ = {isa = PBXBuildFile; fileRef = FA51; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		FA48 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSyncService.swift; sourceTree = "<group>"; };
 		FA49 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		FA50 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveraWidget.swift; sourceTree = "<group>"; };
+		FA51 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		PROD1 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Növera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		PLIST = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,38 +133,38 @@
 		};
 		APPGRP = {
 			isa = PBXGroup;
-			children = (APPD, CORED, FEATD, DATAD, SVCD, PLIST);
+			children = (APPD, CORED, FEATD, DATAD, SVCD, PLIST, FA51);
 			path = "Növera";
 			sourceTree = "<group>";
 		};
 		APPD = {
 			isa = PBXGroup;
 			children = (FA01, FA02, FA03, FA04);
-			name = App;
+			path = App;
 			sourceTree = "<group>";
 		};
 		CORED = {
 			isa = PBXGroup;
 			children = (FA05, FA06, FA07, FA08, FA09, FA10, FA11, FA12, FA13);
-			name = Core;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		FEATD = {
 			isa = PBXGroup;
 			children = (FA14, FA15, FA16, FA17, FA18, FA19, FA20, FA21, FA22, FA23, FA24, FA25, FA26, FA27, FA28, FA29, FA30, FA50);
-			name = Features;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		DATAD = {
 			isa = PBXGroup;
 			children = (FA31, FA32, FA33, FA34, FA35, FA36, FA37, FA38, FA39, FA40, FA41);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		SVCD = {
 			isa = PBXGroup;
 			children = (FA42, FA43, FA44, FA45, FA46, FA47, FA48, FA49);
-			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +206,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		RBP1 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		RBP1 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA51,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
