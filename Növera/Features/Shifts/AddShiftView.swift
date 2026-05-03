@@ -1,5 +1,5 @@
 // AddShiftView.swift
-// Növera — Add/Edit Shift Form
+// Növera — Premium Add/Edit Shift Form
 
 import SwiftUI
 
@@ -12,60 +12,64 @@ struct AddShiftView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: NoveraSpacing.md) {
-                    // Duration preview banner
+                VStack(spacing: NSpacing.lg) {
+                    // Duration preview hero
                     durationBanner
+                        .entrance(delay: 0)
 
                     // Type selector
                     shiftTypeSelector
+                        .entrance(delay: 0.03)
 
                     // Main form fields
                     formFields
+                        .entrance(delay: 0.06)
 
                     // Toggles
                     togglesSection
+                        .entrance(delay: 0.09)
 
                     // Hourly rate
                     rateField
+                        .entrance(delay: 0.12)
 
                     // Calendar sync
                     calendarToggle
+                        .entrance(delay: 0.15)
 
                     // Error
                     if let error = vm.errorMessage {
-                        HStack {
+                        HStack(spacing: NSpacing.sm) {
                             Image(systemName: "exclamationmark.triangle.fill")
-                                .foregroundStyle(NoveraColors.error)
+                                .foregroundStyle(NColor.danger)
                             Text(error)
-                                .font(NoveraFonts.subheadline())
-                                .foregroundStyle(NoveraColors.error)
+                                .font(NFont.subheadline())
+                                .foregroundStyle(NColor.danger)
                         }
-                        .padding(NoveraSpacing.md)
-                        .glassBackground(cornerRadius: NoveraRadius.sm)
+                        .premiumGlass(radius: NRadius.small, padding: NSpacing.md)
                         .transition(.opacity.combined(with: .scale))
                     }
 
                     // Save button
-                    NoveraPrimaryButton(
-                        editingShift != nil ? "Güncelle" : "Vardiya Ekle",
-                        icon: "checkmark",
-                        isLoading: vm.isSaving
+                    PremiumPrimaryButton(
+                        title: editingShift != nil ? "Güncelle" : "Vardiya Ekle",
+                        icon: "checkmark"
                     ) {
                         vm.save(preselectedDate: preselectedDate, editing: editingShift)
                     }
                     .disabled(!vm.isValid)
                     .opacity(vm.isValid ? 1 : 0.5)
                 }
-                .padding(NoveraSpacing.md)
-                .padding(.bottom, NoveraSpacing.xl)
+                .padding(NSpacing.base)
+                .padding(.bottom, NSpacing.xxl)
             }
-            .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+            .screenBackground()
             .navigationTitle(editingShift != nil ? "Vardiyayı Düzenle" : "Yeni Vardiya")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("İptal") { dismiss() }
-                        .foregroundStyle(NoveraColors.textSecondary)
+                        .foregroundStyle(NColor.textSecondary)
                 }
             }
             .onAppear {
@@ -86,42 +90,37 @@ struct AddShiftView: View {
     // MARK: - Duration Banner
     var durationBanner: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: NSpacing.xs) {
                 Text("Toplam Süre")
-                    .font(NoveraFonts.caption())
-                    .foregroundStyle(NoveraColors.textSecondary)
+                    .font(NFont.caption(.medium))
+                    .foregroundStyle(NColor.textSecondary)
                 Text(vm.durationPreview)
-                    .font(NoveraFonts.display(32))
-                    .foregroundStyle(NoveraColors.primary)
+                    .font(NFont.display(32))
+                    .foregroundStyle(NColor.primaryFallback)
+                    .contentTransition(.numericText())
             }
             Spacer()
-            Image(systemName: vm.shiftType.icon)
-                .font(.system(size: 36))
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: [vm.shiftType.color, vm.shiftType.color.opacity(0.6)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .symbolRenderingMode(.hierarchical)
+            Soft3DIcon(
+                icon: vm.shiftType.icon,
+                size: .large,
+                color: vm.shiftType.color
+            )
         }
-        .padding(NoveraSpacing.md)
-        .glassBackground(cornerRadius: NoveraRadius.lg)
+        .premiumGlass(radius: NRadius.large, padding: NSpacing.lg)
     }
 
     // MARK: - Shift Type Selector
     var shiftTypeSelector: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
+        VStack(alignment: .leading, spacing: NSpacing.sm) {
             Text("Vardiya Türü")
-                .font(NoveraFonts.footnote(.semibold))
-                .foregroundStyle(NoveraColors.textSecondary)
+                .font(NFont.footnote(.bold))
+                .foregroundStyle(NColor.textSecondary)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: NoveraSpacing.sm) {
+                HStack(spacing: NSpacing.sm) {
                     ForEach(ShiftType.allCases, id: \.self) { type in
-                        ShiftTypeChip(type: type, isSelected: vm.shiftType == type) {
-                            withAnimation(NoveraAnimation.springFast) {
+                        PremiumShiftTypeChip(type: type, isSelected: vm.shiftType == type) {
+                            withAnimation(NMotion.snappy) {
                                 vm.shiftType = type
                                 vm.suggestTitle()
                             }
@@ -135,37 +134,30 @@ struct AddShiftView: View {
 
     // MARK: - Form Fields
     var formFields: some View {
-        VStack(spacing: NoveraSpacing.md) {
-            NoveraFormField(label: "Vardiya Adı", isRequired: true) {
-                NoveraTextField(
-                    placeholder: "Örn: Acil Servis Nöbeti",
-                    text: $vm.title,
-                    icon: "pencil"
-                )
+        VStack(spacing: NSpacing.lg) {
+            PremiumFormField(label: "Vardiya Adı", isRequired: true) {
+                NoveraTextField(placeholder: "Örn: Acil Servis Nöbeti", text: $vm.title, icon: "pencil")
             }
 
-            NoveraFormField(label: "Görev Yeri") {
-                NoveraTextField(
-                    placeholder: "Örn: Yoğun Bakım - A Blok",
-                    text: $vm.location,
-                    icon: "mappin"
-                )
+            PremiumFormField(label: "Görev Yeri") {
+                NoveraTextField(placeholder: "Örn: Yoğun Bakım - A Blok", text: $vm.location, icon: "mappin")
             }
 
-            HStack(spacing: NoveraSpacing.sm) {
-                VStack(alignment: .leading, spacing: 6) {
+            // Date pickers in glass card
+            HStack(spacing: NSpacing.md) {
+                VStack(alignment: .leading, spacing: NSpacing.sm) {
                     Text("Başlangıç")
-                        .font(NoveraFonts.footnote(.semibold))
-                        .foregroundStyle(NoveraColors.textSecondary)
+                        .font(NFont.footnote(.bold))
+                        .foregroundStyle(NColor.textSecondary)
                     DatePicker("", selection: $vm.startDate, displayedComponents: [.date, .hourAndMinute])
                         .labelsHidden()
                         .datePickerStyle(.compact)
                         .environment(\.locale, Locale(identifier: "tr_TR"))
                 }
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: NSpacing.sm) {
                     Text("Bitiş")
-                        .font(NoveraFonts.footnote(.semibold))
-                        .foregroundStyle(NoveraColors.textSecondary)
+                        .font(NFont.footnote(.bold))
+                        .foregroundStyle(NColor.textSecondary)
                     DatePicker("", selection: $vm.endDate, displayedComponents: [.date, .hourAndMinute])
                         .labelsHidden()
                         .datePickerStyle(.compact)
@@ -173,32 +165,27 @@ struct AddShiftView: View {
                 }
             }
 
-            NoveraFormField(label: "Not (İsteğe bağlı)") {
-                NoveraTextField(
-                    placeholder: "Vardiya notları...",
-                    text: $vm.notes,
-                    icon: "note.text"
-                )
+            PremiumFormField(label: "Not (İsteğe bağlı)") {
+                NoveraTextField(placeholder: "Vardiya notları...", text: $vm.notes, icon: "note.text")
             }
         }
     }
 
     // MARK: - Toggles
     var togglesSection: some View {
-        VStack(spacing: NoveraSpacing.sm) {
+        VStack(spacing: NSpacing.md) {
             NoveraToggleRow(
                 title: "Resmi Tatil / UBGT",
                 subtitle: "Bayram veya resmi tatil nöbeti",
                 icon: "flag.fill",
-                iconColor: NoveraColors.shiftHoliday,
+                iconColor: NColor.shiftHoliday,
                 isOn: $vm.isHoliday
             )
-
             NoveraToggleRow(
                 title: "Fazla Mesai",
                 subtitle: "Normal çalışma saati üstünde",
                 icon: "clock.badge.plus",
-                iconColor: NoveraColors.shiftOvertime,
+                iconColor: NColor.shiftOvertime,
                 isOn: $vm.isOvertime
             )
         }
@@ -206,13 +193,8 @@ struct AddShiftView: View {
 
     // MARK: - Rate Field
     var rateField: some View {
-        NoveraFormField(label: "Saatlik Ücret (₺)") {
-            NoveraTextField(
-                placeholder: "Örn: 150",
-                text: $vm.hourlyRate,
-                icon: "turkishlirasign",
-                keyboardType: .decimalPad
-            )
+        PremiumFormField(label: "Saatlik Ücret (₺)") {
+            NoveraTextField(placeholder: "Örn: 150", text: $vm.hourlyRate, icon: "turkishlirasign", keyboardType: .decimalPad)
         }
     }
 
@@ -222,37 +204,49 @@ struct AddShiftView: View {
             title: "Takvime Ekle",
             subtitle: "iOS takviminize otomatik ekle",
             icon: "calendar.badge.plus",
-            iconColor: NoveraColors.primary,
+            iconColor: NColor.primaryFallback,
             isOn: $vm.addToCalendar
         )
     }
 }
 
-// MARK: - Shift Type Chip
-struct ShiftTypeChip: View {
+// MARK: - Premium Shift Type Chip
+struct PremiumShiftTypeChip: View {
     let type: ShiftType
     let isSelected: Bool
     let action: () -> Void
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 6) {
+            HStack(spacing: NSpacing.sm) {
                 Image(systemName: type.icon)
                     .font(.system(size: 13, weight: .semibold))
                 Text(type.displayName)
-                    .font(NoveraFonts.subheadline(.medium))
+                    .font(NFont.subheadline(.medium))
             }
             .foregroundStyle(isSelected ? .white : type.color)
-            .padding(.horizontal, NoveraSpacing.md)
-            .padding(.vertical, NoveraSpacing.sm)
+            .padding(.horizontal, NSpacing.base)
+            .padding(.vertical, NSpacing.md)
             .background(
                 Capsule()
-                    .fill(isSelected ? type.color : type.color.opacity(0.12))
+                    .fill(isSelected ? type.color : type.color.opacity(colorScheme == .dark ? 0.18 : 0.10))
+                    .overlay(
+                        Capsule()
+                            .strokeBorder(type.color.opacity(isSelected ? 0 : 0.3), lineWidth: 0.8)
+                    )
+            )
+            .shadow(
+                color: isSelected ? type.color.opacity(0.35) : .clear,
+                radius: 8, x: 0, y: 4
             )
         }
-        .scaleOnPress()
+        .pressEffect()
     }
 }
+
+// Legacy alias
+typealias ShiftTypeChip = PremiumShiftTypeChip
 
 // MARK: - Toggle Row
 struct NoveraToggleRow: View {
@@ -263,22 +257,16 @@ struct NoveraToggleRow: View {
     @Binding var isOn: Bool
 
     var body: some View {
-        HStack(spacing: NoveraSpacing.sm) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(iconColor.opacity(0.12))
-                    .frame(width: 36, height: 36)
-                Image(systemName: icon)
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(iconColor)
-            }
+        HStack(spacing: NSpacing.md) {
+            Soft3DIcon(icon: icon, size: .small, color: iconColor)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(NoveraFonts.subheadline(.medium))
+                    .font(NFont.subheadline(.medium))
+                    .foregroundStyle(NColor.textPrimary)
                 Text(subtitle)
-                    .font(NoveraFonts.caption())
-                    .foregroundStyle(NoveraColors.textSecondary)
+                    .font(NFont.caption())
+                    .foregroundStyle(NColor.textSecondary)
             }
 
             Spacer()
@@ -287,9 +275,7 @@ struct NoveraToggleRow: View {
                 .labelsHidden()
                 .tint(iconColor)
         }
-        .padding(NoveraSpacing.md)
-        .glassBackground(cornerRadius: NoveraRadius.md)
-        .noveraShadow(NoveraShadows.soft)
+        .premiumGlass(radius: NRadius.medium, padding: NSpacing.base)
         .onTapGesture {
             HapticManager.selection()
             isOn.toggle()

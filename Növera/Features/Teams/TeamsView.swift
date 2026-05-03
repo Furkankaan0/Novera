@@ -1,5 +1,5 @@
 // TeamsView.swift
-// Növera — Team Management Screen
+// Növera — Premium Team Management
 
 import SwiftUI
 
@@ -10,42 +10,48 @@ struct TeamsView: View {
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: NoveraSpacing.lg) {
+                VStack(spacing: NSpacing.xl) {
                     if vm.teams.isEmpty {
                         noTeamState
+                            .entrance(delay: 0.05)
                     } else {
-                        // Team selector (if multiple)
+                        // Team selector
                         if vm.teams.count > 1 {
                             teamSelectorSection
-                                .padding(.horizontal, NoveraSpacing.md)
+                                .padding(.horizontal, NSpacing.base)
+                                .entrance(delay: 0.03)
                         }
 
                         // Today on duty
                         todaySection
-                            .padding(.horizontal, NoveraSpacing.md)
+                            .padding(.horizontal, NSpacing.base)
+                            .entrance(delay: 0.06)
 
                         // Members
                         if let team = vm.selectedTeam {
                             membersSection(team)
-                                .padding(.horizontal, NoveraSpacing.md)
+                                .padding(.horizontal, NSpacing.base)
+                                .entrance(delay: 0.09)
                         }
 
                         // Announcements
                         announcementsSection
-                            .padding(.horizontal, NoveraSpacing.md)
+                            .padding(.horizontal, NSpacing.base)
+                            .entrance(delay: 0.12)
 
                         // Swap requests
                         if !vm.swapRequests.isEmpty {
                             swapRequestsSection
-                                .padding(.horizontal, NoveraSpacing.md)
+                                .padding(.horizontal, NSpacing.base)
+                                .entrance(delay: 0.15)
                         }
                     }
 
-                    Spacer(minLength: 100)
+                    Spacer(minLength: 120)
                 }
-                .padding(.top, NoveraSpacing.sm)
+                .padding(.top, NSpacing.sm)
             }
-            .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+            .screenBackground()
             .navigationTitle("Ekip")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -64,7 +70,7 @@ struct TeamsView: View {
                         }
                     } label: {
                         Image(systemName: "plus")
-                            .foregroundStyle(NoveraColors.primary)
+                            .foregroundStyle(NColor.primaryFallback)
                     }
                 }
             }
@@ -77,20 +83,20 @@ struct TeamsView: View {
 
     // MARK: - No Team State
     var noTeamState: some View {
-        NoveraEmptyState(
+        PremiumEmptyState(
             icon: "person.2.slash",
             title: "Henüz ekibiniz yok",
             subtitle: "Yeni bir ekip oluşturun veya davet koduyla mevcut bir ekibe katılın"
         )
-        .padding(.top, NoveraSpacing.xl)
+        .padding(.top, NSpacing.xxl)
     }
 
     // MARK: - Team Selector
     var teamSelectorSection: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: NoveraSpacing.sm) {
+            HStack(spacing: NSpacing.sm) {
                 ForEach(vm.teams) { team in
-                    TeamChip(
+                    PremiumTeamChip(
                         team: team,
                         isSelected: vm.selectedTeam?.id == team.id
                     ) { vm.selectTeam(team) }
@@ -101,24 +107,26 @@ struct TeamsView: View {
 
     // MARK: - Today Section
     var todaySection: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
-            NoveraSectionHeader(
+        VStack(alignment: .leading, spacing: NSpacing.md) {
+            PremiumSectionHeader(
                 title: "Bugün Görevde",
                 subtitle: "\(vm.todayMembersWorking.count) kişi"
             )
 
             if vm.todayMembersWorking.isEmpty {
-                Text("Bugün nöbette kimse yok")
-                    .font(NoveraFonts.subheadline())
-                    .foregroundStyle(NoveraColors.textSecondary)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .glassBackground(cornerRadius: NoveraRadius.md)
+                HStack(spacing: NSpacing.md) {
+                    Soft3DIcon(icon: "moon.zzz.fill", size: .small, color: NColor.textTertiary)
+                    Text("Bugün nöbette kimse yok")
+                        .font(NFont.subheadline())
+                        .foregroundStyle(NColor.textSecondary)
+                }
+                .premiumGlass(radius: NRadius.medium, padding: NSpacing.base)
+                .frame(maxWidth: .infinity, alignment: .leading)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: NoveraSpacing.sm) {
+                    HStack(spacing: NSpacing.md) {
                         ForEach(vm.todayMembersWorking) { member in
-                            MemberAvatarCard(member: member)
+                            PremiumMemberAvatarCard(member: member)
                         }
                     }
                 }
@@ -128,38 +136,43 @@ struct TeamsView: View {
 
     // MARK: - Members Section
     func membersSection(_ team: Team) -> some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
-            NoveraSectionHeader(
+        VStack(alignment: .leading, spacing: NSpacing.md) {
+            PremiumSectionHeader(
                 title: "Ekip Üyeleri",
                 subtitle: "\(team.memberCount) üye"
             )
 
-            VStack(spacing: NoveraSpacing.xs) {
+            VStack(spacing: 0) {
                 ForEach(team.members) { member in
-                    MemberRow(member: member)
+                    PremiumMemberRow(member: member)
+                    if member.id != team.members.last?.id {
+                        Divider()
+                            .padding(.horizontal, NSpacing.base)
+                            .opacity(0.4)
+                    }
                 }
             }
-            .padding(NoveraSpacing.sm)
-            .glassBackground(cornerRadius: NoveraRadius.lg)
-            .noveraShadow(NoveraShadows.soft)
+            .premiumGlass(radius: NRadius.large, padding: 0)
         }
     }
 
     // MARK: - Announcements Section
     var announcementsSection: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
-            NoveraSectionHeader(title: "Duyurular")
+        VStack(alignment: .leading, spacing: NSpacing.md) {
+            PremiumSectionHeader(title: "Duyurular")
 
             if vm.announcements.isEmpty {
-                Text("Henüz duyuru yok")
-                    .font(NoveraFonts.subheadline())
-                    .foregroundStyle(NoveraColors.textSecondary)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .glassBackground(cornerRadius: NoveraRadius.md)
+                HStack(spacing: NSpacing.md) {
+                    Soft3DIcon(icon: "megaphone", size: .small, color: NColor.textTertiary)
+                    Text("Henüz duyuru yok")
+                        .font(NFont.subheadline())
+                        .foregroundStyle(NColor.textSecondary)
+                }
+                .premiumGlass(radius: NRadius.medium, padding: NSpacing.base)
+                .frame(maxWidth: .infinity, alignment: .leading)
             } else {
                 ForEach(vm.announcements) { announcement in
-                    AnnouncementRow(announcement: announcement)
+                    PremiumAnnouncementRow(announcement: announcement)
                 }
             }
         }
@@ -167,10 +180,10 @@ struct TeamsView: View {
 
     // MARK: - Swap Requests
     var swapRequestsSection: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
-            NoveraSectionHeader(title: "Takas İstekleri")
+        VStack(alignment: .leading, spacing: NSpacing.md) {
+            PremiumSectionHeader(title: "Takas İstekleri")
             ForEach(vm.swapRequests) { request in
-                SwapRequestRow(request: request) { status in
+                PremiumSwapRequestRow(request: request) { status in
                     vm.respondToSwap(id: request.id, status: status)
                 }
             }
@@ -180,16 +193,16 @@ struct TeamsView: View {
     // MARK: - Create Team Sheet
     var createTeamSheet: some View {
         NavigationStack {
-            VStack(spacing: NoveraSpacing.md) {
-                NoveraFormField(label: "Ekip Adı", isRequired: true) {
+            VStack(spacing: NSpacing.lg) {
+                PremiumFormField(label: "Ekip Adı", isRequired: true) {
                     NoveraTextField(placeholder: "Örn: Acil Servis Ekibi", text: $vm.newTeamName, icon: "person.2")
                 }
-                NoveraFormField(label: "Açıklama") {
+                PremiumFormField(label: "Açıklama") {
                     NoveraTextField(placeholder: "Ekip açıklaması", text: $vm.newTeamDescription, icon: "text.alignleft")
                 }
-                NoveraPrimaryButton("Ekip Oluştur", icon: "checkmark") { vm.createTeam() }
+                PremiumPrimaryButton(title: "Ekip Oluştur", icon: "checkmark") { vm.createTeam() }
             }
-            .padding(NoveraSpacing.md)
+            .padding(NSpacing.lg)
             .navigationTitle("Yeni Ekip")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -203,18 +216,18 @@ struct TeamsView: View {
     // MARK: - Join Team Sheet
     var joinTeamSheet: some View {
         NavigationStack {
-            VStack(spacing: NoveraSpacing.md) {
-                NoveraFormField(label: "Davet Kodu", isRequired: true) {
+            VStack(spacing: NSpacing.lg) {
+                PremiumFormField(label: "Davet Kodu", isRequired: true) {
                     NoveraTextField(placeholder: "6 haneli kod (örn: ABC123)", text: $vm.inviteCode, icon: "link")
                 }
                 if let error = vm.errorMessage {
                     Text(error)
-                        .font(NoveraFonts.subheadline())
-                        .foregroundStyle(NoveraColors.error)
+                        .font(NFont.subheadline())
+                        .foregroundStyle(NColor.danger)
                 }
-                NoveraPrimaryButton("Katıl", icon: "arrow.right") { vm.joinTeam() }
+                PremiumPrimaryButton(title: "Katıl", icon: "arrow.right") { vm.joinTeam() }
             }
-            .padding(NoveraSpacing.md)
+            .padding(NSpacing.lg)
             .navigationTitle("Ekibe Katıl")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -228,19 +241,19 @@ struct TeamsView: View {
     // MARK: - Announcement Sheet
     var announcementSheet: some View {
         NavigationStack {
-            VStack(spacing: NoveraSpacing.md) {
-                NoveraFormField(label: "Başlık", isRequired: true) {
+            VStack(spacing: NSpacing.lg) {
+                PremiumFormField(label: "Başlık", isRequired: true) {
                     NoveraTextField(placeholder: "Duyuru başlığı", text: $vm.announcementTitle, icon: "megaphone")
                 }
-                NoveraFormField(label: "Mesaj") {
+                PremiumFormField(label: "Mesaj") {
                     NoveraTextField(placeholder: "Duyuru içeriği...", text: $vm.announcementMessage, icon: "text.alignleft")
                 }
-                NoveraPrimaryButton("Duyuru Yap", icon: "megaphone.fill") {
+                PremiumPrimaryButton(title: "Duyuru Yap", icon: "megaphone.fill") {
                     vm.postAnnouncement()
                     showPostAnnouncement = false
                 }
             }
-            .padding(NoveraSpacing.md)
+            .padding(NSpacing.lg)
             .navigationTitle("Duyuru")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
@@ -252,157 +265,246 @@ struct TeamsView: View {
     }
 }
 
-// MARK: - Team Chip
-struct TeamChip: View {
+// MARK: - Premium Team Chip
+struct PremiumTeamChip: View {
     let team: Team
     let isSelected: Bool
     let action: () -> Void
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            HapticManager.selection()
+            action()
+        }) {
             Text(team.name)
-                .font(NoveraFonts.subheadline(.medium))
-                .foregroundStyle(isSelected ? .white : NoveraColors.primary)
-                .padding(.horizontal, NoveraSpacing.md)
-                .padding(.vertical, NoveraSpacing.sm)
+                .font(NFont.subheadline(.semibold))
+                .foregroundStyle(isSelected ? .white : NColor.primaryFallback)
+                .padding(.horizontal, NSpacing.lg)
+                .padding(.vertical, NSpacing.md)
                 .background(
                     Capsule()
-                        .fill(isSelected ? NoveraColors.primary : NoveraColors.primary.opacity(0.12))
+                        .fill(isSelected ? NColor.primaryGradient : .clear)
+                        .overlay(
+                            Capsule()
+                                .strokeBorder(
+                                    isSelected
+                                    ? .clear
+                                    : NColor.primaryFallback.opacity(0.3),
+                                    lineWidth: 1
+                                )
+                        )
+                )
+                .shadow(
+                    color: isSelected ? NColor.primaryFallback.opacity(0.3) : .clear,
+                    radius: 8, x: 0, y: 4
                 )
         }
-        .scaleOnPress()
+        .pressEffect()
     }
 }
 
-// MARK: - Member Avatar Card
-struct MemberAvatarCard: View {
+// MARK: - Premium Member Avatar Card
+struct PremiumMemberAvatarCard: View {
     let member: TeamMember
+    @State private var showGlow = false
 
     var body: some View {
-        VStack(spacing: NoveraSpacing.xs) {
+        VStack(spacing: NSpacing.sm) {
             ZStack {
+                // Glow
                 Circle()
-                    .fill(NoveraColors.primaryGradient)
-                    .frame(width: 52, height: 52)
+                    .fill(NColor.primaryFallback.opacity(showGlow ? 0.15 : 0))
+                    .frame(width: 64, height: 64)
+                    .blur(radius: 8)
+
+                Circle()
+                    .fill(NColor.primaryGradient)
+                    .frame(width: 56, height: 56)
+                    .overlay(
+                        Circle()
+                            .stroke(
+                                LinearGradient(
+                                    colors: [.white.opacity(0.4), .clear],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
+                                lineWidth: 1
+                            )
+                    )
+                    .nShadow(.soft)
+
                 Text(member.name.prefix(2).uppercased())
-                    .font(NoveraFonts.headline(.bold))
+                    .font(NFont.headline(.bold))
                     .foregroundStyle(.white)
             }
+
             Text(member.name.components(separatedBy: " ").first ?? "")
-                .font(NoveraFonts.caption(.medium))
-                .foregroundStyle(NoveraColors.textPrimary)
+                .font(NFont.caption(.medium))
+                .foregroundStyle(NColor.textPrimary)
                 .lineLimit(1)
         }
-        .frame(width: 64)
+        .frame(width: 72)
+        .onAppear {
+            withAnimation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true)) {
+                showGlow = true
+            }
+        }
     }
 }
 
-// MARK: - Member Row
-struct MemberRow: View {
+// MARK: - Premium Member Row
+struct PremiumMemberRow: View {
     let member: TeamMember
 
     var body: some View {
-        HStack(spacing: NoveraSpacing.sm) {
+        HStack(spacing: NSpacing.md) {
             ZStack {
                 Circle()
-                    .fill(NoveraColors.primaryGradient)
-                    .frame(width: 40, height: 40)
+                    .fill(NColor.primaryGradient)
+                    .frame(width: 42, height: 42)
+                    .overlay(
+                        Circle()
+                            .stroke(.white.opacity(0.2), lineWidth: 0.5)
+                    )
                 Text(member.name.prefix(2).uppercased())
-                    .font(NoveraFonts.footnote(.bold))
+                    .font(NFont.footnote(.bold))
                     .foregroundStyle(.white)
             }
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(member.name)
-                    .font(NoveraFonts.subheadline(.semibold))
+                    .font(NFont.subheadline(.semibold))
+                    .foregroundStyle(NColor.textPrimary)
                 Text(member.profession.displayName)
-                    .font(NoveraFonts.caption())
-                    .foregroundStyle(NoveraColors.textSecondary)
+                    .font(NFont.caption())
+                    .foregroundStyle(NColor.textSecondary)
             }
 
             Spacer()
 
+            // Role badge
             HStack(spacing: 4) {
                 Image(systemName: member.role.icon)
-                    .font(.system(size: 11))
+                    .font(.system(size: 11, weight: .bold))
                 Text(member.role.displayName)
-                    .font(NoveraFonts.caption(.semibold))
+                    .font(NFont.caption2(.bold))
             }
             .foregroundStyle(member.role.color)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
-            .background(Capsule().fill(member.role.color.opacity(0.12)))
+            .padding(.horizontal, NSpacing.sm)
+            .padding(.vertical, NSpacing.xs)
+            .background(
+                Capsule()
+                    .fill(member.role.color.opacity(0.12))
+                    .overlay(Capsule().stroke(member.role.color.opacity(0.2), lineWidth: 0.5))
+            )
         }
-        .padding(NoveraSpacing.sm)
+        .padding(.horizontal, NSpacing.base)
+        .padding(.vertical, NSpacing.md)
+        .accessibilityElement(children: .combine)
         .accessibilityLabel("\(member.name), \(member.profession.displayName), \(member.role.displayName)")
     }
 }
 
-// MARK: - Swap Request Row
-struct SwapRequestRow: View {
+// MARK: - Premium Swap Request Row
+struct PremiumSwapRequestRow: View {
     let request: ShiftSwapRequest
     let respond: (SwapStatus) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
+        VStack(alignment: .leading, spacing: NSpacing.md) {
             HStack {
-                Image(systemName: "arrow.left.arrow.right")
-                    .foregroundStyle(NoveraColors.primary)
+                Soft3DIcon(icon: "arrow.left.arrow.right", size: .small, color: NColor.primaryFallback)
+
                 VStack(alignment: .leading, spacing: 2) {
                     Text(request.requestedByName)
-                        .font(NoveraFonts.subheadline(.semibold))
+                        .font(NFont.subheadline(.semibold))
+                        .foregroundStyle(NColor.textPrimary)
                     Text(request.message)
-                        .font(NoveraFonts.caption())
-                        .foregroundStyle(NoveraColors.textSecondary)
+                        .font(NFont.caption())
+                        .foregroundStyle(NColor.textSecondary)
                         .lineLimit(2)
                 }
                 Spacer()
-                SwapStatusBadge(status: request.status)
+                PremiumSwapBadge(status: request.status)
             }
 
             if request.status == .pending {
-                HStack(spacing: NoveraSpacing.sm) {
-                    Button("Kabul Et") { respond(.accepted) }
-                        .font(NoveraFonts.subheadline(.semibold))
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 36)
-                        .background(Capsule().fill(NoveraColors.success))
+                HStack(spacing: NSpacing.md) {
+                    Button(action: {
+                        HapticManager.notification(.success)
+                        respond(.accepted)
+                    }) {
+                        Text("Kabul Et")
+                            .font(NFont.subheadline(.semibold))
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .background(
+                                Capsule()
+                                    .fill(NColor.success)
+                                    .shadow(color: NColor.success.opacity(0.3), radius: 6, x: 0, y: 3)
+                            )
+                    }
 
-                    Button("Reddet") { respond(.rejected) }
-                        .font(NoveraFonts.subheadline(.semibold))
-                        .foregroundStyle(NoveraColors.error)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 36)
-                        .background(Capsule().fill(NoveraColors.error.opacity(0.12)))
+                    Button(action: {
+                        HapticManager.notification(.warning)
+                        respond(.rejected)
+                    }) {
+                        Text("Reddet")
+                            .font(NFont.subheadline(.semibold))
+                            .foregroundStyle(NColor.danger)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .background(
+                                Capsule()
+                                    .fill(NColor.danger.opacity(0.12))
+                                    .overlay(Capsule().stroke(NColor.danger.opacity(0.3), lineWidth: 0.8))
+                            )
+                    }
                 }
             }
         }
-        .padding(NoveraSpacing.md)
-        .glassBackground(cornerRadius: NoveraRadius.md)
-        .noveraShadow(NoveraShadows.soft)
+        .premiumGlass(radius: NRadius.medium, padding: NSpacing.base)
     }
 }
 
-// MARK: - Swap Status Badge
-struct SwapStatusBadge: View {
+// MARK: - Premium Swap Badge
+struct PremiumSwapBadge: View {
     let status: SwapStatus
 
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: status.icon)
-                .font(.system(size: 11, weight: .semibold))
+                .font(.system(size: 10, weight: .bold))
             Text(status.displayName)
-                .font(NoveraFonts.caption(.semibold))
+                .font(NFont.caption2(.bold))
         }
         .foregroundStyle(status.color)
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
-        .background(Capsule().fill(status.color.opacity(0.12)))
+        .padding(.horizontal, NSpacing.sm)
+        .padding(.vertical, NSpacing.xs)
+        .background(
+            Capsule()
+                .fill(status.color.opacity(0.12))
+                .overlay(Capsule().stroke(status.color.opacity(0.2), lineWidth: 0.5))
+        )
     }
 }
 
-#Preview {
+// Legacy aliases
+typealias TeamChip = PremiumTeamChip
+typealias MemberAvatarCard = PremiumMemberAvatarCard
+typealias MemberRow = PremiumMemberRow
+typealias SwapRequestRow = PremiumSwapRequestRow
+typealias SwapStatusBadge = PremiumSwapBadge
+
+#Preview("Teams - Light") {
     TeamsView()
         .environmentObject(AppState())
+}
+
+#Preview("Teams - Dark") {
+    TeamsView()
+        .environmentObject(AppState())
+        .preferredColorScheme(.dark)
 }

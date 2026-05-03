@@ -1,5 +1,5 @@
 // ShiftDetailView.swift
-// Növera — Shift Detail Screen
+// Növera — Premium Shift Detail Screen
 
 import SwiftUI
 
@@ -12,25 +12,29 @@ struct ShiftDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: NoveraSpacing.lg) {
+            VStack(spacing: NSpacing.xl) {
                 // Hero card
                 heroCard
+                    .entrance(delay: 0)
 
                 // Detail grid
                 detailGrid
+                    .entrance(delay: 0.06)
 
                 // Notes
                 if !shift.notes.isEmpty {
                     notesCard
+                        .entrance(delay: 0.10)
                 }
 
                 // Actions
                 actionButtons
+                    .entrance(delay: 0.14)
             }
-            .padding(NoveraSpacing.md)
-            .padding(.bottom, NoveraSpacing.xl)
+            .padding(NSpacing.base)
+            .padding(.bottom, NSpacing.xxl)
         }
-        .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        .screenBackground()
         .navigationTitle("Vardiya Detayı")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -40,7 +44,7 @@ struct ShiftDetailView: View {
                     Button("Sil", systemImage: "trash", role: .destructive) { showDeleteConfirm = true }
                 } label: {
                     Image(systemName: "ellipsis.circle")
-                        .foregroundStyle(NoveraColors.primary)
+                        .foregroundStyle(NColor.primaryFallback)
                 }
             }
         }
@@ -64,89 +68,108 @@ struct ShiftDetailView: View {
 
     // MARK: - Hero Card
     var heroCard: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.md) {
+        VStack(alignment: .leading, spacing: NSpacing.lg) {
             HStack {
                 ShiftTypeBadge(type: shift.shiftType)
                 Spacer()
                 if shift.isActive {
                     HStack(spacing: 4) {
                         Circle()
-                            .fill(NoveraColors.success)
+                            .fill(NColor.success)
                             .frame(width: 8, height: 8)
                         Text("Aktif")
-                            .font(NoveraFonts.caption(.semibold))
-                            .foregroundStyle(NoveraColors.success)
+                            .font(NFont.caption(.bold))
+                            .foregroundStyle(NColor.success)
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
-                    .background(Capsule().fill(NoveraColors.success.opacity(0.12)))
+                    .padding(.horizontal, NSpacing.md)
+                    .padding(.vertical, NSpacing.xs)
+                    .background(
+                        Capsule()
+                            .fill(NColor.success.opacity(0.12))
+                            .overlay(Capsule().stroke(NColor.success.opacity(0.25), lineWidth: 0.5))
+                    )
                 }
             }
 
-            Text(shift.title)
-                .font(NoveraFonts.title1(.bold))
-                .foregroundStyle(NoveraColors.textPrimary)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: NSpacing.sm) {
+                    Text(shift.title)
+                        .font(NFont.title1(.bold))
+                        .foregroundStyle(NColor.textPrimary)
 
-            HStack(spacing: NoveraSpacing.lg) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Süre")
-                        .font(NoveraFonts.caption())
-                        .foregroundStyle(NoveraColors.textSecondary)
-                    Text(shift.durationInHours.hoursFormatted)
-                        .font(NoveraFonts.display(28))
-                        .foregroundStyle(shift.shiftType.color)
+                    HStack(spacing: NSpacing.lg) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Süre")
+                                .font(NFont.caption(.medium))
+                                .foregroundStyle(NColor.textSecondary)
+                            Text(shift.durationInHours.hoursFormatted)
+                                .font(NFont.display(28))
+                                .foregroundStyle(shift.shiftType.color)
+                                .contentTransition(.numericText())
+                        }
+
+                        Divider().frame(height: 44)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Zaman")
+                                .font(NFont.caption(.medium))
+                                .foregroundStyle(NColor.textSecondary)
+                            Text(shift.timeRangeFormatted)
+                                .font(NFont.headline(.semibold))
+                                .foregroundStyle(NColor.textPrimary)
+                        }
+                    }
                 }
 
-                Divider().frame(height: 40)
+                Spacer()
 
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Zaman")
-                        .font(NoveraFonts.caption())
-                        .foregroundStyle(NoveraColors.textSecondary)
-                    Text(shift.timeRangeFormatted)
-                        .font(NoveraFonts.headline(.semibold))
-                }
+                Soft3DIcon(
+                    icon: shift.shiftType.icon,
+                    size: .large,
+                    color: shift.shiftType.color
+                )
             }
         }
-        .padding(NoveraSpacing.lg)
+        .padding(NSpacing.xl)
         .background(
-            RoundedRectangle(cornerRadius: NoveraRadius.xl, style: .continuous)
+            RoundedRectangle(cornerRadius: NRadius.large, style: .continuous)
                 .fill(
                     LinearGradient(
                         colors: [
-                            shift.shiftType.color.opacity(0.15),
-                            shift.shiftType.color.opacity(0.05)
+                            shift.shiftType.color.opacity(0.12),
+                            shift.shiftType.color.opacity(0.03)
                         ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: NoveraRadius.xl, style: .continuous)
+                    RoundedRectangle(cornerRadius: NRadius.large, style: .continuous)
                         .strokeBorder(shift.shiftType.color.opacity(0.2), lineWidth: 1)
                 )
         )
-        .noveraShadow(NoveraShadows.soft)
+        .depth3D(radius: NRadius.large)
+        .nShadow(NShadow.colored(shift.shiftType.color))
     }
 
     // MARK: - Detail Grid
     var detailGrid: some View {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: NoveraSpacing.sm) {
-            DetailCell(icon: "calendar", label: "Tarih", value: shift.startDate.dayFormatted)
-            DetailCell(icon: "mappin", label: "Konum", value: shift.location.isEmpty ? "Belirtilmedi" : shift.location)
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: NSpacing.md) {
+            PremiumDetailCell(icon: "calendar", label: "Tarih", value: shift.startDate.dayFormatted, color: NColor.primaryFallback)
+            PremiumDetailCell(icon: "mappin", label: "Konum", value: shift.location.isEmpty ? "Belirtilmedi" : shift.location, color: NColor.info)
             if shift.isHoliday {
-                DetailCell(icon: "flag.fill", label: "Resmi Tatil", value: "Evet", color: NoveraColors.shiftHoliday)
+                PremiumDetailCell(icon: "flag.fill", label: "Resmi Tatil", value: "Evet", color: NColor.shiftHoliday)
             }
             if shift.isOvertime {
-                DetailCell(icon: "clock.badge.plus", label: "Fazla Mesai", value: "Evet", color: NoveraColors.shiftOvertime)
+                PremiumDetailCell(icon: "clock.badge.plus", label: "Fazla Mesai", value: "Evet", color: NColor.shiftOvertime)
             }
             if let rate = shift.hourlyRate {
-                DetailCell(icon: "turkishlirasign", label: "Saatlik Ücret", value: "₺\(Int(rate))")
-                DetailCell(
+                PremiumDetailCell(icon: "turkishlirasign", label: "Saatlik Ücret", value: "₺\(Int(rate))", color: NColor.warning)
+                PremiumDetailCell(
                     icon: "chart.bar.fill",
                     label: "Tahmini Kazanç",
                     value: "₺\(Int(shift.durationInHours * rate))",
-                    color: NoveraColors.accentGreen
+                    color: NColor.success
                 )
             }
         }
@@ -154,58 +177,55 @@ struct ShiftDetailView: View {
 
     // MARK: - Notes
     var notesCard: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.sm) {
+        VStack(alignment: .leading, spacing: NSpacing.sm) {
             Label("Notlar", systemImage: "note.text")
-                .font(NoveraFonts.subheadline(.semibold))
-                .foregroundStyle(NoveraColors.textSecondary)
+                .font(NFont.subheadline(.semibold))
+                .foregroundStyle(NColor.textSecondary)
             Text(shift.notes)
-                .font(NoveraFonts.callout())
-                .foregroundStyle(NoveraColors.textPrimary)
+                .font(NFont.callout())
+                .foregroundStyle(NColor.textPrimary)
+                .lineSpacing(4)
         }
-        .padding(NoveraSpacing.md)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .glassBackground(cornerRadius: NoveraRadius.lg)
-        .noveraShadow(NoveraShadows.soft)
+        .premiumGlass(radius: NRadius.large, padding: NSpacing.lg)
     }
 
     // MARK: - Action Buttons
     var actionButtons: some View {
-        VStack(spacing: NoveraSpacing.sm) {
-            NoveraSecondaryButton("Takas İsteği Gönder", icon: "arrow.left.arrow.right") {
+        VStack(spacing: NSpacing.md) {
+            PremiumSecondaryButton(title: "Takas İsteği Gönder", icon: "arrow.left.arrow.right") {
                 // TODO: Show swap request sheet
             }
         }
     }
 }
 
-// MARK: - Detail Cell
-struct DetailCell: View {
+// MARK: - Premium Detail Cell
+struct PremiumDetailCell: View {
     let icon: String
     let label: String
     let value: String
-    var color: Color = NoveraColors.primary
+    var color: Color = NColor.primaryFallback
 
     var body: some View {
-        HStack(spacing: NoveraSpacing.sm) {
-            Image(systemName: icon)
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundStyle(color)
-                .frame(width: 20)
+        HStack(spacing: NSpacing.md) {
+            Soft3DIcon(icon: icon, size: .small, color: color)
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(label)
-                    .font(NoveraFonts.caption())
-                    .foregroundStyle(NoveraColors.textSecondary)
+                    .font(NFont.caption(.medium))
+                    .foregroundStyle(NColor.textSecondary)
                 Text(value)
-                    .font(NoveraFonts.subheadline(.semibold))
-                    .foregroundStyle(NoveraColors.textPrimary)
+                    .font(NFont.subheadline(.semibold))
+                    .foregroundStyle(NColor.textPrimary)
                     .lineLimit(1)
             }
         }
-        .padding(NoveraSpacing.sm)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .glassBackground(cornerRadius: NoveraRadius.sm)
+        .premiumGlass(radius: NRadius.small, padding: NSpacing.md)
     }
 }
+
+// Legacy alias
+typealias DetailCell = PremiumDetailCell
 
 #Preview {
     NavigationStack {
