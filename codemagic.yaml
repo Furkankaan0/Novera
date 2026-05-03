@@ -36,8 +36,8 @@ workflows:
           python3 -c "import base64, os; open('/tmp/cert_key.pem', 'wb').write(base64.b64decode(os.environ.get('CERTIFICATE_PRIVATE_KEY', '')))"
           
           # Clean up local cache
-          rm -rf ~/Library/MobileDevice/Provisioning\ Profiles/* 2>/dev/null || true
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          rm -rf "$HOME/Library/MobileDevice/Provisioning Profiles/"* 2>/dev/null || true
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
           
           # Delete existing profiles on Apple Developer Portal to force recreation
           pip3 install pyjwt requests cryptography
@@ -104,10 +104,10 @@ workflows:
 
       - name: Generate export options plist
         script: |
-          # We cleared the folder, so the ONLY file here is the 100% correct newly fetched profile
-          PROFILE_PATH=$(find ~/Library/MobileDevice/Provisioning\ Profiles -name "*.mobileprovision" | head -n 1)
+          # Search all possible directories where Codemagic might have saved the newly fetched profile
+          PROFILE_PATH=$(find "$HOME/Library/MobileDevice/Provisioning Profiles" "$HOME/.app-store-connect" "$CM_BUILD_DIR" -name "*.mobileprovision" 2>/dev/null | head -n 1)
           if [ -z "$PROFILE_PATH" ]; then
-            echo "No provisioning profile found in Library!"
+            echo "No provisioning profile found anywhere on the system!"
             exit 1
           fi
           PROFILE_UUID=$(security cms -D -i "$PROFILE_PATH" | plutil -extract UUID raw -)
