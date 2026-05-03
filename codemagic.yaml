@@ -12,7 +12,6 @@ workflows:
         BUNDLE_ID: "com.novera.app"
         XCODE_SCHEME: "Növera"
         XCODE_PROJECT: "Növera.xcodeproj"
-        XCODE_WORKSPACE: ""  # Leave empty — no workspace, direct project
         APP_STORE_CONNECT_ISSUER_ID: $APP_STORE_CONNECT_ISSUER_ID
         APP_STORE_CONNECT_KEY_IDENTIFIER: $APP_STORE_CONNECT_KEY_IDENTIFIER
         APP_STORE_CONNECT_PRIVATE_KEY: $APP_STORE_CONNECT_PRIVATE_KEY
