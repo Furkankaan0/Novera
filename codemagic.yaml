@@ -62,6 +62,11 @@ workflows:
               <string>app-store</string>
               <key>teamID</key>
               <string>J5CYS3RDGH</string>
+              <key>provisioningProfiles</key>
+              <dict>
+                  <key>$BUNDLE_ID</key>
+                  <string>$PROVISIONING_PROFILE_ID</string>
+              </dict>
               <key>uploadBitcode</key>
               <false/>
               <key>compileBitcode</key>
