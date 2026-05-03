@@ -97,14 +97,16 @@ workflows:
       - name: Increment build number
         script: |
           cd $CM_BUILD_DIR
-          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" 2>/dev/null || echo "0")
-          NEW_BUILD_NUMBER=$((LATEST_BUILD_NUMBER + 1))
-          echo "=== Build Number: $LATEST_BUILD_NUMBER → $NEW_BUILD_NUMBER ==="
+          
+          # Use date-based build number — always unique, always increasing
+          # Format: YYMMDDHHMM e.g. 2605032345 (guaranteed > 1)
+          NEW_BUILD_NUMBER=$(date +%y%m%d%H%M)
+          echo "=== Setting build number to: $NEW_BUILD_NUMBER ==="
           
           # Update project file
           sed -i '' "s/CURRENT_PROJECT_VERSION = [0-9]*/CURRENT_PROJECT_VERSION = $NEW_BUILD_NUMBER/g" "$XCODE_PROJECT/project.pbxproj"
           
-          # Update Info.plist directly (overwrite variable with real number)
+          # Update Info.plist directly
           /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "Növera/Info.plist"
           
           # Save for build step
