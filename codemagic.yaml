@@ -60,6 +60,8 @@ workflows:
           <dict>
               <key>method</key>
               <string>app-store</string>
+              <key>teamID</key>
+              <string>J5CYS3RDGH</string>
               <key>uploadBitcode</key>
               <false/>
               <key>compileBitcode</key>
@@ -77,7 +79,7 @@ workflows:
             --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME" \
             --config "Release" \
-            --archive-flags="-destination 'generic/platform=iOS'" \
+            --archive-flags="-destination 'generic/platform=iOS' DEVELOPMENT_TEAM=J5CYS3RDGH" \
             --export-options-plist /Users/builder/export_options.plist
           
           if [ $? -ne 0 ]; then
