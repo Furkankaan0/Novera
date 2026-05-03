@@ -62,7 +62,7 @@ workflows:
             echo "No provisioning profile found!"
             exit 1
           fi
-          PROFILE_UUID=$(grep -aA1 "UUID" "$PROFILE_PATH" | grep -o "[-A-Z0-9]\{36\}")
+          PROFILE_UUID=$(security cms -D -i "$PROFILE_PATH" | plutil -extract UUID raw -)
           echo "Found Profile UUID: $PROFILE_UUID"
 
           cat > /Users/builder/export_options.plist <<EOF
