@@ -35,51 +35,6 @@ workflows:
         script: |
           python3 -c "import base64, os; open('/tmp/cert_key.pem', 'wb').write(base64.b64decode(os.environ.get('CERTIFICATE_PRIVATE_KEY', '')))"
           
-          # Clean up existing App Store profiles to force Codemagic to recreate them with the correct certificate
-          pip3 install pyjwt requests cryptography
-          python3 -c "
-          import os, time, requests, base64
-          import jwt
-          
-          issuer_id = os.environ.get('APP_STORE_CONNECT_ISSUER_ID')
-          key_id = os.environ.get('APP_STORE_CONNECT_KEY_IDENTIFIER')
-          private_key = os.environ.get('APP_STORE_CONNECT_PRIVATE_KEY')
-          bundle_id = os.environ.get('BUNDLE_ID')
-          
-          if not all([issuer_id, key_id, private_key]):
-              print('API keys missing, skipping profile deletion.')
-              exit(0)
-              
-          if 'BEGIN PRIVATE KEY' not in private_key:
-              try:
-                  private_key = base64.b64decode(private_key).decode('utf-8')
-              except:
-                  pass
-                  
-          token = jwt.encode(
-              {'iss': issuer_id, 'exp': int(time.time()) + 1200, 'aud': 'appstoreconnect-v1'},
-              private_key,
-              algorithm='ES256',
-              headers={'kid': key_id}
-          )
-          
-          headers = {'Authorization': f'Bearer {token}'}
-          
-          print('Authenticating with App Store Connect API...')
-          r = requests.get(f'https://api.appstoreconnect.apple.com/v1/bundleIds?filter[identifier]={bundle_id}', headers=headers)
-          if r.status_code == 200 and r.json().get('data'):
-              bid_id = r.json()['data'][0]['id']
-              print(f'Found Bundle ID: {bid_id}')
-              r2 = requests.get(f'https://api.appstoreconnect.apple.com/v1/profiles?filter[bundleId]={bid_id}&filter[profileType]=IOS_APP_STORE', headers=headers)
-              if r2.status_code == 200:
-                  for p in r2.json().get('data', []):
-                      name = p['attributes']['name']
-                      print(f'Deleting invalid profile: {name}')
-                      requests.delete(f'https://api.appstoreconnect.apple.com/v1/profiles/{p[\"id\"]}', headers=headers)
-          else:
-              print('Bundle ID not found or API auth failed.')
-          "
-          
           app-store-connect fetch-signing-files "$BUNDLE_ID" \
             --type IOS_APP_STORE \
             --create \
@@ -88,6 +43,19 @@ workflows:
       - name: Add certificates to keychain
         script: |
           keychain add-certificates
+
+      - name: Force recreate Provisioning Profile with ALL certificates using Fastlane
+        script: |
+          KEY_PATH=$(ls ~/.app-store-connect/private_keys/AuthKey_*.p8 | head -n 1)
+          if [ -n "$KEY_PATH" ]; then
+            fastlane sigh --app_identifier "$BUNDLE_ID" --force --api_key_path "$KEY_PATH" --api_key_issuer_id "$APP_STORE_CONNECT_ISSUER_ID" --api_key_key_id "$APP_STORE_CONNECT_KEY_IDENTIFIER"
+          else
+            echo "API Key not found, falling back to auto-auth"
+            fastlane sigh --app_identifier "$BUNDLE_ID" --force
+          fi
+          
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp *.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/ 2>/dev/null || true
 
       - name: Increment build number
         script: |
@@ -102,13 +70,13 @@ workflows:
 
       - name: Generate export options plist
         script: |
-          PROFILE_PATH=$(find ~/Library/MobileDevice/Provisioning\ Profiles -name "*.mobileprovision" | head -n 1)
+          PROFILE_PATH=$(ls *.mobileprovision | head -n 1)
           if [ -z "$PROFILE_PATH" ]; then
-            echo "No provisioning profile found!"
+            echo "No provisioning profile found from fastlane sigh!"
             exit 1
           fi
           PROFILE_UUID=$(security cms -D -i "$PROFILE_PATH" | plutil -extract UUID raw -)
-          echo "Found Profile UUID: $PROFILE_UUID"
+          echo "Found Profile UUID from Fastlane: $PROFILE_UUID"
 
           cat > /Users/builder/export_options.plist <<EOF
           <?xml version="1.0" encoding="UTF-8"?>
