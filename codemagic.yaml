@@ -89,12 +89,7 @@ workflows:
           - "Beta Kullanıcıları"
         expire_build_submitted_for_review: false
 
-      email:
-        recipients:
-          - $CM_EMAIL_NOTIFICATIONS
-        notify:
-          success: true
-          failure: true
+
 
   ios-simulator-test:
     name: Növera — Simulator Validation
