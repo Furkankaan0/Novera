@@ -1,0 +1,50 @@
+/* Localizable.strings (English - en)
+   Növera — English Localization */
+
+// MARK: - Onboarding
+"onboarding.page1.title" = "Manage your shifts\nat a glance";
+"onboarding.page1.subtitle" = "View all your shifts, on-call duties, and working hours in one screen.";
+"onboarding.page2.title" = "Track your team\nin real time";
+"onboarding.page2.subtitle" = "See who's working when and manage shift swap requests.";
+"onboarding.page3.title" = "Control your earnings\nand overtime";
+"onboarding.page3.subtitle" = "Automatically calculate regular hours, overtime, and holiday pay.";
+"onboarding.page4.title" = "Smart reminders\nand alerts";
+"onboarding.page4.subtitle" = "Get timely reminders for upcoming shifts and team announcements.";
+"onboarding.page5.title" = "Professional experience\nwith Növera Pro";
+"onboarding.page5.subtitle" = "Unlimited shifts, advanced analytics, team management and more.";
+"onboarding.button.start" = "Get Started";
+"onboarding.button.explore_pro" = "Explore Pro";
+"onboarding.button.continue" = "Continue";
+"onboarding.button.skip" = "Skip";
+
+// MARK: - Dashboard
+"dashboard.greeting.morning" = "Good morning";
+"dashboard.greeting.afternoon" = "Good afternoon";
+"dashboard.greeting.evening" = "Good evening";
+"dashboard.greeting.night" = "Good night";
+"dashboard.stat.weekly_hours" = "Weekly Hours";
+"dashboard.stat.monthly_shifts" = "Monthly Shifts";
+"dashboard.stat.overtime" = "Est. Overtime";
+"dashboard.stat.today" = "Today";
+"dashboard.section.upcoming" = "Upcoming Shift";
+"dashboard.section.today_shifts" = "Today's Shifts";
+"dashboard.section.announcements" = "Team Announcements";
+"dashboard.empty.no_shift_today" = "Day off";
+
+// MARK: - Shift Types
+"shift.type.day" = "Day";
+"shift.type.night" = "Night";
+"shift.type.oncall" = "On-Call";
+"shift.type.holiday" = "Holiday";
+"shift.type.overtime" = "Overtime";
+
+// MARK: - Common
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.close" = "Close";
+"common.all" = "All";
+"common.loading" = "Loading...";
+"common.error" = "Error";
+"common.success" = "Success";

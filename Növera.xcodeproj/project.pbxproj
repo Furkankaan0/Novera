@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA01 /* NoveraApp.swift */ = {isa = PBXBuildFile; fileRef = FA01; };
+		AA02 /* AppRouter.swift */ = {isa = PBXBuildFile; fileRef = FA02; };
+		AA03 /* AppState.swift */ = {isa = PBXBuildFile; fileRef = FA03; };
+		AA04 /* MainTabView.swift */ = {isa = PBXBuildFile; fileRef = FA04; };
+		AA05 /* DesignTokens.swift */ = {isa = PBXBuildFile; fileRef = FA05; };
+		AA06 /* NoveraButton.swift */ = {isa = PBXBuildFile; fileRef = FA06; };
+		AA07 /* GlassCard.swift */ = {isa = PBXBuildFile; fileRef = FA07; };
+		AA08 /* NoveraTextField.swift */ = {isa = PBXBuildFile; fileRef = FA08; };
+		AA09 /* StatCard.swift */ = {isa = PBXBuildFile; fileRef = FA09; };
+		AA10 /* Extensions.swift */ = {isa = PBXBuildFile; fileRef = FA10; };
+		AA11 /* Constants.swift */ = {isa = PBXBuildFile; fileRef = FA11; };
+		AA12 /* HapticManager.swift */ = {isa = PBXBuildFile; fileRef = FA12; };
+		AA13 /* DateHelper.swift */ = {isa = PBXBuildFile; fileRef = FA13; };
+		AA14 /* OnboardingView.swift */ = {isa = PBXBuildFile; fileRef = FA14; };
+		AA15 /* OnboardingViewModel.swift */ = {isa = PBXBuildFile; fileRef = FA15; };
+		AA16 /* DashboardView.swift */ = {isa = PBXBuildFile; fileRef = FA16; };
+		AA17 /* DashboardViewModel.swift */ = {isa = PBXBuildFile; fileRef = FA17; };
+		AA18 /* CalendarView.swift */ = {isa = PBXBuildFile; fileRef = FA18; };
+		AA19 /* CalendarViewModel.swift */ = {isa = PBXBuildFile; fileRef = FA19; };
+		AA20 /* AddShiftView.swift */ = {isa = PBXBuildFile; fileRef = FA20; };
+		AA21 /* ShiftFormViewModel.swift */ = {isa = PBXBuildFile; fileRef = FA21; };
+		AA22 /* ShiftDetailView.swift */ = {isa = PBXBuildFile; fileRef = FA22; };
+		AA23 /* TeamsView.swift */ = {isa = PBXBuildFile; fileRef = FA23; };
+		AA24 /* TeamsViewModel.swift */ = {isa = PBXBuildFile; fileRef = FA24; };
+		AA25 /* EarningsView.swift */ = {isa = PBXBuildFile; fileRef = FA25; };
+		AA26 /* EarningsViewModel.swift */ = {isa = PBXBuildFile; fileRef = FA26; };
+		AA27 /* NotificationsView.swift */ = {isa = PBXBuildFile; fileRef = FA27; };
+		AA28 /* ProfileView.swift */ = {isa = PBXBuildFile; fileRef = FA28; };
+		AA29 /* PremiumView.swift */ = {isa = PBXBuildFile; fileRef = FA29; };
+		AA30 /* SettingsView.swift */ = {isa = PBXBuildFile; fileRef = FA30; };
+		AA31 /* User.swift */ = {isa = PBXBuildFile; fileRef = FA31; };
+		AA32 /* Shift.swift */ = {isa = PBXBuildFile; fileRef = FA32; };
+		AA33 /* Team.swift */ = {isa = PBXBuildFile; fileRef = FA33; };
+		AA34 /* Announcement.swift */ = {isa = PBXBuildFile; fileRef = FA34; };
+		AA35 /* ShiftSwapRequest.swift */ = {isa = PBXBuildFile; fileRef = FA35; };
+		AA36 /* EarningsSummary.swift */ = {isa = PBXBuildFile; fileRef = FA36; };
+		AA37 /* ShiftRepository.swift */ = {isa = PBXBuildFile; fileRef = FA37; };
+		AA38 /* TeamRepository.swift */ = {isa = PBXBuildFile; fileRef = FA38; };
+		AA39 /* UserRepository.swift */ = {isa = PBXBuildFile; fileRef = FA39; };
+		AA40 /* LocalShiftDataSource.swift */ = {isa = PBXBuildFile; fileRef = FA40; };
+		AA41 /* RemoteDataSource.swift */ = {isa = PBXBuildFile; fileRef = FA41; };
+		AA42 /* AuthService.swift */ = {isa = PBXBuildFile; fileRef = FA42; };
+		AA43 /* ShiftService.swift */ = {isa = PBXBuildFile; fileRef = FA43; };
+		AA44 /* TeamService.swift */ = {isa = PBXBuildFile; fileRef = FA44; };
+		AA45 /* NotificationService.swift */ = {isa = PBXBuildFile; fileRef = FA45; };
+		AA46 /* RevenueCalculationService.swift */ = {isa = PBXBuildFile; fileRef = FA46; };
+		AA47 /* StoreKitService.swift */ = {isa = PBXBuildFile; fileRef = FA47; };
+		AA48 /* CalendarSyncService.swift */ = {isa = PBXBuildFile; fileRef = FA48; };
+		AA49 /* KeychainService.swift */ = {isa = PBXBuildFile; fileRef = FA49; };
+		AA50 /* NoveraWidget.swift */ = {isa = PBXBuildFile; fileRef = FA50; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FA01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveraApp.swift; sourceTree = "<group>"; };
+		FA02 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		FA03 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FA04 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		FA05 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		FA06 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveraButton.swift; sourceTree = "<group>"; };
+		FA07 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+		FA08 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveraTextField.swift; sourceTree = "<group>"; };
+		FA09 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCard.swift; sourceTree = "<group>"; };
+		FA10 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FA11 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA12 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		FA13 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		FA14 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FA15 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		FA16 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		FA17 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		FA18 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		FA19 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		FA20 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShiftView.swift; sourceTree = "<group>"; };
+		FA21 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftFormViewModel.swift; sourceTree = "<group>"; };
+		FA22 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftDetailView.swift; sourceTree = "<group>"; };
+		FA23 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
+		FA24 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewModel.swift; sourceTree = "<group>"; };
+		FA25 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsView.swift; sourceTree = "<group>"; };
+		FA26 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewModel.swift; sourceTree = "<group>"; };
+		FA27 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		FA28 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FA29 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
+		FA30 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FA31 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA32 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
+		FA33 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		FA34 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		FA35 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftSwapRequest.swift; sourceTree = "<group>"; };
+		FA36 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsSummary.swift; sourceTree = "<group>"; };
+		FA37 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftRepository.swift; sourceTree = "<group>"; };
+		FA38 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRepository.swift; sourceTree = "<group>"; };
+		FA39 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		FA40 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalShiftDataSource.swift; sourceTree = "<group>"; };
+		FA41 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		FA42 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		FA43 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftService.swift; sourceTree = "<group>"; };
+		FA44 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		FA45 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		FA46 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCalculationService.swift; sourceTree = "<group>"; };
+		FA47 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
+		FA48 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSyncService.swift; sourceTree = "<group>"; };
+		FA49 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		FA50 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveraWidget.swift; sourceTree = "<group>"; };
+		PROD1 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Növera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		PLIST = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBP1 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ROOT = {
+			isa = PBXGroup;
+			children = (APPGRP, PRODS);
+			sourceTree = "<group>";
+		};
+		PRODS = {
+			isa = PBXGroup;
+			children = (PROD1);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		APPGRP = {
+			isa = PBXGroup;
+			children = (APPD, CORED, FEATD, DATAD, SVCD, PLIST);
+			path = "Növera";
+			sourceTree = "<group>";
+		};
+		APPD = {
+			isa = PBXGroup;
+			children = (FA01, FA02, FA03, FA04);
+			name = App;
+			sourceTree = "<group>";
+		};
+		CORED = {
+			isa = PBXGroup;
+			children = (FA05, FA06, FA07, FA08, FA09, FA10, FA11, FA12, FA13);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		FEATD = {
+			isa = PBXGroup;
+			children = (FA14, FA15, FA16, FA17, FA18, FA19, FA20, FA21, FA22, FA23, FA24, FA25, FA26, FA27, FA28, FA29, FA30, FA50);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		DATAD = {
+			isa = PBXGroup;
+			children = (FA31, FA32, FA33, FA34, FA35, FA36, FA37, FA38, FA39, FA40, FA41);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		SVCD = {
+			isa = PBXGroup;
+			children = (FA42, FA43, FA44, FA45, FA46, FA47, FA48, FA49);
+			name = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		TGT1 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BLIST;
+			buildPhases = (SBP1, FBP1, RBP1);
+			buildRules = ();
+			dependencies = ();
+			name = "Növera";
+			productName = "Növera";
+			productReference = PROD1;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PROJECT = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = { TGT1 = { CreatedOnToolsVersion = 15.0; }; };
+			};
+			buildConfigurationList = PLIST2;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = tr;
+			hasScannedForEncodings = 0;
+			knownRegions = (tr, en, Base);
+			mainGroup = ROOT;
+			productRefGroup = PRODS;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (TGT1);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		RBP1 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		SBP1 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA01, AA02, AA03, AA04, AA05, AA06, AA07, AA08, AA09, AA10,
+				AA11, AA12, AA13, AA14, AA15, AA16, AA17, AA18, AA19, AA20,
+				AA21, AA22, AA23, AA24, AA25, AA26, AA27, AA28, AA29, AA30,
+				AA31, AA32, AA33, AA34, AA35, AA36, AA37, AA38, AA39, AA40,
+				AA41, AA42, AA43, AA44, AA45, AA46, AA47, AA48, AA49, AA50,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DBGC = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Növera/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novera.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		RELC = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Növera/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.novera.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		PDBG = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		PREL = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		PLIST2 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (PDBG, PREL);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BLIST = {
+			isa = XCConfigurationList;
+			buildConfigurations = (DBGC, RELC);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = PROJECT;
+}

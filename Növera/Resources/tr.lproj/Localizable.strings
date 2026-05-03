@@ -1,0 +1,119 @@
+/* Localizable.strings (Turkish - tr)
+   Növera — Türkçe Ana Dil */
+
+// MARK: - Onboarding
+"onboarding.page1.title" = "Nöbetlerini\ntek bakışta yönet";
+"onboarding.page1.subtitle" = "Tüm vardiyalarını, nöbetlerini ve çalışma saatlerini tek ekranda görüntüle.";
+"onboarding.page2.title" = "Ekip durumunu\nanlık takip et";
+"onboarding.page2.subtitle" = "Kimin ne zaman çalıştığını görün ve nöbet değişim taleplerini yönetin.";
+"onboarding.page3.title" = "Mesai ve gelir\nhesaplarını kontrol et";
+"onboarding.page3.subtitle" = "Normal saatler, fazla mesai ve resmi tatil ödemelerini otomatik hesapla.";
+"onboarding.page4.title" = "Hatırlatmalar\nve akıllı uyarılar";
+"onboarding.page4.subtitle" = "Yaklaşan nöbetleriniz için zamanında hatırlatmalar alın.";
+"onboarding.page5.title" = "Növera Pro ile\nprofesyonel deneyim";
+"onboarding.page5.subtitle" = "Sınırsız vardiya, gelişmiş analizler ve çok daha fazlası Pro ile açılır.";
+"onboarding.button.start" = "Başla";
+"onboarding.button.explore_pro" = "Pro'yu Keşfet";
+"onboarding.button.continue" = "Devam";
+"onboarding.button.skip" = "Atla";
+
+// MARK: - Dashboard
+"dashboard.greeting.morning" = "Günaydın";
+"dashboard.greeting.afternoon" = "İyi öğleden sonralar";
+"dashboard.greeting.evening" = "İyi akşamlar";
+"dashboard.greeting.night" = "İyi geceler";
+"dashboard.stat.weekly_hours" = "Haftalık Saat";
+"dashboard.stat.monthly_shifts" = "Aylık Nöbet";
+"dashboard.stat.overtime" = "Tahmini FZ";
+"dashboard.stat.today" = "Bugün";
+"dashboard.section.upcoming" = "Yaklaşan Nöbet";
+"dashboard.section.today_shifts" = "Bugünkü Nöbetler";
+"dashboard.section.announcements" = "Ekip Duyuruları";
+"dashboard.empty.no_shift_today" = "Bugün serbest";
+
+// MARK: - Shift Types
+"shift.type.day" = "Gündüz";
+"shift.type.night" = "Gece";
+"shift.type.oncall" = "İcap";
+"shift.type.holiday" = "Tatil Nöbeti";
+"shift.type.overtime" = "Fazla Mesai";
+
+// MARK: - Calendar
+"calendar.title" = "Takvim";
+"calendar.mode.monthly" = "Aylık";
+"calendar.mode.weekly" = "Haftalık";
+"calendar.mode.daily" = "Günlük";
+"calendar.empty.no_shift" = "Bu gün serbest";
+"calendar.empty.subtitle" = "Vardiya eklemek için + butonuna basın";
+
+// MARK: - Add Shift
+"add_shift.title" = "Yeni Vardiya";
+"add_shift.edit_title" = "Vardiyayı Düzenle";
+"add_shift.field.name" = "Vardiya Adı";
+"add_shift.field.location" = "Görev Yeri";
+"add_shift.field.start" = "Başlangıç";
+"add_shift.field.end" = "Bitiş";
+"add_shift.field.notes" = "Not";
+"add_shift.field.hourly_rate" = "Saatlik Ücret (₺)";
+"add_shift.toggle.holiday" = "Resmi Tatil / UBGT";
+"add_shift.toggle.overtime" = "Fazla Mesai";
+"add_shift.toggle.calendar" = "Takvime Ekle";
+"add_shift.button.save" = "Vardiya Ekle";
+"add_shift.button.update" = "Güncelle";
+"add_shift.error.overlap" = "Bu tarih aralığında başka bir vardiya mevcut.";
+"add_shift.error.invalid_range" = "Bitiş zamanı başlangıçtan önce olamaz.";
+
+// MARK: - Teams
+"teams.title" = "Ekip";
+"teams.empty.title" = "Henüz ekibiniz yok";
+"teams.empty.subtitle" = "Yeni bir ekip oluşturun veya davet koduyla mevcut bir ekibe katılın";
+"teams.section.today_on_duty" = "Bugün Görevde";
+"teams.section.members" = "Ekip Üyeleri";
+"teams.section.announcements" = "Duyurular";
+"teams.section.swap_requests" = "Takas İstekleri";
+"teams.action.create" = "Ekip Oluştur";
+"teams.action.join" = "Ekibe Katıl";
+
+// MARK: - Earnings
+"earnings.title" = "Gelir Takibi";
+"earnings.disclaimer" = "Bu hesaplamalar tahmini niteliktedir.";
+"earnings.total" = "Tahmini Toplam Kazanç";
+"earnings.normal" = "Normal Mesai";
+"earnings.overtime" = "Fazla Mesai";
+"earnings.holiday" = "Tatil Nöbeti";
+"earnings.night_bonus" = "Gece Zammı";
+"earnings.section.six_months" = "Son 6 Ay";
+"earnings.section.rates" = "Ücret Ayarları";
+
+// MARK: - Profile
+"profile.title" = "Profil";
+"profile.action.edit" = "Profili Düzenle";
+"profile.action.sign_out" = "Çıkış Yap";
+"profile.section.app" = "Uygulama";
+"profile.section.account" = "Hesap";
+"profile.section.support" = "Destek";
+
+// MARK: - Premium
+"premium.title" = "Növera Pro";
+"premium.subtitle" = "Profesyonel sağlık çalışanları için";
+"premium.cta" = "Pro'ya Geç";
+"premium.restore" = "Satın Alımları Geri Yükle";
+"premium.plan.monthly" = "Aylık";
+"premium.plan.annual" = "Yıllık";
+"premium.plan.lifetime" = "Ömür Boyu";
+
+// MARK: - Notifications
+"notifications.title" = "Bildirimler";
+"notifications.permission.title" = "Bildirimlerinizi açın";
+"notifications.permission.cta" = "Bildirimlere İzin Ver";
+
+// MARK: - Common
+"common.cancel" = "İptal";
+"common.save" = "Kaydet";
+"common.delete" = "Sil";
+"common.edit" = "Düzenle";
+"common.close" = "Kapat";
+"common.all" = "Tümü";
+"common.loading" = "Yükleniyor...";
+"common.error" = "Hata";
+"common.success" = "Başarılı";
