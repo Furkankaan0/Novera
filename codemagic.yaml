@@ -95,19 +95,24 @@ workflows:
           cd $CM_BUILD_DIR
           LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" 2>/dev/null || echo "0")
           NEW_BUILD_NUMBER=$((LATEST_BUILD_NUMBER + 1))
-          echo "Latest TestFlight build: $LATEST_BUILD_NUMBER → Setting to: $NEW_BUILD_NUMBER"
+          echo "=== Build Number: $LATEST_BUILD_NUMBER → $NEW_BUILD_NUMBER ==="
           
-          # Try agvtool first (requires VERSIONING_SYSTEM = apple-generic)
-          agvtool new-version -all $NEW_BUILD_NUMBER 2>/dev/null || true
+          # Method 1: agvtool (needs VERSIONING_SYSTEM = apple-generic)
+          agvtool new-version -all $NEW_BUILD_NUMBER 2>/dev/null || echo "agvtool failed, continuing..."
           
-          # Verify it worked, fallback to direct sed if not
-          CURRENT=$(agvtool vers -terse 2>/dev/null || echo "0")
-          if [ "$CURRENT" != "$NEW_BUILD_NUMBER" ]; then
-            echo "agvtool failed, using direct replacement..."
-            sed -i '' "s/CURRENT_PROJECT_VERSION = [0-9]*/CURRENT_PROJECT_VERSION = $NEW_BUILD_NUMBER/g" "$XCODE_PROJECT/project.pbxproj"
-          fi
-          echo "Build number confirmed: $(agvtool vers -terse 2>/dev/null || grep CURRENT_PROJECT_VERSION $XCODE_PROJECT/project.pbxproj | head -1)"
+          # Method 2: Direct sed on project.pbxproj
+          sed -i '' "s/CURRENT_PROJECT_VERSION = [0-9]*/CURRENT_PROJECT_VERSION = $NEW_BUILD_NUMBER/g" "$XCODE_PROJECT/project.pbxproj"
+          echo "pbxproj updated via sed"
           
+          # Method 3: Replace variable in Info.plist with actual number
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "Növera/Info.plist"
+          echo "Info.plist updated via PlistBuddy"
+          
+          # Verify
+          echo "--- Verification ---"
+          echo "pbxproj: $(grep 'CURRENT_PROJECT_VERSION' $XCODE_PROJECT/project.pbxproj | head -1)"
+          echo "Info.plist CFBundleVersion: $(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' Növera/Info.plist)"
+
       - name: Set up code signing settings on Xcode project
         script: |
           xcode-project use-profiles
