@@ -79,6 +79,15 @@ final class DashboardViewModel: ObservableObject {
     var overtimeFormatted: String {
         estimatedOvertime.hoursFormatted
     }
+
+    var estimatedMonthlyEarnings: Double {
+        let allShifts = ShiftRepository.shared.getShifts()
+        return revenueService.estimatedMonthlyRevenue(shifts: allShifts, month: Date())
+    }
+
+    var targetMonthlyEarnings: Double {
+        revenueService.targetMonthlyEarnings
+    }
 }
 
 // MARK: - TeamService extension for ViewModel access

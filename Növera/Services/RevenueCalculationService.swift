@@ -100,4 +100,22 @@ final class RevenueCalculationService {
             acc + max(0, hours - standardWeeklyHours)
         }
     }
+
+    // MARK: - Estimated monthly revenue (quick summary)
+    func estimatedMonthlyRevenue(shifts: [Shift], month: Date) -> Double {
+        let storedRate = UserDefaults.standard.double(forKey: "hourlyRate")
+        let rate = storedRate > 0 ? storedRate : NoveraConstants.defaultHourlyRate
+        let summary = calculateMonthlySummary(
+            shifts: shifts,
+            for: month,
+            hourlyRate: rate
+        )
+        return summary.estimatedRevenue
+    }
+
+    // MARK: - Target monthly earnings (user-configurable goal)
+    var targetMonthlyEarnings: Double {
+        let stored = UserDefaults.standard.double(forKey: "targetMonthlyEarnings")
+        return stored > 0 ? stored : NoveraConstants.defaultTargetMonthlyEarnings
+    }
 }

@@ -46,6 +46,7 @@ enum NoveraConstants {
     static let defaultOvertimeMultiplier: Double = 1.5  // x1.5 fazla mesai
     static let defaultHolidayMultiplier: Double = 2.0   // x2.0 resmi tatil
     static let defaultNightBonusRate: Double = 0.25     // +%25 gece zammı
+    static let defaultTargetMonthlyEarnings: Double = 15000.0 // ₺15.000 aylık hedef
     static let standardWeeklyHours: Double = 45.0       // Türkiye: 45 saat/hafta
     static let standardDailyHours: Double = 9.0         // 45/5
 

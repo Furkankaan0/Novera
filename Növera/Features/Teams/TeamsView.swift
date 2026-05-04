@@ -284,7 +284,7 @@ struct PremiumTeamChip: View {
                 .padding(.vertical, NSpacing.md)
                 .background(
                     Capsule()
-                        .fill(isSelected ? NColor.primaryGradient : .clear)
+                        .fill(isSelected ? AnyShapeStyle(NColor.primaryGradient) : AnyShapeStyle(Color.clear))
                         .overlay(
                             Capsule()
                                 .strokeBorder(
