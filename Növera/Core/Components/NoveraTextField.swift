@@ -16,56 +16,57 @@ struct NoveraTextField: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: NoveraSpacing.sm) {
+            HStack(spacing: NSpacing.sm) {
                 if let icon {
                     Image(systemName: icon)
                         .font(.system(size: 16, weight: .medium))
-                        .foregroundStyle(isFocused ? NoveraColors.primary : NoveraColors.textSecondary)
+                        .foregroundStyle(isFocused ? NColor.primaryFallback : NColor.textSecondary)
                         .frame(width: 20)
-                        .animation(NoveraAnimation.springFast, value: isFocused)
+                        .animation(NMotion.snappy, value: isFocused)
                 }
 
                 if isSecure {
                     SecureField(placeholder, text: $text)
-                        .font(NoveraFonts.body())
+                        .font(NFont.body())
                         .focused($isFocused)
                 } else {
                     TextField(placeholder, text: $text)
-                        .font(NoveraFonts.body())
+                        .font(NFont.body())
                         .keyboardType(keyboardType)
                         .focused($isFocused)
                 }
             }
-            .padding(.horizontal, NoveraSpacing.md)
+            .padding(.horizontal, NSpacing.md)
             .frame(height: 52)
             .background(
-                RoundedRectangle(cornerRadius: NoveraRadius.sm, style: .continuous)
-                    .fill(colorScheme == .dark
-                        ? NoveraColors.backgroundSecondaryDark
-                        : NoveraColors.backgroundSecondaryLight
+                RoundedRectangle(cornerRadius: NRadius.small, style: .continuous)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: NRadius.small, style: .continuous)
+                            .fill(NColor.glassSurface)
                     )
                     .overlay(
-                        RoundedRectangle(cornerRadius: NoveraRadius.sm, style: .continuous)
+                        RoundedRectangle(cornerRadius: NRadius.small, style: .continuous)
                             .strokeBorder(
                                 isFocused
-                                    ? NoveraColors.primary.opacity(0.7)
+                                    ? NColor.primaryFallback.opacity(0.7)
                                     : (errorMessage != nil
-                                        ? NoveraColors.error.opacity(0.6)
+                                        ? NColor.danger.opacity(0.6)
                                         : Color.clear),
                                 lineWidth: 1.5
                             )
                     )
             )
-            .animation(NoveraAnimation.springFast, value: isFocused)
+            .animation(NMotion.snappy, value: isFocused)
 
             if let errorMessage {
                 HStack(spacing: 4) {
                     Image(systemName: "exclamationmark.circle.fill")
                         .font(.system(size: 12))
                     Text(errorMessage)
-                        .font(NoveraFonts.caption())
+                        .font(NFont.caption())
                 }
-                .foregroundStyle(NoveraColors.error)
+                .foregroundStyle(NColor.danger)
                 .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
@@ -74,39 +75,19 @@ struct NoveraTextField: View {
     }
 }
 
-// MARK: - Labeled Field Wrapper
-struct NoveraFormField<Content: View>: View {
-    let label: String
-    var isRequired: Bool = false
-    let content: () -> Content
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: NoveraSpacing.xs) {
-            HStack(spacing: 3) {
-                Text(label)
-                    .font(NoveraFonts.footnote(.semibold))
-                    .foregroundStyle(NoveraColors.textSecondary)
-                if isRequired {
-                    Text("*")
-                        .font(NoveraFonts.footnote(.semibold))
-                        .foregroundStyle(NoveraColors.error)
-                }
-            }
-            content()
-        }
-    }
-}
+// Note: NoveraFormField is now defined in PremiumButtons.swift as PremiumFormField
+// The typealias NoveraFormField = PremiumFormField is in DesignTokens.swift
 
 #Preview {
     VStack(spacing: 20) {
-        NoveraFormField(label: "Ad Soyad", isRequired: true) {
+        PremiumFormField(label: "Ad Soyad", isRequired: true) {
             NoveraTextField(
                 placeholder: "Ad ve soyadınızı girin",
                 text: .constant(""),
                 icon: "person"
             )
         }
-        NoveraFormField(label: "Şifre") {
+        PremiumFormField(label: "Şifre") {
             NoveraTextField(
                 placeholder: "Şifrenizi girin",
                 text: .constant(""),

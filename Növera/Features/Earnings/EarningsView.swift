@@ -313,6 +313,30 @@ struct PremiumHoursRow: View {
     }
 }
 
+// MARK: - Rate Input Row
+struct RateRow: View {
+    let title: String
+    @Binding var value: Double
+    var range: ClosedRange<Double> = 0...1000
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: NSpacing.sm) {
+            HStack {
+                Text(title)
+                    .font(NFont.subheadline(.medium))
+                    .foregroundStyle(NColor.textPrimary)
+                Spacer()
+                Text(String(format: value >= 10 ? "%.0f" : "%.1f", value))
+                    .font(NFont.headline(.bold))
+                    .foregroundStyle(NColor.primaryFallback)
+                    .frame(minWidth: 50, alignment: .trailing)
+            }
+            Slider(value: $value, in: range, step: value >= 10 ? 5 : 0.1)
+                .tint(NColor.primaryFallback)
+        }
+    }
+}
+
 #Preview {
     EarningsView()
         .environmentObject(AppState())

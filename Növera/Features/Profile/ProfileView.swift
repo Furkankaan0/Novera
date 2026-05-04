@@ -263,6 +263,48 @@ struct SettingsView: View {
     }
 }
 
+// MARK: - Edit Profile View (Stub)
+struct EditProfileView: View {
+    @EnvironmentObject var authService: AuthService
+    @Environment(\.dismiss) var dismiss
+
+    @State private var name: String = ""
+    @State private var department: String = ""
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: NSpacing.lg) {
+                    PremiumFormField(label: "Ad Soyad", isRequired: true) {
+                        NoveraTextField(placeholder: "Adınız", text: $name, icon: "person")
+                    }
+                    PremiumFormField(label: "Departman") {
+                        NoveraTextField(placeholder: "Departmanınız", text: $department, icon: "building.2")
+                    }
+                    PremiumPrimaryButton(title: "Kaydet", icon: "checkmark") {
+                        // TODO: Save profile
+                        HapticManager.notification(.success)
+                        dismiss()
+                    }
+                }
+                .padding(NSpacing.base)
+            }
+            .screenBackground()
+            .navigationTitle("Profili Düzenle")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("İptal") { dismiss() }
+                }
+            }
+            .onAppear {
+                name = authService.currentUser?.name ?? ""
+                department = authService.currentUser?.department ?? ""
+            }
+        }
+    }
+}
+
 #Preview("Profile - Light") {
     ProfileView()
         .environmentObject(AuthService())

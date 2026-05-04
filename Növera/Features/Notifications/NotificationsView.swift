@@ -75,11 +75,11 @@ struct NotificationsView: View {
                 )
             }
 
-            NoveraPrimaryButton("Bildirimlere İzin Ver", icon: "bell.fill") {
+            PremiumPrimaryButton(title: "Bildirimlere İzin Ver", icon: "bell.fill") {
                 notificationService.requestAuthorization()
             }
 
-            NoveraGhostButton("Şimdi değil") {}
+            PremiumGhostButton(title: "Şimdi değil") {}
         }
     }
 

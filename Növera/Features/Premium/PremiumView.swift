@@ -21,38 +21,41 @@ struct PremiumView: View {
 
                     // Feature list
                     featureSection
-                        .padding(.horizontal, NoveraSpacing.md)
-                        .padding(.top, NoveraSpacing.lg)
+                        .padding(.horizontal, NSpacing.base)
+                        .padding(.top, NSpacing.lg)
+                        .entrance(delay: 0.05)
 
                     // Plans
                     plansSection
-                        .padding(.horizontal, NoveraSpacing.md)
-                        .padding(.top, NoveraSpacing.lg)
+                        .padding(.horizontal, NSpacing.base)
+                        .padding(.top, NSpacing.lg)
+                        .entrance(delay: 0.10)
 
                     // CTA
                     ctaSection
-                        .padding(.horizontal, NoveraSpacing.md)
-                        .padding(.top, NoveraSpacing.md)
+                        .padding(.horizontal, NSpacing.base)
+                        .padding(.top, NSpacing.md)
+                        .entrance(delay: 0.15)
 
                     // Fine print
                     finePrint
-                        .padding(.top, NoveraSpacing.md)
-                        .padding(.bottom, NoveraSpacing.xl)
+                        .padding(.top, NSpacing.md)
+                        .padding(.bottom, NSpacing.xl)
                 }
             }
-            .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+            .screenBackground()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(NoveraColors.textTertiary)
+                            .foregroundStyle(NColor.textTertiary)
                             .font(.system(size: 22))
                     }
                 }
             }
             .onAppear {
-                withAnimation(NoveraAnimation.spring.delay(0.2)) {
+                withAnimation(NMotion.premium.delay(0.2)) {
                     animateHero = true
                 }
             }
@@ -70,31 +73,40 @@ struct PremiumView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            .frame(height: 260)
+            .frame(height: 280)
 
-            VStack(spacing: NoveraSpacing.md) {
-                Image(systemName: "star.square.on.square.fill")
-                    .font(.system(size: 64, weight: .light))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [
-                                Color(hue: 0.82, saturation: 0.4, brightness: 1.0),
-                                NoveraColors.primary
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
+            VStack(spacing: NSpacing.lg) {
+                ZStack {
+                    // Glow
+                    Circle()
+                        .fill(NColor.accent.opacity(0.2))
+                        .frame(width: 140, height: 140)
+                        .blur(radius: 30)
+
+                    Image(systemName: "star.square.on.square.fill")
+                        .font(.system(size: 64, weight: .light))
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: [
+                                    Color(hue: 0.82, saturation: 0.4, brightness: 1.0),
+                                    NColor.primaryFallback
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
                         )
-                    )
-                    .symbolRenderingMode(.hierarchical)
-                    .scaleEffect(animateHero ? 1 : 0.6)
-                    .opacity(animateHero ? 1 : 0)
+                        .symbolRenderingMode(.hierarchical)
+                        .shadow(color: NColor.accent.opacity(0.4), radius: 12, x: 0, y: 6)
+                }
+                .scaleEffect(animateHero ? 1 : 0.6)
+                .opacity(animateHero ? 1 : 0)
 
-                VStack(spacing: 4) {
+                VStack(spacing: NSpacing.xs) {
                     Text("Növera Pro")
-                        .font(NoveraFonts.largeTitle(.bold))
+                        .font(NFont.largeTitle(.bold))
                         .foregroundStyle(.white)
                     Text("Profesyonel sağlık çalışanları için")
-                        .font(NoveraFonts.callout())
+                        .font(NFont.callout())
                         .foregroundStyle(.white.opacity(0.75))
                 }
                 .opacity(animateHero ? 1 : 0)
@@ -105,34 +117,30 @@ struct PremiumView: View {
 
     // MARK: - Features
     var featureSection: some View {
-        VStack(spacing: NoveraSpacing.sm) {
-            NoveraSectionHeader(title: "Pro ile neler açılır?")
+        VStack(spacing: NSpacing.md) {
+            PremiumSectionHeader(title: "Pro ile neler açılır?")
 
             let features: [(String, String, Color)] = [
-                ("infinity", "Sınırsız vardiya kaydı", NoveraColors.primary),
-                ("person.2.fill", "Ekip yönetimi ve üye ekleme", NoveraColors.accent),
-                ("chart.bar.xaxis", "Gelişmiş gelir/mesai analizi", NoveraColors.accentGreen),
-                ("arrow.left.arrow.right", "Nöbet takas sistemi", NoveraColors.shiftOncall),
-                ("rectangle.3.group.fill", "iOS Widget desteği", NoveraColors.shiftNight),
-                ("lightbulb.fill", "Akıllı vardiya önerileri", NoveraColors.warning),
-                ("doc.text.fill", "Aylık detaylı raporlar", NoveraColors.info),
+                ("infinity", "Sınırsız vardiya kaydı", NColor.primaryFallback),
+                ("person.2.fill", "Ekip yönetimi ve üye ekleme", NColor.accent),
+                ("chart.bar.xaxis", "Gelişmiş gelir/mesai analizi", NColor.success),
+                ("arrow.left.arrow.right", "Nöbet takas sistemi", NColor.shiftOncall),
+                ("rectangle.3.group.fill", "iOS Widget desteği", NColor.shiftNight),
+                ("lightbulb.fill", "Akıllı vardiya önerileri", NColor.warning),
+                ("doc.text.fill", "Aylık detaylı raporlar", NColor.info),
             ]
 
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: NoveraSpacing.sm) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: NSpacing.sm) {
                 ForEach(features, id: \.1) { icon, title, color in
-                    HStack(spacing: NoveraSpacing.sm) {
-                        Image(systemName: icon)
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundStyle(color)
-                            .frame(width: 20)
+                    HStack(spacing: NSpacing.sm) {
+                        Soft3DIcon(icon: icon, size: .small, color: color)
                         Text(title)
-                            .font(NoveraFonts.caption(.medium))
-                            .foregroundStyle(NoveraColors.textPrimary)
+                            .font(NFont.caption(.medium))
+                            .foregroundStyle(NColor.textPrimary)
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer()
                     }
-                    .padding(NoveraSpacing.sm)
-                    .glassBackground(cornerRadius: NoveraRadius.sm)
+                    .premiumGlass(radius: NRadius.small, padding: NSpacing.sm)
                 }
             }
         }
@@ -140,17 +148,16 @@ struct PremiumView: View {
 
     // MARK: - Plans
     var plansSection: some View {
-        VStack(spacing: NoveraSpacing.sm) {
-            NoveraSectionHeader(title: "Plan Seçin")
+        VStack(spacing: NSpacing.md) {
+            PremiumSectionHeader(title: "Plan Seçin")
 
             if storeKit.isLoading {
                 ProgressView()
                     .frame(maxWidth: .infinity)
                     .padding()
             } else if storeKit.products.isEmpty {
-                // Placeholder plans when StoreKit products aren't loaded
-                VStack(spacing: NoveraSpacing.sm) {
-                    PlanCard(
+                VStack(spacing: NSpacing.sm) {
+                    PremiumPlanCard(
                         title: "Aylık",
                         price: "₺79.99/ay",
                         tag: nil,
@@ -158,7 +165,7 @@ struct PremiumView: View {
                     ) {
                         selectedPlan = NoveraConstants.Products.monthlyPro
                     }
-                    PlanCard(
+                    PremiumPlanCard(
                         title: "Yıllık",
                         price: "₺599.99/yıl",
                         tag: "En İyi Değer",
@@ -166,7 +173,7 @@ struct PremiumView: View {
                     ) {
                         selectedPlan = NoveraConstants.Products.annualPro
                     }
-                    PlanCard(
+                    PremiumPlanCard(
                         title: "Ömür Boyu",
                         price: "₺999.99",
                         tag: "Tek Seferlik",
@@ -177,7 +184,7 @@ struct PremiumView: View {
                 }
             } else {
                 ForEach(storeKit.products) { product in
-                    PlanCard(
+                    PremiumPlanCard(
                         title: product.displayName,
                         price: product.displayPrice,
                         tag: product.id == NoveraConstants.Products.annualPro ? "En İyi Değer" : nil,
@@ -192,23 +199,31 @@ struct PremiumView: View {
 
     // MARK: - CTA
     var ctaSection: some View {
-        VStack(spacing: NoveraSpacing.sm) {
+        VStack(spacing: NSpacing.md) {
             if let error = errorMessage {
                 Text(error)
-                    .font(NoveraFonts.subheadline())
-                    .foregroundStyle(NoveraColors.error)
+                    .font(NFont.subheadline())
+                    .foregroundStyle(NColor.danger)
                     .multilineTextAlignment(.center)
             }
 
-            NoveraPrimaryButton(
-                "Pro'ya Geç",
-                icon: "star.fill",
-                isLoading: isProcessing
-            ) {
-                Task { await purchase() }
+            ZStack {
+                PremiumPrimaryButton(
+                    title: "Pro'ya Geç",
+                    icon: "star.fill"
+                ) {
+                    Task { await purchase() }
+                }
+                .disabled(isProcessing)
+
+                if isProcessing {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .tint(.white)
+                }
             }
 
-            NoveraGhostButton("Satın Alımları Geri Yükle") {
+            PremiumGhostButton(title: "Satın Alımları Geri Yükle") {
                 Task {
                     await storeKit.restore()
                 }
@@ -218,27 +233,26 @@ struct PremiumView: View {
 
     // MARK: - Fine Print
     var finePrint: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: NSpacing.xs) {
             Text("Abonelik her dönem otomatik olarak yenilenir. İstediğiniz zaman iptal edebilirsiniz.")
-                .font(NoveraFonts.caption())
-                .foregroundStyle(NoveraColors.textTertiary)
+                .font(NFont.caption())
+                .foregroundStyle(NColor.textTertiary)
                 .multilineTextAlignment(.center)
-            HStack(spacing: NoveraSpacing.md) {
+            HStack(spacing: NSpacing.md) {
                 Button("Gizlilik Politikası") {}
-                    .font(NoveraFonts.caption(.medium))
-                    .foregroundStyle(NoveraColors.primary)
+                    .font(NFont.caption(.medium))
+                    .foregroundStyle(NColor.primaryFallback)
                 Button("Kullanım Koşulları") {}
-                    .font(NoveraFonts.caption(.medium))
-                    .foregroundStyle(NoveraColors.primary)
+                    .font(NFont.caption(.medium))
+                    .foregroundStyle(NColor.primaryFallback)
             }
         }
-        .padding(.horizontal, NoveraSpacing.xl)
+        .padding(.horizontal, NSpacing.xl)
     }
 
     // MARK: - Purchase
     func purchase() async {
         guard let product = storeKit.products.first(where: { $0.id == selectedPlan }) else {
-            // Fallback for when products aren't loaded from App Store
             return
         }
         isProcessing = true
@@ -256,13 +270,14 @@ struct PremiumView: View {
     }
 }
 
-// MARK: - Plan Card
-struct PlanCard: View {
+// MARK: - Premium Plan Card
+struct PremiumPlanCard: View {
     let title: String
     let price: String
     let tag: String?
     let isSelected: Bool
     let action: () -> Void
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         Button(action: {
@@ -270,54 +285,62 @@ struct PlanCard: View {
             action()
         }) {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack(spacing: NoveraSpacing.sm) {
+                VStack(alignment: .leading, spacing: NSpacing.xs) {
+                    HStack(spacing: NSpacing.sm) {
                         Text(title)
-                            .font(NoveraFonts.headline(.semibold))
+                            .font(NFont.headline(.semibold))
+                            .foregroundStyle(NColor.textPrimary)
                         if let tag {
                             Text(tag)
-                                .font(NoveraFonts.caption(.bold))
+                                .font(NFont.caption2(.bold))
                                 .foregroundStyle(.white)
-                                .padding(.horizontal, 8)
+                                .padding(.horizontal, NSpacing.sm)
                                 .padding(.vertical, 3)
-                                .background(Capsule().fill(NoveraColors.accentGreen))
+                                .background(
+                                    Capsule()
+                                        .fill(NColor.success)
+                                        .shadow(color: NColor.success.opacity(0.3), radius: 4, x: 0, y: 2)
+                                )
                         }
                     }
                     Text(price)
-                        .font(NoveraFonts.subheadline())
-                        .foregroundStyle(NoveraColors.textSecondary)
+                        .font(NFont.subheadline())
+                        .foregroundStyle(NColor.textSecondary)
                 }
                 Spacer()
                 ZStack {
                     Circle()
-                        .strokeBorder(isSelected ? NoveraColors.primary : NoveraColors.textTertiary.opacity(0.4), lineWidth: 2)
+                        .strokeBorder(
+                            isSelected ? NColor.primaryFallback : NColor.textTertiary.opacity(0.4),
+                            lineWidth: 2
+                        )
                         .frame(width: 22, height: 22)
                     if isSelected {
                         Circle()
-                            .fill(NoveraColors.primary)
+                            .fill(NColor.primaryFallback)
                             .frame(width: 12, height: 12)
+                            .shadow(color: NColor.primaryFallback.opacity(0.4), radius: 4, x: 0, y: 2)
                     }
                 }
             }
-            .padding(NoveraSpacing.md)
-            .background(
-                RoundedRectangle(cornerRadius: NoveraRadius.md, style: .continuous)
-                    .fill(isSelected ? NoveraColors.primary.opacity(0.08) : Color(UIColor.tertiarySystemGroupedBackground))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: NoveraRadius.md, style: .continuous)
-                            .strokeBorder(
-                                isSelected ? NoveraColors.primary.opacity(0.4) : Color.clear,
-                                lineWidth: 1.5
-                            )
+            .premiumGlass(radius: NRadius.medium, padding: NSpacing.base)
+            .overlay(
+                RoundedRectangle(cornerRadius: NRadius.medium, style: .continuous)
+                    .strokeBorder(
+                        isSelected ? NColor.primaryFallback.opacity(0.4) : .clear,
+                        lineWidth: 1.5
                     )
             )
-            .noveraShadow(isSelected ? NoveraShadows.soft : ShadowStyle(color: .clear, radius: 0, x: 0, y: 0))
+            .nShadow(isSelected ? .glow : .soft)
         }
-        .scaleOnPress()
+        .pressEffect()
         .accessibilityLabel("\(title): \(price)")
         .accessibilityValue(isSelected ? "Seçili" : "Seçili değil")
     }
 }
+
+// Legacy alias
+typealias PlanCard = PremiumPlanCard
 
 #Preview {
     PremiumView()
