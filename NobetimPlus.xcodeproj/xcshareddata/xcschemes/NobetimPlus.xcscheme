@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "000000000000000000000701"
+               BlueprintIdentifier = "A1B2C3D4E5F6A7B80000006A"
                BuildableName = "NobetimPlus.app"
                BlueprintName = "NobetimPlus"
                ReferencedContainer = "container:NobetimPlus.xcodeproj">
@@ -33,7 +33,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "000000000000000000000702"
+               BlueprintIdentifier = "A1B2C3D4E5F6A7B80000006B"
                BuildableName = "NobetimPlusTests.xctest"
                BlueprintName = "NobetimPlusTests"
                ReferencedContainer = "container:NobetimPlus.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "000000000000000000000701"
+            BlueprintIdentifier = "A1B2C3D4E5F6A7B80000006A"
             BuildableName = "NobetimPlus.app"
             BlueprintName = "NobetimPlus"
             ReferencedContainer = "container:NobetimPlus.xcodeproj">
@@ -72,7 +72,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "000000000000000000000701"
+            BlueprintIdentifier = "A1B2C3D4E5F6A7B80000006A"
             BuildableName = "NobetimPlus.app"
             BlueprintName = "NobetimPlus"
             ReferencedContainer = "container:NobetimPlus.xcodeproj">

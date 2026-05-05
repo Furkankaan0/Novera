@@ -13,10 +13,10 @@ struct AnalyticsView: View {
             ScrollView {
                 VStack(spacing: Spacing.large) {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: Spacing.medium) {
-                        PremiumMetricCard(title: "Normal çalışma", value: "\(summary.normalShiftHours, specifier: "%.0f")s", footnote: "Ay toplamı", color: DesignColors.primary, systemImage: "briefcase.fill")
-                        PremiumMetricCard(title: "Gece nöbeti", value: "\(summary.nightShiftHours, specifier: "%.0f")s", footnote: "Ayrı raporlanır", color: DesignColors.navy, systemImage: "moon.stars.fill")
-                        PremiumMetricCard(title: "Hafta sonu", value: "\(summary.weekendHours, specifier: "%.0f")s", footnote: "Takvim bazlı", color: DesignColors.orange, systemImage: "calendar")
-                        PremiumMetricCard(title: "Tahmini gelir", value: "\(summary.estimatedTotalExtraIncome, specifier: "%.0f")₺", footnote: "Bordro değildir", color: DesignColors.success, systemImage: "turkishlirasign.circle.fill")
+                        PremiumMetricCard(title: "Normal çalışma", value: String(format: "%.0fs", summary.normalShiftHours), footnote: "Ay toplamı", color: DesignColors.primary, systemImage: "briefcase.fill")
+                        PremiumMetricCard(title: "Gece nöbeti", value: String(format: "%.0fs", summary.nightShiftHours), footnote: "Ayrı raporlanır", color: DesignColors.navy, systemImage: "moon.stars.fill")
+                        PremiumMetricCard(title: "Hafta sonu", value: String(format: "%.0fs", summary.weekendHours), footnote: "Takvim bazlı", color: DesignColors.orange, systemImage: "calendar")
+                        PremiumMetricCard(title: "Tahmini gelir", value: String(format: "%.0f₺", summary.estimatedTotalExtraIncome), footnote: "Bordro değildir", color: DesignColors.success, systemImage: "turkishlirasign.circle.fill")
                     }
 
                     chartCard("Haftalık çalışma saatleri") {

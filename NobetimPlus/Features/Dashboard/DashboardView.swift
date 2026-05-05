@@ -13,7 +13,7 @@ struct DashboardView: View {
                 LazyVStack(spacing: Spacing.large) {
                     TodayShiftHeroCard(
                         shift: todayShift,
-                        durationText: todayShift.map { "\(appState.calculator.calculateShiftDuration($0), specifier: "%.1f") saat" } ?? "",
+                        durationText: todayShift.map { String(format: "%.1f saat", appState.calculator.calculateShiftDuration($0)) } ?? "",
                         nextText: nextShiftText
                     )
                     .padding(.top, Spacing.medium)
@@ -54,10 +54,10 @@ struct DashboardView: View {
 
     private var metricGrid: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: Spacing.medium) {
-            PremiumMetricCard(title: "Bu ay toplam", value: "\(summary.totalWorkHours, specifier: "%.0f")s", footnote: "Normal + ek mesai", color: DesignColors.primary, systemImage: "clock.fill")
-            PremiumMetricCard(title: "Fazla mesai", value: "\(summary.overtimeHours, specifier: "%.0f")s", footnote: "Tahmini ayrım", color: DesignColors.accent, systemImage: "plus.forwardslash.minus")
-            PremiumMetricCard(title: "UBGT / resmi tatil", value: "\(summary.officialHolidayHours, specifier: "%.1f")s", footnote: "Ayrıca raporlanır", color: DesignColors.warning, systemImage: "flag.fill")
-            PremiumMetricCard(title: "Gelir tahmini", value: "\(summary.estimatedTotalExtraIncome, specifier: "%.0f")₺", footnote: "Bilgilendirme amaçlıdır", color: DesignColors.success, systemImage: "banknote.fill")
+            PremiumMetricCard(title: "Bu ay toplam", value: String(format: "%.0fs", summary.totalWorkHours), footnote: "Normal + ek mesai", color: DesignColors.primary, systemImage: "clock.fill")
+            PremiumMetricCard(title: "Fazla mesai", value: String(format: "%.0fs", summary.overtimeHours), footnote: "Tahmini ayrım", color: DesignColors.accent, systemImage: "plus.forwardslash.minus")
+            PremiumMetricCard(title: "UBGT / resmi tatil", value: String(format: "%.1fs", summary.officialHolidayHours), footnote: "Ayrıca raporlanır", color: DesignColors.warning, systemImage: "flag.fill")
+            PremiumMetricCard(title: "Gelir tahmini", value: String(format: "%.0f₺", summary.estimatedTotalExtraIncome), footnote: "Bilgilendirme amaçlıdır", color: DesignColors.success, systemImage: "banknote.fill")
         }
     }
 

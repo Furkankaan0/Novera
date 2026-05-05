@@ -135,7 +135,7 @@ struct CalendarDayCell: View {
 
     private func shortLabel(for shift: Shift) -> String {
         if [.overtime, .officialHoliday, .shortExtra, .customDuration].contains(shift.workKind) {
-            return "\(WorkCalculationEngine().calculateShiftDuration(shift), specifier: "%.1f")s \(shift.workKind.localizedTitle)"
+            return "\(String(format: "%.1fs", WorkCalculationEngine().calculateShiftDuration(shift))) \(shift.workKind.localizedTitle)"
         }
         return "\(shift.startDate.formatted(date: .omitted, time: .shortened)) \(shift.title)"
     }
@@ -156,7 +156,7 @@ struct DayDetailSheet: View {
                     ForEach(shifts) { shift in
                         ShiftTimelineCard(shift: shift, duration: appState.calculator.calculateShiftDuration(shift), estimatedIncome: nil)
                     }
-                    PremiumMetricCard(title: "Günlük toplam çalışma", value: "\(totalHours, specifier: "%.1f")s", footnote: "Aynı gündeki tüm mesailer", color: DesignColors.primary, systemImage: "sum")
+                    PremiumMetricCard(title: "Günlük toplam çalışma", value: String(format: "%.1fs", totalHours), footnote: "Aynı gündeki tüm mesailer", color: DesignColors.primary, systemImage: "sum")
                 }
                 .padding(Spacing.large)
             }

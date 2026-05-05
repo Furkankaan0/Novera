@@ -70,17 +70,17 @@ struct SettingsSummaryCard: View {
             HStack {
                 Text("Aylık normal saat")
                 Spacer()
-                Text("\(appState.profile.monthlyNormalHours, specifier: "%.0f")s").bold()
+                Text(String(format: "%.0fs", appState.profile.monthlyNormalHours)).bold()
             }
             HStack {
                 Text("Fazla mesai ücreti")
                 Spacer()
-                Text("\(appState.profile.overtimeHourlyRate, specifier: "%.0f") TRY").bold()
+                Text(String(format: "%.0f TRY", appState.profile.overtimeHourlyRate)).bold()
             }
             HStack {
                 Text("Resmi tatil ücreti")
                 Spacer()
-                Text("\(appState.profile.holidayHourlyRate, specifier: "%.0f") TRY").bold()
+                Text(String(format: "%.0f TRY", appState.profile.holidayHourlyRate)).bold()
             }
         }
         .padding(Spacing.large)

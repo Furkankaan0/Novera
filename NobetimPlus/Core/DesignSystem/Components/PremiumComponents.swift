@@ -127,7 +127,7 @@ struct ShiftTimelineCard: View {
                     Text(shift.title)
                         .font(Typography.headline)
                     Spacer()
-                    Text("\(duration, specifier: "%.1f")s")
+                    Text(String(format: "%.1fs", duration))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(shift.colorTag.color)
                 }
@@ -139,7 +139,7 @@ struct ShiftTimelineCard: View {
                 HStack {
                     ShiftTypePill(title: shift.workKind.localizedTitle, color: shift.colorTag.color, systemImage: shift.isOfficialHoliday ? "flag.fill" : nil)
                     if let estimatedIncome {
-                        Text("+\(estimatedIncome, specifier: "%.0f") TRY")
+                        Text(String(format: "+%.0f TRY", estimatedIncome))
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(DesignColors.success)
                     }

@@ -7,339 +7,339 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000000000000000000000101 = {isa = PBXBuildFile; fileRef = 000000000000000000000201; };
-		000000000000000000000102 = {isa = PBXBuildFile; fileRef = 000000000000000000000202; };
-		000000000000000000000103 = {isa = PBXBuildFile; fileRef = 000000000000000000000203; };
-		000000000000000000000104 = {isa = PBXBuildFile; fileRef = 000000000000000000000204; };
-		000000000000000000000105 = {isa = PBXBuildFile; fileRef = 000000000000000000000205; };
-		000000000000000000000106 = {isa = PBXBuildFile; fileRef = 000000000000000000000206; };
-		000000000000000000000107 = {isa = PBXBuildFile; fileRef = 000000000000000000000207; };
-		000000000000000000000108 = {isa = PBXBuildFile; fileRef = 000000000000000000000208; };
-		000000000000000000000109 = {isa = PBXBuildFile; fileRef = 000000000000000000000209; };
-		000000000000000000000110 = {isa = PBXBuildFile; fileRef = 000000000000000000000210; };
-		000000000000000000000111 = {isa = PBXBuildFile; fileRef = 000000000000000000000211; };
-		000000000000000000000112 = {isa = PBXBuildFile; fileRef = 000000000000000000000212; };
-		000000000000000000000113 = {isa = PBXBuildFile; fileRef = 000000000000000000000213; };
-		000000000000000000000114 = {isa = PBXBuildFile; fileRef = 000000000000000000000214; };
-		000000000000000000000115 = {isa = PBXBuildFile; fileRef = 000000000000000000000215; };
-		000000000000000000000116 = {isa = PBXBuildFile; fileRef = 000000000000000000000216; };
-		000000000000000000000117 = {isa = PBXBuildFile; fileRef = 000000000000000000000217; };
-		000000000000000000000118 = {isa = PBXBuildFile; fileRef = 000000000000000000000218; };
-		000000000000000000000119 = {isa = PBXBuildFile; fileRef = 000000000000000000000219; };
-		000000000000000000000120 = {isa = PBXBuildFile; fileRef = 000000000000000000000220; };
-		000000000000000000000121 = {isa = PBXBuildFile; fileRef = 000000000000000000000221; };
-		000000000000000000000122 = {isa = PBXBuildFile; fileRef = 000000000000000000000222; };
-		000000000000000000000123 = {isa = PBXBuildFile; fileRef = 000000000000000000000223; };
-		000000000000000000000124 = {isa = PBXBuildFile; fileRef = 000000000000000000000224; };
-		000000000000000000000125 = {isa = PBXBuildFile; fileRef = 000000000000000000000225; };
-		000000000000000000000126 = {isa = PBXBuildFile; fileRef = 000000000000000000000226; };
-		000000000000000000000127 = {isa = PBXBuildFile; fileRef = 000000000000000000000227; };
-		000000000000000000000128 = {isa = PBXBuildFile; fileRef = 000000000000000000000228; };
-		000000000000000000000129 = {isa = PBXBuildFile; fileRef = 000000000000000000000229; };
-		000000000000000000000130 = {isa = PBXBuildFile; fileRef = 000000000000000000000230; };
-		000000000000000000000131 = {isa = PBXBuildFile; fileRef = 000000000000000000000231; };
-		000000000000000000000132 = {isa = PBXBuildFile; fileRef = 000000000000000000000232; };
-		000000000000000000000133 = {isa = PBXBuildFile; fileRef = 000000000000000000000233; };
-		000000000000000000000134 = {isa = PBXBuildFile; fileRef = 000000000000000000000234; };
-		000000000000000000000135 = {isa = PBXBuildFile; fileRef = 000000000000000000000235; };
-		000000000000000000000136 = {isa = PBXBuildFile; fileRef = 000000000000000000000236; };
-		000000000000000000000137 = {isa = PBXBuildFile; fileRef = 000000000000000000000237; };
-		000000000000000000000138 = {isa = PBXBuildFile; fileRef = 000000000000000000000238; };
-		000000000000000000000139 = {isa = PBXBuildFile; fileRef = 000000000000000000000239; };
-		000000000000000000000140 = {isa = PBXBuildFile; fileRef = 000000000000000000000240; };
-		000000000000000000000141 = {isa = PBXBuildFile; fileRef = 000000000000000000000241; };
-		000000000000000000000142 = {isa = PBXBuildFile; fileRef = 000000000000000000000242; };
-		000000000000000000000143 = {isa = PBXBuildFile; fileRef = 000000000000000000000243; };
-		000000000000000000000144 = {isa = PBXBuildFile; fileRef = 000000000000000000000244; };
-		000000000000000000000145 = {isa = PBXBuildFile; fileRef = 000000000000000000000245; };
-		000000000000000000000146 = {isa = PBXBuildFile; fileRef = 000000000000000000000246; };
-		000000000000000000000147 = {isa = PBXBuildFile; fileRef = 000000000000000000000247; };
-		000000000000000000000160 = {isa = PBXBuildFile; fileRef = 000000000000000000000263; };
-		000000000000000000000161 = {isa = PBXBuildFile; fileRef = 000000000000000000000266; };
-		000000000000000000000171 = {isa = PBXBuildFile; fileRef = 000000000000000000000271; };
+		A1B2C3D4E5F6A7B800000001 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000033; };
+		A1B2C3D4E5F6A7B800000002 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000034; };
+		A1B2C3D4E5F6A7B800000003 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000035; };
+		A1B2C3D4E5F6A7B800000004 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000036; };
+		A1B2C3D4E5F6A7B800000005 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000037; };
+		A1B2C3D4E5F6A7B800000006 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000038; };
+		A1B2C3D4E5F6A7B800000007 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000039; };
+		A1B2C3D4E5F6A7B800000008 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000003A; };
+		A1B2C3D4E5F6A7B800000009 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000003B; };
+		A1B2C3D4E5F6A7B80000000A = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000003C; };
+		A1B2C3D4E5F6A7B80000000B = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000003D; };
+		A1B2C3D4E5F6A7B80000000C = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000003E; };
+		A1B2C3D4E5F6A7B80000000D = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000003F; };
+		A1B2C3D4E5F6A7B80000000E = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000040; };
+		A1B2C3D4E5F6A7B80000000F = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000041; };
+		A1B2C3D4E5F6A7B800000010 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000042; };
+		A1B2C3D4E5F6A7B800000011 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000043; };
+		A1B2C3D4E5F6A7B800000012 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000044; };
+		A1B2C3D4E5F6A7B800000013 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000045; };
+		A1B2C3D4E5F6A7B800000014 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000046; };
+		A1B2C3D4E5F6A7B800000015 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000047; };
+		A1B2C3D4E5F6A7B800000016 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000048; };
+		A1B2C3D4E5F6A7B800000017 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000049; };
+		A1B2C3D4E5F6A7B800000018 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000004A; };
+		A1B2C3D4E5F6A7B800000019 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000004B; };
+		A1B2C3D4E5F6A7B80000001A = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000004C; };
+		A1B2C3D4E5F6A7B80000001B = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000004D; };
+		A1B2C3D4E5F6A7B80000001C = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000004E; };
+		A1B2C3D4E5F6A7B80000001D = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000004F; };
+		A1B2C3D4E5F6A7B80000001E = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000050; };
+		A1B2C3D4E5F6A7B80000001F = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000051; };
+		A1B2C3D4E5F6A7B800000020 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000052; };
+		A1B2C3D4E5F6A7B800000021 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000053; };
+		A1B2C3D4E5F6A7B800000022 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000054; };
+		A1B2C3D4E5F6A7B800000023 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000055; };
+		A1B2C3D4E5F6A7B800000024 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000056; };
+		A1B2C3D4E5F6A7B800000025 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000057; };
+		A1B2C3D4E5F6A7B800000026 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000058; };
+		A1B2C3D4E5F6A7B800000027 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000059; };
+		A1B2C3D4E5F6A7B800000028 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000005A; };
+		A1B2C3D4E5F6A7B800000029 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000005B; };
+		A1B2C3D4E5F6A7B80000002A = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000005C; };
+		A1B2C3D4E5F6A7B80000002B = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000005D; };
+		A1B2C3D4E5F6A7B80000002C = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000005E; };
+		A1B2C3D4E5F6A7B80000002D = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B80000005F; };
+		A1B2C3D4E5F6A7B80000002E = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000060; };
+		A1B2C3D4E5F6A7B80000002F = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000061; };
+		A1B2C3D4E5F6A7B800000030 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000064; };
+		A1B2C3D4E5F6A7B800000031 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000067; };
+		A1B2C3D4E5F6A7B800000032 = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B800000068; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		000000000000000000000751 = {
+		A1B2C3D4E5F6A7B80000007C = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 000000000000000000000700;
+			containerPortal = A1B2C3D4E5F6A7B800000069;
 			proxyType = 1;
-			remoteGlobalIDString = 000000000000000000000701;
+			remoteGlobalIDString = A1B2C3D4E5F6A7B80000006A;
 			remoteInfo = NobetimPlus;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		000000000000000000000201 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppRouter.swift; sourceTree = "<group>"; };
-		000000000000000000000202 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppState.swift; sourceTree = "<group>"; };
-		000000000000000000000203 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/NobetimPlusApp.swift; sourceTree = "<group>"; };
-		000000000000000000000204 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/PreviewRoot.swift; sourceTree = "<group>"; };
-		000000000000000000000205 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/AppIntents/NobetimAppIntents.swift; sourceTree = "<group>"; };
-		000000000000000000000206 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Authentication/AppleSignInManager.swift; sourceTree = "<group>"; };
-		000000000000000000000207 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Components/PremiumComponents.swift; sourceTree = "<group>"; };
-		000000000000000000000208 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Colors.swift; sourceTree = "<group>"; };
-		000000000000000000000209 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Spacing.swift; sourceTree = "<group>"; };
-		000000000000000000000210 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Typography.swift; sourceTree = "<group>"; };
-		000000000000000000000211 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/EventKit/CalendarExportService.swift; sourceTree = "<group>"; };
-		000000000000000000000212 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Extensions/Date+Nobetim.swift; sourceTree = "<group>"; };
-		000000000000000000000213 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Localization/L10n.swift; sourceTree = "<group>"; };
-		000000000000000000000214 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Notifications/NotificationService.swift; sourceTree = "<group>"; };
-		000000000000000000000215 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Security/KeychainService.swift; sourceTree = "<group>"; };
-		000000000000000000000216 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Utilities/Haptics/HapticService.swift; sourceTree = "<group>"; };
-		000000000000000000000217 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/DTOs/ShiftDTO.swift; sourceTree = "<group>"; };
-		000000000000000000000218 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/SwiftDataModels/LocalShiftEntity.swift; sourceTree = "<group>"; };
-		000000000000000000000219 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/SwiftDataModels/LocalShiftRepository.swift; sourceTree = "<group>"; };
-		000000000000000000000220 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/LocalSettingsRepository.swift; sourceTree = "<group>"; };
-		000000000000000000000221 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/LocalTeamRepository.swift; sourceTree = "<group>"; };
-		000000000000000000000222 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Mock/MockData.swift; sourceTree = "<group>"; };
-		000000000000000000000223 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Remote/APIClient.swift; sourceTree = "<group>"; };
-		000000000000000000000224 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/PremiumPlan.swift; sourceTree = "<group>"; };
-		000000000000000000000225 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/Shift.swift; sourceTree = "<group>"; };
-		000000000000000000000226 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/SwapRequest.swift; sourceTree = "<group>"; };
-		000000000000000000000227 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/Team.swift; sourceTree = "<group>"; };
-		000000000000000000000228 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/TeamMember.swift; sourceTree = "<group>"; };
-		000000000000000000000229 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/UserProfile.swift; sourceTree = "<group>"; };
-		000000000000000000000230 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/WorkSummary.swift; sourceTree = "<group>"; };
-		000000000000000000000231 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/SettingsRepositoryProtocol.swift; sourceTree = "<group>"; };
-		000000000000000000000232 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/ShiftRepositoryProtocol.swift; sourceTree = "<group>"; };
-		000000000000000000000233 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/TeamRepositoryProtocol.swift; sourceTree = "<group>"; };
-		000000000000000000000234 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/CreateShiftUseCase.swift; sourceTree = "<group>"; };
-		000000000000000000000235 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/ExportReportUseCase.swift; sourceTree = "<group>"; };
-		000000000000000000000236 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/SmartInsightEngine.swift; sourceTree = "<group>"; };
-		000000000000000000000237 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/WorkCalculationEngine.swift; sourceTree = "<group>"; };
-		000000000000000000000238 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/AddShift/AddShiftView.swift; sourceTree = "<group>"; };
-		000000000000000000000239 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Analytics/AnalyticsView.swift; sourceTree = "<group>"; };
-		000000000000000000000240 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Calendar/CalendarView.swift; sourceTree = "<group>"; };
-		000000000000000000000241 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Dashboard/DashboardView.swift; sourceTree = "<group>"; };
-		000000000000000000000242 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Dashboard/RootTabView.swift; sourceTree = "<group>"; };
-		000000000000000000000243 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Onboarding/OnboardingView.swift; sourceTree = "<group>"; };
-		000000000000000000000244 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Premium/PremiumPaywallView.swift; sourceTree = "<group>"; };
-		000000000000000000000245 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Profile/ProfileView.swift; sourceTree = "<group>"; };
-		000000000000000000000246 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Settings/SettingsView.swift; sourceTree = "<group>"; };
-		000000000000000000000247 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Team/TeamView.swift; sourceTree = "<group>"; };
-		000000000000000000000261 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Resources/tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		000000000000000000000262 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		000000000000000000000264 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		000000000000000000000265 = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NobetimPlus.entitlements; sourceTree = "<group>"; };
-		000000000000000000000266 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
-		000000000000000000000271 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalculationEngineTests.swift; sourceTree = "<group>"; };
-		000000000000000000000900 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NobetimPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		000000000000000000000901 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NobetimPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F6A7B800000033 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppRouter.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000034 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppState.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000035 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/NobetimPlusApp.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000036 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/PreviewRoot.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000037 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/AppIntents/NobetimAppIntents.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000038 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Authentication/AppleSignInManager.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000039 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Components/PremiumComponents.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000003A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Colors.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000003B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Spacing.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000003C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Typography.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000003D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/EventKit/CalendarExportService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000003E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Extensions/Date+Nobetim.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000003F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Localization/L10n.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000040 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Notifications/NotificationService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000041 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Security/KeychainService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000042 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Utilities/Haptics/HapticService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000043 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/DTOs/ShiftDTO.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000044 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/SwiftDataModels/LocalShiftEntity.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000045 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/SwiftDataModels/LocalShiftRepository.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000046 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/LocalSettingsRepository.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000047 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/LocalTeamRepository.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000048 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Mock/MockData.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000049 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Remote/APIClient.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000004A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/PremiumPlan.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000004B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/Shift.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000004C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/SwapRequest.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000004D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/Team.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000004E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/TeamMember.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000004F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/UserProfile.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000050 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/WorkSummary.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000051 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/SettingsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000052 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/ShiftRepositoryProtocol.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000053 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/TeamRepositoryProtocol.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000054 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/CreateShiftUseCase.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000055 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/ExportReportUseCase.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000056 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/SmartInsightEngine.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000057 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/WorkCalculationEngine.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000058 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/AddShift/AddShiftView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000059 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Analytics/AnalyticsView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000005A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Calendar/CalendarView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000005B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Dashboard/DashboardView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000005C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Dashboard/RootTabView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000005D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Onboarding/OnboardingView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000005E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Premium/PremiumPaywallView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000005F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Profile/ProfileView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000060 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Settings/SettingsView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000061 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Team/TeamView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000062 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Resources/tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000063 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000065 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000066 = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NobetimPlus.entitlements; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000067 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000068 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalculationEngineTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000081 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NobetimPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F6A7B800000082 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NobetimPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		000000000000000000000712 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
-		000000000000000000000722 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A1B2C3D4E5F6A7B80000006D = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A1B2C3D4E5F6A7B800000070 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		000000000000000000000800 = {
+		A1B2C3D4E5F6A7B80000007D = {
 			isa = PBXGroup;
 			children = (
-				000000000000000000000801,
-				000000000000000000000802,
-				000000000000000000000803,
+				A1B2C3D4E5F6A7B80000007E,
+				A1B2C3D4E5F6A7B80000007F,
+				A1B2C3D4E5F6A7B800000080,
 			);
 			sourceTree = "<group>";
 		};
-		000000000000000000000801 = {
+		A1B2C3D4E5F6A7B80000007E = {
 			isa = PBXGroup;
 			children = (
-				000000000000000000000201,
-				000000000000000000000202,
-				000000000000000000000203,
-				000000000000000000000204,
-				000000000000000000000205,
-				000000000000000000000206,
-				000000000000000000000207,
-				000000000000000000000208,
-				000000000000000000000209,
-				000000000000000000000210,
-				000000000000000000000211,
-				000000000000000000000212,
-				000000000000000000000213,
-				000000000000000000000214,
-				000000000000000000000215,
-				000000000000000000000216,
-				000000000000000000000217,
-				000000000000000000000218,
-				000000000000000000000219,
-				000000000000000000000220,
-				000000000000000000000221,
-				000000000000000000000222,
-				000000000000000000000223,
-				000000000000000000000224,
-				000000000000000000000225,
-				000000000000000000000226,
-				000000000000000000000227,
-				000000000000000000000228,
-				000000000000000000000229,
-				000000000000000000000230,
-				000000000000000000000231,
-				000000000000000000000232,
-				000000000000000000000233,
-				000000000000000000000234,
-				000000000000000000000235,
-				000000000000000000000236,
-				000000000000000000000237,
-				000000000000000000000238,
-				000000000000000000000239,
-				000000000000000000000240,
-				000000000000000000000241,
-				000000000000000000000242,
-				000000000000000000000243,
-				000000000000000000000244,
-				000000000000000000000245,
-				000000000000000000000246,
-				000000000000000000000247,
-				000000000000000000000263,
-				000000000000000000000264,
-				000000000000000000000265,
-				000000000000000000000266,
+				A1B2C3D4E5F6A7B800000033,
+				A1B2C3D4E5F6A7B800000034,
+				A1B2C3D4E5F6A7B800000035,
+				A1B2C3D4E5F6A7B800000036,
+				A1B2C3D4E5F6A7B800000037,
+				A1B2C3D4E5F6A7B800000038,
+				A1B2C3D4E5F6A7B800000039,
+				A1B2C3D4E5F6A7B80000003A,
+				A1B2C3D4E5F6A7B80000003B,
+				A1B2C3D4E5F6A7B80000003C,
+				A1B2C3D4E5F6A7B80000003D,
+				A1B2C3D4E5F6A7B80000003E,
+				A1B2C3D4E5F6A7B80000003F,
+				A1B2C3D4E5F6A7B800000040,
+				A1B2C3D4E5F6A7B800000041,
+				A1B2C3D4E5F6A7B800000042,
+				A1B2C3D4E5F6A7B800000043,
+				A1B2C3D4E5F6A7B800000044,
+				A1B2C3D4E5F6A7B800000045,
+				A1B2C3D4E5F6A7B800000046,
+				A1B2C3D4E5F6A7B800000047,
+				A1B2C3D4E5F6A7B800000048,
+				A1B2C3D4E5F6A7B800000049,
+				A1B2C3D4E5F6A7B80000004A,
+				A1B2C3D4E5F6A7B80000004B,
+				A1B2C3D4E5F6A7B80000004C,
+				A1B2C3D4E5F6A7B80000004D,
+				A1B2C3D4E5F6A7B80000004E,
+				A1B2C3D4E5F6A7B80000004F,
+				A1B2C3D4E5F6A7B800000050,
+				A1B2C3D4E5F6A7B800000051,
+				A1B2C3D4E5F6A7B800000052,
+				A1B2C3D4E5F6A7B800000053,
+				A1B2C3D4E5F6A7B800000054,
+				A1B2C3D4E5F6A7B800000055,
+				A1B2C3D4E5F6A7B800000056,
+				A1B2C3D4E5F6A7B800000057,
+				A1B2C3D4E5F6A7B800000058,
+				A1B2C3D4E5F6A7B800000059,
+				A1B2C3D4E5F6A7B80000005A,
+				A1B2C3D4E5F6A7B80000005B,
+				A1B2C3D4E5F6A7B80000005C,
+				A1B2C3D4E5F6A7B80000005D,
+				A1B2C3D4E5F6A7B80000005E,
+				A1B2C3D4E5F6A7B80000005F,
+				A1B2C3D4E5F6A7B800000060,
+				A1B2C3D4E5F6A7B800000061,
+				A1B2C3D4E5F6A7B800000064,
+				A1B2C3D4E5F6A7B800000065,
+				A1B2C3D4E5F6A7B800000066,
+				A1B2C3D4E5F6A7B800000067,
 			);
 			name = NobetimPlus;
 			path = NobetimPlus;
 			sourceTree = "<group>";
 		};
-		000000000000000000000802 = {isa = PBXGroup; children = (000000000000000000000271,); path = NobetimPlusTests; sourceTree = "<group>"; };
-		000000000000000000000803 = {isa = PBXGroup; children = (000000000000000000000900, 000000000000000000000901,); name = Products; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B80000007F = {isa = PBXGroup; children = (A1B2C3D4E5F6A7B800000068,); path = NobetimPlusTests; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000080 = {isa = PBXGroup; children = (A1B2C3D4E5F6A7B800000081, A1B2C3D4E5F6A7B800000082,); name = Products; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		000000000000000000000701 = {
+		A1B2C3D4E5F6A7B80000006A = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 000000000000000000000731;
-			buildPhases = (000000000000000000000711, 000000000000000000000712, 000000000000000000000713);
+			buildConfigurationList = A1B2C3D4E5F6A7B800000073;
+			buildPhases = (A1B2C3D4E5F6A7B80000006C, A1B2C3D4E5F6A7B80000006D, A1B2C3D4E5F6A7B80000006E);
 			buildRules = ();
 			dependencies = ();
 			name = NobetimPlus;
 			productName = NobetimPlus;
-			productReference = 000000000000000000000900;
+			productReference = A1B2C3D4E5F6A7B800000081;
 			productType = "com.apple.product-type.application";
 		};
-		000000000000000000000702 = {
+		A1B2C3D4E5F6A7B80000006B = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 000000000000000000000732;
-			buildPhases = (000000000000000000000721, 000000000000000000000722, 000000000000000000000723);
+			buildConfigurationList = A1B2C3D4E5F6A7B800000074;
+			buildPhases = (A1B2C3D4E5F6A7B80000006F, A1B2C3D4E5F6A7B800000070, A1B2C3D4E5F6A7B800000071);
 			buildRules = ();
-			dependencies = (000000000000000000000750,);
+			dependencies = (A1B2C3D4E5F6A7B80000007B,);
 			name = NobetimPlusTests;
 			productName = NobetimPlusTests;
-			productReference = 000000000000000000000901;
+			productReference = A1B2C3D4E5F6A7B800000082;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		000000000000000000000700 = {
+		A1B2C3D4E5F6A7B800000069 = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					000000000000000000000701 = {CreatedOnToolsVersion = 16.0; };
-					000000000000000000000702 = {CreatedOnToolsVersion = 16.0; TestTargetID = 000000000000000000000701; };
+					A1B2C3D4E5F6A7B80000006A = {CreatedOnToolsVersion = 16.0; };
+					A1B2C3D4E5F6A7B80000006B = {CreatedOnToolsVersion = 16.0; TestTargetID = A1B2C3D4E5F6A7B80000006A; };
 				};
 			};
-			buildConfigurationList = 000000000000000000000730;
+			buildConfigurationList = A1B2C3D4E5F6A7B800000072;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = tr;
 			hasScannedForEncodings = 0;
 			knownRegions = (tr, en, Base);
-			mainGroup = 000000000000000000000800;
-			productRefGroup = 000000000000000000000803;
+			mainGroup = A1B2C3D4E5F6A7B80000007D;
+			productRefGroup = A1B2C3D4E5F6A7B800000080;
 			projectDirPath = "";
 			projectRoot = "";
-			targets = (000000000000000000000701, 000000000000000000000702);
+			targets = (A1B2C3D4E5F6A7B80000006A, A1B2C3D4E5F6A7B80000006B);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		000000000000000000000713 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000160, 000000000000000000000161); runOnlyForDeploymentPostprocessing = 0; };
-		000000000000000000000723 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A1B2C3D4E5F6A7B80000006E = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A1B2C3D4E5F6A7B800000030, A1B2C3D4E5F6A7B800000031); runOnlyForDeploymentPostprocessing = 0; };
+		A1B2C3D4E5F6A7B800000071 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		000000000000000000000711 = {
+		A1B2C3D4E5F6A7B80000006C = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				000000000000000000000101,
-				000000000000000000000102,
-				000000000000000000000103,
-				000000000000000000000104,
-				000000000000000000000105,
-				000000000000000000000106,
-				000000000000000000000107,
-				000000000000000000000108,
-				000000000000000000000109,
-				000000000000000000000110,
-				000000000000000000000111,
-				000000000000000000000112,
-				000000000000000000000113,
-				000000000000000000000114,
-				000000000000000000000115,
-				000000000000000000000116,
-				000000000000000000000117,
-				000000000000000000000118,
-				000000000000000000000119,
-				000000000000000000000120,
-				000000000000000000000121,
-				000000000000000000000122,
-				000000000000000000000123,
-				000000000000000000000124,
-				000000000000000000000125,
-				000000000000000000000126,
-				000000000000000000000127,
-				000000000000000000000128,
-				000000000000000000000129,
-				000000000000000000000130,
-				000000000000000000000131,
-				000000000000000000000132,
-				000000000000000000000133,
-				000000000000000000000134,
-				000000000000000000000135,
-				000000000000000000000136,
-				000000000000000000000137,
-				000000000000000000000138,
-				000000000000000000000139,
-				000000000000000000000140,
-				000000000000000000000141,
-				000000000000000000000142,
-				000000000000000000000143,
-				000000000000000000000144,
-				000000000000000000000145,
-				000000000000000000000146,
-				000000000000000000000147,
+				A1B2C3D4E5F6A7B800000001,
+				A1B2C3D4E5F6A7B800000002,
+				A1B2C3D4E5F6A7B800000003,
+				A1B2C3D4E5F6A7B800000004,
+				A1B2C3D4E5F6A7B800000005,
+				A1B2C3D4E5F6A7B800000006,
+				A1B2C3D4E5F6A7B800000007,
+				A1B2C3D4E5F6A7B800000008,
+				A1B2C3D4E5F6A7B800000009,
+				A1B2C3D4E5F6A7B80000000A,
+				A1B2C3D4E5F6A7B80000000B,
+				A1B2C3D4E5F6A7B80000000C,
+				A1B2C3D4E5F6A7B80000000D,
+				A1B2C3D4E5F6A7B80000000E,
+				A1B2C3D4E5F6A7B80000000F,
+				A1B2C3D4E5F6A7B800000010,
+				A1B2C3D4E5F6A7B800000011,
+				A1B2C3D4E5F6A7B800000012,
+				A1B2C3D4E5F6A7B800000013,
+				A1B2C3D4E5F6A7B800000014,
+				A1B2C3D4E5F6A7B800000015,
+				A1B2C3D4E5F6A7B800000016,
+				A1B2C3D4E5F6A7B800000017,
+				A1B2C3D4E5F6A7B800000018,
+				A1B2C3D4E5F6A7B800000019,
+				A1B2C3D4E5F6A7B80000001A,
+				A1B2C3D4E5F6A7B80000001B,
+				A1B2C3D4E5F6A7B80000001C,
+				A1B2C3D4E5F6A7B80000001D,
+				A1B2C3D4E5F6A7B80000001E,
+				A1B2C3D4E5F6A7B80000001F,
+				A1B2C3D4E5F6A7B800000020,
+				A1B2C3D4E5F6A7B800000021,
+				A1B2C3D4E5F6A7B800000022,
+				A1B2C3D4E5F6A7B800000023,
+				A1B2C3D4E5F6A7B800000024,
+				A1B2C3D4E5F6A7B800000025,
+				A1B2C3D4E5F6A7B800000026,
+				A1B2C3D4E5F6A7B800000027,
+				A1B2C3D4E5F6A7B800000028,
+				A1B2C3D4E5F6A7B800000029,
+				A1B2C3D4E5F6A7B80000002A,
+				A1B2C3D4E5F6A7B80000002B,
+				A1B2C3D4E5F6A7B80000002C,
+				A1B2C3D4E5F6A7B80000002D,
+				A1B2C3D4E5F6A7B80000002E,
+				A1B2C3D4E5F6A7B80000002F,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		000000000000000000000721 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000171,); runOnlyForDeploymentPostprocessing = 0; };
+		A1B2C3D4E5F6A7B80000006F = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1B2C3D4E5F6A7B800000032,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		000000000000000000000750 = {isa = PBXTargetDependency; target = 000000000000000000000701; targetProxy = 000000000000000000000751; };
+		A1B2C3D4E5F6A7B80000007B = {isa = PBXTargetDependency; target = A1B2C3D4E5F6A7B80000006A; targetProxy = A1B2C3D4E5F6A7B80000007C; };
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		000000000000000000000263 = {isa = PBXVariantGroup; children = (000000000000000000000261, 000000000000000000000262); name = Localizable.strings; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B800000064 = {isa = PBXVariantGroup; children = (A1B2C3D4E5F6A7B800000062, A1B2C3D4E5F6A7B800000063); name = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		000000000000000000000740 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_DYNAMIC_NO_PIC = NO; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
-		000000000000000000000741 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = NO; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES; }; name = Release; };
-		000000000000000000000742 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = NobetimPlus/NobetimPlus.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_ASSET_PATHS = ""; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = NobetimPlus/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
-		000000000000000000000743 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = NobetimPlus/NobetimPlus.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = NobetimPlus/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
-		000000000000000000000744 = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NobetimPlus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NobetimPlus"; }; name = Debug; };
-		000000000000000000000745 = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NobetimPlus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NobetimPlus"; }; name = Release; };
+		A1B2C3D4E5F6A7B800000075 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_DYNAMIC_NO_PIC = NO; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		A1B2C3D4E5F6A7B800000076 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = NO; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES; }; name = Release; };
+		A1B2C3D4E5F6A7B800000077 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = NobetimPlus/NobetimPlus.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_ASSET_PATHS = ""; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = NobetimPlus/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		A1B2C3D4E5F6A7B800000078 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = NobetimPlus/NobetimPlus.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = NobetimPlus/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		A1B2C3D4E5F6A7B800000079 = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NobetimPlus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NobetimPlus"; }; name = Debug; };
+		A1B2C3D4E5F6A7B80000007A = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NobetimPlus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NobetimPlus"; }; name = Release; };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		000000000000000000000730 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000740, 000000000000000000000741); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
-		000000000000000000000731 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000742, 000000000000000000000743); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
-		000000000000000000000732 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000744, 000000000000000000000745); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A1B2C3D4E5F6A7B800000072 = {isa = XCConfigurationList; buildConfigurations = (A1B2C3D4E5F6A7B800000075, A1B2C3D4E5F6A7B800000076); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A1B2C3D4E5F6A7B800000073 = {isa = XCConfigurationList; buildConfigurations = (A1B2C3D4E5F6A7B800000077, A1B2C3D4E5F6A7B800000078); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A1B2C3D4E5F6A7B800000074 = {isa = XCConfigurationList; buildConfigurations = (A1B2C3D4E5F6A7B800000079, A1B2C3D4E5F6A7B80000007A); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 /* End XCConfigurationList section */
 	};
-	rootObject = 000000000000000000000700;
+	rootObject = A1B2C3D4E5F6A7B800000069;
 }
