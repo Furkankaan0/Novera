@@ -530,3 +530,163 @@ struct AnimatedToast: View {
         .accessibilityElement(children: .combine)
     }
 }
+
+struct AwardDepthBadge: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var float = false
+    var title: String
+    var subtitle: String
+    var systemImage: String
+    var color: Color
+    var size: CGFloat = 86
+
+    var body: some View {
+        VStack(spacing: 8) {
+            ZStack {
+                Circle()
+                    .fill(color.opacity(0.26))
+                    .frame(width: size, height: size)
+                    .blur(radius: 10)
+                    .offset(y: 10)
+
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [.white.opacity(0.92), color.opacity(0.88), DesignColors.cinematicRoyal.opacity(0.92)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: size, height: size)
+                    .overlay {
+                        Circle()
+                            .stroke(Color.white.opacity(0.48), lineWidth: 1.2)
+                    }
+                    .shadow(color: color.opacity(0.44), radius: 20, x: 0, y: 14)
+
+                Image(systemName: systemImage)
+                    .font(.system(size: size * 0.34, weight: .black))
+                    .foregroundStyle(.white)
+                    .shadow(color: .black.opacity(0.18), radius: 10, y: 5)
+            }
+            .rotation3DEffect(.degrees(reduceMotion ? 0 : (float ? 7 : -5)), axis: (x: 0.7, y: -0.55, z: 0))
+            .scaleEffect(reduceMotion ? 1 : (float ? 1.035 : 0.985))
+            .onAppear {
+                guard !reduceMotion else { return }
+                withAnimation(.easeInOut(duration: 3.8).repeatForever(autoreverses: true)) {
+                    float = true
+                }
+            }
+
+            VStack(spacing: 2) {
+                Text(title)
+                    .font(.caption.weight(.black))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.72)
+                Text(subtitle)
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.72)
+            }
+        }
+        .frame(minWidth: 92)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+struct AwardSectionHeader: View {
+    var title: String
+    var subtitle: String? = nil
+    var icon: String = "sparkles"
+    var color: Color = DesignColors.secondary
+
+    var body: some View {
+        HStack(alignment: .center, spacing: 12) {
+            Image(systemName: icon)
+                .font(.headline.weight(.black))
+                .foregroundStyle(.white)
+                .frame(width: 38, height: 38)
+                .background(color.opacity(0.30), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(color.opacity(0.62), lineWidth: 1)
+                }
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(.title3, design: .rounded, weight: .black))
+                if let subtitle {
+                    Text(subtitle)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                }
+            }
+            Spacer()
+        }
+    }
+}
+
+struct GlassDockTabBar: View {
+    @Binding var selection: AppTab
+    var action: () -> Void
+
+    var body: some View {
+        HStack(spacing: 8) {
+            ForEach(AppTab.allCases) { tab in
+                dockItem(tab)
+            }
+
+            Button(action: action) {
+                Image(systemName: "plus")
+                    .font(.headline.weight(.black))
+                    .foregroundStyle(.white)
+                    .frame(width: 48, height: 48)
+                    .background(
+                        LinearGradient(colors: [DesignColors.accent, DesignColors.primary], startPoint: .topLeading, endPoint: .bottomTrailing),
+                        in: Circle()
+                    )
+                    .shadow(color: DesignColors.accent.opacity(0.34), radius: 16, y: 8)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Yeni nöbet ekle")
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
+        .background(.thinMaterial, in: Capsule())
+        .background(Color.black.opacity(0.12), in: Capsule())
+        .overlay(Capsule().stroke(Color.white.opacity(0.22), lineWidth: 1))
+        .shadow(color: .black.opacity(0.26), radius: 26, x: 0, y: 16)
+        .padding(.horizontal, 16)
+        .padding(.bottom, 12)
+    }
+
+    private func dockItem(_ tab: AppTab) -> some View {
+        Button {
+            HapticService.selection(enabled: true)
+            withAnimation(.spring(response: 0.32, dampingFraction: 0.82)) {
+                selection = tab
+            }
+        } label: {
+            VStack(spacing: 4) {
+                Image(systemName: tab.systemImage)
+                    .font(.system(size: 17, weight: .black))
+                Text(tab.title)
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.68)
+            }
+            .foregroundStyle(selection == tab ? .white : .secondary)
+            .frame(width: 50, height: 48)
+            .background(
+                selection == tab
+                    ? AnyShapeStyle(LinearGradient(colors: [DesignColors.primary.opacity(0.92), DesignColors.accent.opacity(0.88)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    : AnyShapeStyle(Color.clear),
+                in: Capsule()
+            )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(tab.title)
+    }
+}

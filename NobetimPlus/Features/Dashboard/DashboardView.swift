@@ -13,18 +13,22 @@ struct DashboardView: View {
         NavigationStack {
             ZStack {
                 CinematicBackground()
-
                 ScrollView(showsIndicators: false) {
                     LazyVStack(alignment: .leading, spacing: Spacing.large) {
-                        header
-                        hero
-                        monthlyStrip
+                        commandHeader
+                        DailyCommandHero(
+                            shift: todayShift,
+                            durationText: todayShift.map { String(format: "%.1f saat", appState.calculator.calculateShiftDuration($0)) } ?? "0 saat",
+                            nextText: nextShiftText,
+                            workload: workloadPercent
+                        )
+                        rhythmStrip
+                        awardBadges
                         insightSection
                         teamSection
-                        premiumPrompt
                     }
                     .padding(Spacing.large)
-                    .padding(.bottom, 110)
+                    .padding(.bottom, 116)
                     .offset(y: didEnter ? 0 : 18)
                     .opacity(didEnter ? 1 : 0)
                 }
@@ -45,7 +49,7 @@ struct DashboardView: View {
                 if reduceMotion {
                     didEnter = true
                 } else {
-                    withAnimation(.spring(response: 0.58, dampingFraction: 0.86)) {
+                    withAnimation(.spring(response: 0.62, dampingFraction: 0.86)) {
                         didEnter = true
                     }
                 }
@@ -53,51 +57,52 @@ struct DashboardView: View {
         }
     }
 
-    private var header: some View {
-        HStack(alignment: .center, spacing: Spacing.medium) {
+    private var commandHeader: some View {
+        HStack(spacing: Spacing.medium) {
             VStack(alignment: .leading, spacing: 6) {
-                Text("Nöbetim+")
+                Text("NÖBET KONTROL MERKEZİ")
                     .font(.caption.weight(.black))
                     .foregroundStyle(DesignColors.secondary)
-                    .textCase(.uppercase)
                 Text(greeting)
                     .font(.system(.title, design: .rounded, weight: .black))
                     .lineLimit(1)
                     .minimumScaleFactor(0.74)
             }
             Spacer()
-            Image("BrandLogo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 48, height: 48)
-                .shadow(color: DesignColors.accent.opacity(0.38), radius: 14, y: 8)
-                .accessibilityHidden(true)
+            AwardDepthBadge(title: "Bugün", subtitle: "Hazır", systemImage: "waveform.path.ecg", color: DesignColors.secondary, size: 58)
         }
     }
 
-    private var hero: some View {
-        TodayShiftHeroCard(
-            shift: todayShift,
-            durationText: todayShift.map { String(format: "%.1f saat", appState.calculator.calculateShiftDuration($0)) } ?? "",
-            nextText: nextShiftText
-        )
+    private var rhythmStrip: some View {
+        VStack(alignment: .leading, spacing: Spacing.medium) {
+            AwardSectionHeader(title: "Çalışma ritmi", subtitle: "Ay sonu yükünü erken gör", icon: "chart.xyaxis.line", color: DesignColors.primary)
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: Spacing.medium) {
+                CinematicMetricCard(title: "Toplam", value: hourText(summary.totalWorkHours), footnote: "Bu ay", color: DesignColors.primary, systemImage: "clock.fill")
+                CinematicMetricCard(title: "Fazla mesai", value: hourText(summary.overtimeHours), footnote: "Ayrı rapor", color: DesignColors.accent, systemImage: "plus.forwardslash.minus")
+                CinematicMetricCard(title: "UBGT", value: hourText(summary.officialHolidayHours), footnote: "Resmi tatil", color: DesignColors.warning, systemImage: "flag.fill")
+                CinematicMetricCard(title: "Tahmini gelir", value: moneyText(summary.estimatedTotalExtraIncome), footnote: "Bordro değildir", color: DesignColors.success, systemImage: "turkishlirasign.circle.fill")
+            }
+        }
     }
 
-    private var monthlyStrip: some View {
-        VStack(alignment: .leading, spacing: Spacing.medium) {
-            sectionTitle("Bu ay")
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: Spacing.medium) {
-                CinematicMetricCard(title: "Toplam", value: hourText(summary.totalWorkHours), footnote: "Normal + ek mesai", color: DesignColors.primary, systemImage: "clock.fill")
-                CinematicMetricCard(title: "Fazla mesai", value: hourText(summary.overtimeHours), footnote: "Normalden ayrı", color: DesignColors.accent, systemImage: "plus.forwardslash.minus")
-                CinematicMetricCard(title: "UBGT", value: hourText(summary.officialHolidayHours), footnote: "Resmi tatil", color: DesignColors.warning, systemImage: "flag.fill")
-                CinematicMetricCard(title: "Tahmini gelir", value: moneyText(summary.estimatedTotalExtraIncome), footnote: "Bilgilendirme amaçlı", color: DesignColors.success, systemImage: "banknote.fill")
+    private var awardBadges: some View {
+        PremiumGlassPanel(cornerRadius: 30) {
+            VStack(alignment: .leading, spacing: Spacing.large) {
+                AwardSectionHeader(title: "Başarı vitrini", subtitle: "Günlük kullanım için küçük hedefler", icon: "crown.fill", color: DesignColors.warning)
+                HStack(spacing: Spacing.medium) {
+                    AwardDepthBadge(title: "Planlı", subtitle: "\(appState.shifts.count) kayıt", systemImage: "calendar.badge.checkmark", color: DesignColors.primary)
+                    Spacer()
+                    AwardDepthBadge(title: "Denge", subtitle: "\(Int(workloadPercent))%", systemImage: "gauge.with.dots.needle.67percent", color: DesignColors.secondary)
+                    Spacer()
+                    AwardDepthBadge(title: "Premium", subtitle: appState.profile.premiumStatus.isPremium ? "Açık" : "Kilitli", systemImage: "sparkles", color: DesignColors.accent)
+                }
             }
         }
     }
 
     private var insightSection: some View {
         VStack(alignment: .leading, spacing: Spacing.medium) {
-            sectionTitle("Akıllı içgörü")
+            AwardSectionHeader(title: "Akıllı içgörü", subtitle: "Tıbbi öneri değil, çalışma farkındalığı", icon: "sparkle.magnifyingglass", color: DesignColors.accent)
             ForEach(appState.insights().prefix(2)) { insight in
                 SmartInsightCard(insight: insight)
             }
@@ -107,51 +112,27 @@ struct DashboardView: View {
     private var teamSection: some View {
         VStack(alignment: .leading, spacing: Spacing.medium) {
             HStack {
-                sectionTitle("Bugün ekipte")
-                Spacer()
-                ShiftStatusCapsule(title: "\(teamToday.count) kişi", color: DesignColors.secondary, systemImage: "person.3.fill")
+                AwardSectionHeader(title: "Ekip nabzı", subtitle: "Bugün çalışanlar", icon: "person.3.fill", color: DesignColors.secondary)
+                ShiftStatusCapsule(title: "\(teamToday.count)", color: DesignColors.secondary, systemImage: "person.fill.checkmark")
             }
 
             if teamToday.isEmpty {
-                EmptyStateView(
-                    title: "Ekip bilgisi yok",
-                    message: "Davet kodu ve ekip takvimi mock akış olarak hazır; TestFlight MVP’de genişletilebilir.",
-                    systemImage: "person.3"
-                )
+                EmptyStateView(title: "Ekip bilgisi yok", message: "Davet kodu ve ekip takvimi mock akış olarak hazır.", systemImage: "person.3")
             } else {
-                ForEach(Array(teamToday.prefix(4))) { member in
+                ForEach(Array(teamToday.prefix(3))) { member in
                     TeamMemberRow(member: member)
                 }
             }
         }
     }
 
-    private var premiumPrompt: some View {
-        PremiumGlassPanel(cornerRadius: 28) {
-            HStack(spacing: Spacing.medium) {
-                AnimatedWorkRing(value: min((summary.totalWorkHours / max(appState.profile.monthlyNormalHours, 1)) * 100, 100), lineWidth: 8)
-                    .frame(width: 70, height: 70)
-
-                VStack(alignment: .leading, spacing: 7) {
-                    Text("Çalışma yükü görünürlüğü")
-                        .font(Typography.headline)
-                    Text("Bu ayki ritmini, fazla mesaini ve tahmini ek gelirini tek yerden izle.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
-    }
-
-    private func sectionTitle(_ text: String) -> some View {
-        Text(text)
-            .font(.system(.title3, design: .rounded, weight: .black))
-            .frame(maxWidth: .infinity, alignment: .leading)
+    private var workloadPercent: Double {
+        min(summary.totalWorkHours / max(appState.profile.monthlyNormalHours, 1) * 100, 100)
     }
 
     private var greeting: String {
         let name = appState.profile.fullName.trimmingCharacters(in: .whitespacesAndNewlines)
-        return name.isEmpty ? "Hazır mısın?" : "Merhaba, \(name)"
+        return name.isEmpty ? "Bugünkü ritmini kur" : "Merhaba, \(name)"
     }
 
     private var nextShiftText: String {
@@ -168,6 +149,77 @@ struct DashboardView: View {
 
     private func moneyText(_ value: Double) -> String {
         String(format: "%.0f₺", value)
+    }
+}
+
+private struct DailyCommandHero: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var pulse = false
+    var shift: Shift?
+    var durationText: String
+    var nextText: String
+    var workload: Double
+
+    var body: some View {
+        PremiumGlassPanel(cornerRadius: 38) {
+            ZStack(alignment: .trailing) {
+                heroArt
+                VStack(alignment: .leading, spacing: Spacing.large) {
+                    ShiftStatusCapsule(
+                        title: shift == nil ? "Bugün dinlenme" : "Bugünkü nöbet",
+                        subtitle: shift?.workKind.localizedTitle,
+                        color: shift?.colorTag.color ?? DesignColors.secondary,
+                        systemImage: shift == nil ? "moon.zzz.fill" : "waveform.path.ecg"
+                    )
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(shift?.title ?? "Bugün planlı nöbet yok")
+                            .font(.system(.largeTitle, design: .rounded, weight: .black))
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.68)
+
+                        if let shift {
+                            Text("\(shift.startDate.formatted(date: .omitted, time: .shortened)) - \(shift.endDate.formatted(date: .omitted, time: .shortened)) • \(shift.unit) • \(durationText)")
+                                .font(.subheadline.weight(.bold))
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+
+                    HStack(spacing: Spacing.medium) {
+                        AnimatedWorkRing(value: workload, lineWidth: 7)
+                            .frame(width: 58, height: 58)
+                        Text(nextText)
+                            .font(.headline.weight(.bold))
+                            .foregroundStyle(DesignColors.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+        }
+        .onAppear {
+            guard !reduceMotion else { return }
+            withAnimation(.easeInOut(duration: 3.2).repeatForever(autoreverses: true)) {
+                pulse = true
+            }
+        }
+    }
+
+    private var heroArt: some View {
+        ZStack {
+            Circle()
+                .stroke(DesignColors.secondary.opacity(0.18), lineWidth: 18)
+                .frame(width: 210, height: 210)
+                .scaleEffect(pulse ? 1.06 : 0.94)
+            Image("BrandLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 190)
+                .opacity(0.18)
+                .rotation3DEffect(.degrees(pulse ? 7 : -5), axis: (x: 0.5, y: -0.8, z: 0))
+        }
+        .offset(x: 62, y: 6)
+        .accessibilityHidden(true)
     }
 }
 

@@ -10,49 +10,24 @@ struct RootTabView: View {
             CinematicBackground()
 
             if appState.hasCompletedOnboarding {
-                TabView(selection: $appState.selectedTab) {
-                    DashboardView(appState: appState)
-                        .tag(AppTab.today)
-                        .tabItem { Label(AppTab.today.title, systemImage: AppTab.today.systemImage) }
+                selectedContent
+                    .transition(.opacity.combined(with: .scale(scale: reduceMotion ? 1 : 0.985)))
+                    .task { appState.bootstrap() }
 
-                    CalendarView(appState: appState)
-                        .tag(AppTab.calendar)
-                        .tabItem { Label(AppTab.calendar.title, systemImage: AppTab.calendar.systemImage) }
-
-                    TeamView(appState: appState)
-                        .tag(AppTab.team)
-                        .tabItem { Label(AppTab.team.title, systemImage: AppTab.team.systemImage) }
-
-                    AnalyticsView(appState: appState)
-                        .tag(AppTab.analytics)
-                        .tabItem { Label(AppTab.analytics.title, systemImage: AppTab.analytics.systemImage) }
-
-                    ProfileView(appState: appState)
-                        .tag(AppTab.profile)
-                        .tabItem { Label(AppTab.profile.title, systemImage: AppTab.profile.systemImage) }
-                }
-                .tint(DesignColors.secondary)
-                .task { appState.bootstrap() }
-            } else {
-                OnboardingView(appState: appState)
-            }
-
-            if appState.hasCompletedOnboarding {
                 VStack(alignment: .trailing, spacing: 12) {
                     if isFabExpanded {
                         fabMenu
-                            .transition(.scale.combined(with: .opacity))
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
-                    FloatingAddButton(expanded: isFabExpanded) {
+                    GlassDockTabBar(selection: $appState.selectedTab) {
                         HapticService.selection(enabled: appState.profile.hapticsEnabled)
-                        withAnimation(reduceMotion ? .default : .spring(response: 0.32, dampingFraction: 0.72)) {
+                        withAnimation(reduceMotion ? .default : .spring(response: 0.32, dampingFraction: 0.76)) {
                             isFabExpanded.toggle()
                         }
                     }
                 }
-                .padding(.trailing, 20)
-                .padding(.bottom, 82)
-                .frame(maxWidth: .infinity, alignment: .trailing)
+            } else {
+                OnboardingView(appState: appState)
             }
 
             if let toast = appState.toastMessage {
@@ -75,30 +50,51 @@ struct RootTabView: View {
         }
     }
 
+    @ViewBuilder
+    private var selectedContent: some View {
+        switch appState.selectedTab {
+        case .today:
+            DashboardView(appState: appState)
+        case .calendar:
+            CalendarView(appState: appState)
+        case .team:
+            TeamView(appState: appState)
+        case .analytics:
+            AnalyticsView(appState: appState)
+        case .profile:
+            ProfileView(appState: appState)
+        }
+    }
+
     private var fabMenu: some View {
         VStack(alignment: .trailing, spacing: 10) {
-            fabAction("Yeni nöbet ekle", systemImage: "calendar.badge.plus") { openAddShift() }
-            fabAction("Hızlı vardiya ekle", systemImage: "bolt.fill") { openAddShift() }
-            fabAction("İzin ekle", systemImage: "figure.mind.and.body") { openAddShift() }
-            fabAction("Gelir kalemi ekle", systemImage: "banknote.fill") { appState.activeSheet = .settings }
+            fabAction("Yeni nöbet", systemImage: "calendar.badge.plus") { openAddShift() }
+            fabAction("Hızlı vardiya", systemImage: "bolt.fill") { openAddShift() }
+            fabAction("İzin / rapor", systemImage: "figure.mind.and.body") { openAddShift() }
+            fabAction("Gelir ayarı", systemImage: "banknote.fill") { appState.activeSheet = .settings }
         }
         .padding(12)
         .glassCard(cornerRadius: 26)
+        .padding(.horizontal, 18)
+        .padding(.bottom, 84)
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
 
     private func fabAction(_ title: String, systemImage: String, action: @escaping () -> Void) -> some View {
         Button {
-            isFabExpanded = false
+            withAnimation(reduceMotion ? .default : .spring(response: 0.28, dampingFraction: 0.82)) {
+                isFabExpanded = false
+            }
             action()
         } label: {
             Label(title, systemImage: systemImage)
-                .font(.subheadline.weight(.semibold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(.white)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 10)
                 .frame(minHeight: 44)
                 .background(DesignColors.primary.opacity(0.28), in: Capsule())
-                .overlay(Capsule().stroke(Color.white.opacity(0.18), lineWidth: 1))
+                .overlay(Capsule().stroke(Color.white.opacity(0.20), lineWidth: 1))
         }
         .buttonStyle(.plain)
         .accessibilityLabel(title)
