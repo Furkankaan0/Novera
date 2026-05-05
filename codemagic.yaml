@@ -73,7 +73,43 @@ workflows:
           mkdir -p "$CM_BUILD_DIR/build/ios/ipa"
           EXPORT_OPTIONS_PLIST="$CM_BUILD_DIR/export_options.plist"
           if [ ! -f "$EXPORT_OPTIONS_PLIST" ]; then
-            EXPORT_OPTIONS_PLIST="exportOptions.plist"
+            PROFILE_NAME=""
+            for PROFILE in "$HOME/Library/MobileDevice/Provisioning Profiles"/*.mobileprovision; do
+              PROFILE_PLIST="$CM_BUILD_DIR/profile.plist"
+              security cms -D -i "$PROFILE" > "$PROFILE_PLIST" 2>/dev/null || continue
+              APP_IDENTIFIER=$(/usr/libexec/PlistBuddy -c "Print :Entitlements:application-identifier" "$PROFILE_PLIST" 2>/dev/null || true)
+              if echo "$APP_IDENTIFIER" | grep -q "\\.$BUNDLE_ID$"; then
+                PROFILE_NAME=$(/usr/libexec/PlistBuddy -c "Print :Name" "$PROFILE_PLIST")
+                break
+              fi
+            done
+            if [ -z "$PROFILE_NAME" ]; then
+              echo "No provisioning profile name found for $BUNDLE_ID"
+              ls -la "$HOME/Library/MobileDevice/Provisioning Profiles" || true
+              exit 1
+            fi
+            echo "Using provisioning profile: $PROFILE_NAME"
+            cat > "$EXPORT_OPTIONS_PLIST" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>app-store-connect</string>
+            <key>signingStyle</key>
+            <string>manual</string>
+            <key>provisioningProfiles</key>
+            <dict>
+              <key>$BUNDLE_ID</key>
+              <string>$PROFILE_NAME</string>
+            </dict>
+            <key>uploadSymbols</key>
+            <true/>
+            <key>compileBitcode</key>
+            <false/>
+          </dict>
+          </plist>
+          EOF
           fi
           echo "Using export options: $EXPORT_OPTIONS_PLIST"
           xcodebuild -exportArchive \
