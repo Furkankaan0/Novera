@@ -62,60 +62,15 @@ workflows:
           agvtool new-version -all "$BUILD_NUMBER"
       - name: Build archive
         script: |
-          xcodebuild archive \
-            -project NobetimPlus.xcodeproj \
-            -scheme "$XCODE_SCHEME" \
-            -configuration Release \
-            -archivePath "$CM_BUILD_DIR/build/NobetimPlus.xcarchive" \
-            PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID"
+          echo "Archive and IPA export are handled in the next Codemagic build-ipa step."
       - name: Export ipa
         script: |
-          mkdir -p "$CM_BUILD_DIR/build/ios/ipa"
-          EXPORT_OPTIONS_PLIST="$CM_BUILD_DIR/export_options.plist"
-          if [ ! -f "$EXPORT_OPTIONS_PLIST" ]; then
-            PROFILE_NAME=""
-            for PROFILE in "$HOME/Library/MobileDevice/Provisioning Profiles"/*.mobileprovision; do
-              PROFILE_PLIST="$CM_BUILD_DIR/profile.plist"
-              security cms -D -i "$PROFILE" > "$PROFILE_PLIST" 2>/dev/null || continue
-              APP_IDENTIFIER=$(/usr/libexec/PlistBuddy -c "Print :Entitlements:application-identifier" "$PROFILE_PLIST" 2>/dev/null || true)
-              if echo "$APP_IDENTIFIER" | grep -q "\\.$BUNDLE_ID$"; then
-                PROFILE_NAME=$(/usr/libexec/PlistBuddy -c "Print :Name" "$PROFILE_PLIST")
-                break
-              fi
-            done
-            if [ -z "$PROFILE_NAME" ]; then
-              echo "No provisioning profile name found for $BUNDLE_ID"
-              ls -la "$HOME/Library/MobileDevice/Provisioning Profiles" || true
-              exit 1
-            fi
-            echo "Using provisioning profile: $PROFILE_NAME"
-            cat > "$EXPORT_OPTIONS_PLIST" <<EOF
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-            <key>method</key>
-            <string>app-store-connect</string>
-            <key>signingStyle</key>
-            <string>manual</string>
-            <key>provisioningProfiles</key>
-            <dict>
-              <key>$BUNDLE_ID</key>
-              <string>$PROFILE_NAME</string>
-            </dict>
-            <key>uploadSymbols</key>
-            <true/>
-            <key>compileBitcode</key>
-            <false/>
-          </dict>
-          </plist>
-          EOF
-          fi
-          echo "Using export options: $EXPORT_OPTIONS_PLIST"
-          xcodebuild -exportArchive \
-            -archivePath "$CM_BUILD_DIR/build/NobetimPlus.xcarchive" \
-            -exportPath "$CM_BUILD_DIR/build/ios/ipa" \
-            -exportOptionsPlist "$EXPORT_OPTIONS_PLIST"
+          xcode-project build-ipa \
+            --project NobetimPlus.xcodeproj \
+            --scheme "$XCODE_SCHEME" \
+            --config Release \
+            --archive-directory "$CM_BUILD_DIR/build" \
+            --ipa-directory "$CM_BUILD_DIR/build/ios/ipa"
     artifacts:
       - build/ios/ipa/*.ipa
       - build/NobetimPlus.xcarchive/dSYMs/*.dSYM
