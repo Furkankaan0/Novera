@@ -4,7 +4,7 @@
 "tab.analytics" = "Analytics";
 "tab.profile" = "Profile";
 "action.addShift" = "Add shift";
-"dashboard.todayShift" = "Today’s Shift";
+"dashboard.todayShift" = "Today's Shift";
 "dashboard.noShiftToday" = "No shift today";
 "shift.type.day" = "Day";
 "shift.type.night" = "Night";

@@ -22,92 +22,39 @@ struct AddShiftView: View {
     @State private var errorMessage: String?
 
     private let createShift = CreateShiftUseCase()
+    private let templates: [ShiftTemplate] = [
+        .init(title: "08-16", subtitle: "Gündüz", startHour: 8, duration: 8, kind: .normalShift, type: .day),
+        .init(title: "08-20", subtitle: "Uzun", startHour: 8, duration: 12, kind: .normalShift, type: .day),
+        .init(title: "16-00", subtitle: "Akşam", startHour: 16, duration: 8, kind: .normalShift, type: .custom),
+        .init(title: "20-08", subtitle: "Gece", startHour: 20, duration: 12, kind: .nightWork, type: .night),
+        .init(title: "24s", subtitle: "Tam gün", startHour: 8, duration: 24, kind: .normalShift, type: .twentyFourHour),
+        .init(title: "Özel", subtitle: "7.5s", startHour: 9, duration: 7.5, kind: .customDuration, type: .custom)
+    ]
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: Spacing.large) {
-                    templateStrip
-                    sectionCard("Mesai Türü", systemImage: "square.grid.2x2.fill") {
-                        Picker("Mesai türü", selection: $workKind) {
-                            ForEach(WorkEntryKind.allCases) { Text($0.localizedTitle).tag($0) }
-                        }
-                        .pickerStyle(.menu)
+            ZStack {
+                CinematicBackground()
 
-                        Picker("Ekleme modu", selection: $entryMode) {
-                            Text("Saat aralığına göre ekle").tag(ShiftEntryMode.timeRange)
-                            Text("Süreye göre ekle").tag(ShiftEntryMode.duration)
-                        }
-                        .pickerStyle(.segmented)
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: Spacing.large) {
+                        header
+                        templateCarousel
+                        workKindPanel
+                        timeComposer
+                        detailPanel
+                        flagsPanel
+                        notePanel
+                        errorView
+                        saveButton
                     }
-
-                    sectionCard("Zaman", systemImage: "clock.fill") {
-                        DatePicker("Tarih", selection: $date, displayedComponents: .date)
-                        DatePicker("Başlangıç", selection: $startTime, displayedComponents: .hourAndMinute)
-                            .datePickerStyle(.compact)
-
-                        if entryMode == .timeRange {
-                            DatePicker("Bitiş", selection: $endTime, displayedComponents: .hourAndMinute)
-                                .datePickerStyle(.compact)
-                        } else {
-                            Picker("Süre", selection: $duration) {
-                                ForEach(PresetWorkDuration.allCases) { item in
-                                    Text(item.localizedTitle).tag(item.rawValue)
-                                }
-                            }
-                            .pickerStyle(.wheel)
-                            .frame(height: 120)
-                            Text("Bitiş: \(computedEnd.formatted(date: .omitted, time: .shortened))")
-                                .font(Typography.headline)
-                                .foregroundStyle(DesignColors.primary)
-                        }
-                    }
-
-                    sectionCard("Birim ve detay", systemImage: "stethoscope") {
-                        TextField("Başlık", text: $title)
-                        TextField("Departman", text: $department)
-                        TextField("Birim", text: $unit)
-                        Picker("Nöbet türü", selection: $shiftType) {
-                            ForEach(ShiftType.allCases) { Text($0.localizedTitle).tag($0) }
-                        }
-                        .pickerStyle(.menu)
-                    }
-
-                    sectionCard("İşaretler", systemImage: "bell.badge.fill") {
-                        Toggle("Resmi tatil mi?", isOn: $isOfficialHoliday)
-                        Toggle("Gece nöbeti mi?", isOn: $isNightShift)
-                        Toggle("Hatırlatma", isOn: $reminderEnabled)
-                    }
-
-                    sectionCard("Not", systemImage: "note.text") {
-                        Text("Hasta adı, TC kimlik veya protokol numarası girmeyin.")
-                            .font(.caption)
-                            .foregroundStyle(DesignColors.warning)
-                        TextField("Not", text: $notes, axis: .vertical)
-                            .lineLimit(3...6)
-                    }
-
-                    if let errorMessage {
-                        Text(errorMessage)
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(DesignColors.danger)
-                    }
-
-                    Button {
-                        save()
-                    } label: {
-                        Label("Nöbeti Kaydet", systemImage: "checkmark.circle.fill")
-                            .frame(maxWidth: .infinity)
-                            .frame(minHeight: 52)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(DesignColors.primary)
-                    .controlSize(.large)
+                    .padding(Spacing.large)
+                    .padding(.bottom, Spacing.large)
                 }
-                .padding(Spacing.large)
             }
-            .background(AppBackground())
-            .navigationTitle("Yeni Nöbet")
+            .navigationTitle("Yeni nöbet")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.hidden, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Kapat") { dismiss() }
@@ -116,46 +63,179 @@ struct AddShiftView: View {
         }
     }
 
-    private var templateStrip: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                template("08:00 - 16:00", startHour: 8, duration: 8, kind: .normalShift)
-                template("08:00 - 20:00", startHour: 8, duration: 12, kind: .normalShift)
-                template("16:00 - 00:00", startHour: 16, duration: 8, kind: .normalShift)
-                template("20:00 - 08:00", startHour: 20, duration: 12, kind: .nightWork)
-                template("24 saat", startHour: 8, duration: 24, kind: .normalShift)
-                template("Özel", startHour: 9, duration: 7.5, kind: .customDuration)
+    private var header: some View {
+        HStack(spacing: Spacing.medium) {
+            Image("BrandLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 64, height: 64)
+                .shadow(color: DesignColors.accent.opacity(0.42), radius: 16, y: 8)
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Mesai oluştur")
+                    .font(.system(.title, design: .rounded, weight: .black))
+                Text("Şablon seç, süreyi ayarla, vardiyanı kaydet.")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
             }
-            .padding(.vertical, 2)
         }
     }
 
-    private func template(_ text: String, startHour: Int, duration: Double, kind: WorkEntryKind) -> some View {
-        Button(text) {
-            HapticService.selection(enabled: appState.profile.hapticsEnabled)
-            workKind = kind
-            entryMode = .duration
-            self.duration = duration
-            startTime = Calendar.current.date(bySettingHour: startHour, minute: 0, second: 0, of: date) ?? startTime
-            shiftType = duration == 24 ? .twentyFourHour : (kind == .nightWork ? .night : .day)
-            isNightShift = kind == .nightWork
-        }
-        .font(.subheadline.weight(.semibold))
-        .padding(.horizontal, 14)
-        .padding(.vertical, 10)
-        .frame(minHeight: 44)
-        .background(.ultraThinMaterial, in: Capsule())
-    }
-
-    private func sectionCard<Content: View>(_ title: String, systemImage: String, @ViewBuilder content: () -> Content) -> some View {
+    private var templateCarousel: some View {
         VStack(alignment: .leading, spacing: Spacing.medium) {
-            Label(title, systemImage: systemImage)
-                .font(Typography.headline)
-                .foregroundStyle(DesignColors.primary)
-            content()
+            sectionHeader("Sık kullanılanlar", icon: "sparkles")
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(templates) { item in
+                        Button {
+                            applyTemplate(item)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(item.title)
+                                    .font(.system(.title3, design: .rounded, weight: .black))
+                                Text(item.subtitle)
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(.secondary)
+                                ShiftTypePill(title: String(format: "%.1fs", item.duration), color: item.kind.colorTag.color, systemImage: item.type == .night ? "moon.stars.fill" : "clock.fill")
+                            }
+                            .frame(width: 128, alignment: .leading)
+                            .padding(Spacing.medium)
+                            .glassCard(cornerRadius: 22)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.vertical, 2)
+            }
         }
-        .padding(Spacing.large)
-        .glassCard()
+    }
+
+    private var workKindPanel: some View {
+        PremiumGlassPanel {
+            VStack(alignment: .leading, spacing: Spacing.medium) {
+                sectionHeader("Mesai türü", icon: "square.grid.2x2.fill")
+                Picker("Mesai türü", selection: $workKind) {
+                    ForEach(WorkEntryKind.allCases) { Text($0.localizedTitle).tag($0) }
+                }
+                .pickerStyle(.menu)
+
+                Picker("Ekleme modu", selection: $entryMode) {
+                    Text("Saat aralığı").tag(ShiftEntryMode.timeRange)
+                    Text("Süreye göre").tag(ShiftEntryMode.duration)
+                }
+                .pickerStyle(.segmented)
+            }
+        }
+    }
+
+    private var timeComposer: some View {
+        PremiumGlassPanel {
+            VStack(alignment: .leading, spacing: Spacing.medium) {
+                sectionHeader("Zaman bestecisi", icon: "clock.fill")
+                DatePicker("Tarih", selection: $date, displayedComponents: .date)
+                DatePicker("Başlangıç", selection: $startTime, displayedComponents: .hourAndMinute)
+                    .datePickerStyle(.compact)
+
+                if entryMode == .timeRange {
+                    DatePicker("Bitiş", selection: $endTime, displayedComponents: .hourAndMinute)
+                        .datePickerStyle(.compact)
+                } else {
+                    Picker("Süre", selection: $duration) {
+                        ForEach(PresetWorkDuration.allCases) { item in
+                            Text(item.localizedTitle).tag(item.rawValue)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(height: 126)
+
+                    ShiftStatusCapsule(
+                        title: "Bitiş \(computedEnd.formatted(date: .omitted, time: .shortened))",
+                        subtitle: String(format: "%.1f saat", duration),
+                        color: workKind.colorTag.color,
+                        systemImage: "arrow.triangle.turn.up.right.circle.fill"
+                    )
+                }
+            }
+        }
+    }
+
+    private var detailPanel: some View {
+        PremiumGlassPanel {
+            VStack(alignment: .leading, spacing: Spacing.medium) {
+                sectionHeader("Birim ve detay", icon: "stethoscope")
+                TextField("Başlık", text: $title)
+                    .textInputAutocapitalization(.words)
+                TextField("Departman", text: $department)
+                    .textInputAutocapitalization(.words)
+                TextField("Birim", text: $unit)
+                    .textInputAutocapitalization(.words)
+                Picker("Nöbet türü", selection: $shiftType) {
+                    ForEach(ShiftType.allCases) { Text($0.localizedTitle).tag($0) }
+                }
+                .pickerStyle(.menu)
+            }
+        }
+    }
+
+    private var flagsPanel: some View {
+        PremiumGlassPanel {
+            VStack(alignment: .leading, spacing: Spacing.medium) {
+                sectionHeader("İşaretler", icon: "bell.badge.fill")
+                Toggle("Resmi tatil mi?", isOn: $isOfficialHoliday)
+                Toggle("Gece nöbeti mi?", isOn: $isNightShift)
+                Toggle("Hatırlatma", isOn: $reminderEnabled)
+            }
+        }
+    }
+
+    private var notePanel: some View {
+        PremiumGlassPanel {
+            VStack(alignment: .leading, spacing: Spacing.medium) {
+                sectionHeader("Not", icon: "note.text")
+                Text("Hasta adı, TC kimlik veya protokol numarası girmeyin.")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(DesignColors.warning)
+                TextField("Not", text: $notes, axis: .vertical)
+                    .lineLimit(3...6)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var errorView: some View {
+        if let errorMessage {
+            Text(errorMessage)
+                .font(.subheadline.weight(.bold))
+                .foregroundStyle(DesignColors.danger)
+                .padding(.horizontal, Spacing.medium)
+        }
+    }
+
+    private var saveButton: some View {
+        PremiumCTAButton(title: "Nöbeti kaydet", systemImage: "checkmark.circle.fill", tint: workKind.colorTag.color) {
+            save()
+        }
+    }
+
+    private func sectionHeader(_ title: String, icon: String) -> some View {
+        Label(title, systemImage: icon)
+            .font(Typography.headline)
+            .foregroundStyle(
+                LinearGradient(colors: [DesignColors.secondary, DesignColors.primary], startPoint: .leading, endPoint: .trailing)
+            )
+    }
+
+    private func applyTemplate(_ item: ShiftTemplate) {
+        HapticService.selection(enabled: appState.profile.hapticsEnabled)
+        workKind = item.kind
+        shiftType = item.type
+        entryMode = .duration
+        duration = item.duration
+        startTime = Calendar.current.date(bySettingHour: item.startHour, minute: 0, second: 0, of: date) ?? startTime
+        endTime = Calendar.current.date(byAdding: .minute, value: Int(item.duration * 60), to: startTime) ?? endTime
+        isNightShift = item.kind == .nightWork || item.type == .night
+        isOfficialHoliday = item.kind == .officialHoliday
     }
 
     private var computedEnd: Date {
@@ -206,4 +286,14 @@ struct AddShiftView: View {
             dismiss()
         }
     }
+}
+
+private struct ShiftTemplate: Identifiable {
+    let id = UUID()
+    let title: String
+    let subtitle: String
+    let startHour: Int
+    let duration: Double
+    let kind: WorkEntryKind
+    let type: ShiftType
 }

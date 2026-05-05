@@ -7,7 +7,7 @@ struct RootTabView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            AppBackground()
+            CinematicBackground()
 
             if appState.hasCompletedOnboarding {
                 TabView(selection: $appState.selectedTab) {
@@ -31,7 +31,7 @@ struct RootTabView: View {
                         .tag(AppTab.profile)
                         .tabItem { Label(AppTab.profile.title, systemImage: AppTab.profile.systemImage) }
                 }
-                .tint(DesignColors.primary)
+                .tint(DesignColors.secondary)
                 .task { appState.bootstrap() }
             } else {
                 OnboardingView(appState: appState)
@@ -82,8 +82,8 @@ struct RootTabView: View {
             fabAction("İzin ekle", systemImage: "figure.mind.and.body") { openAddShift() }
             fabAction("Gelir kalemi ekle", systemImage: "banknote.fill") { appState.activeSheet = .settings }
         }
-        .padding(10)
-        .glassCard(cornerRadius: 24)
+        .padding(12)
+        .glassCard(cornerRadius: 26)
     }
 
     private func fabAction(_ title: String, systemImage: String, action: @escaping () -> Void) -> some View {
@@ -93,12 +93,14 @@ struct RootTabView: View {
         } label: {
             Label(title, systemImage: systemImage)
                 .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.white)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 10)
                 .frame(minHeight: 44)
+                .background(DesignColors.primary.opacity(0.28), in: Capsule())
+                .overlay(Capsule().stroke(Color.white.opacity(0.18), lineWidth: 1))
         }
-        .buttonStyle(.borderedProminent)
-        .tint(DesignColors.primary)
+        .buttonStyle(.plain)
         .accessibilityLabel(title)
     }
 
