@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000101 = {isa = PBXBuildFile; fileRef = 000000000000000000000201; };
+		000000000000000000000102 = {isa = PBXBuildFile; fileRef = 000000000000000000000202; };
+		000000000000000000000103 = {isa = PBXBuildFile; fileRef = 000000000000000000000203; };
+		000000000000000000000104 = {isa = PBXBuildFile; fileRef = 000000000000000000000204; };
+		000000000000000000000105 = {isa = PBXBuildFile; fileRef = 000000000000000000000205; };
+		000000000000000000000106 = {isa = PBXBuildFile; fileRef = 000000000000000000000206; };
+		000000000000000000000107 = {isa = PBXBuildFile; fileRef = 000000000000000000000207; };
+		000000000000000000000108 = {isa = PBXBuildFile; fileRef = 000000000000000000000208; };
+		000000000000000000000109 = {isa = PBXBuildFile; fileRef = 000000000000000000000209; };
+		000000000000000000000110 = {isa = PBXBuildFile; fileRef = 000000000000000000000210; };
+		000000000000000000000111 = {isa = PBXBuildFile; fileRef = 000000000000000000000211; };
+		000000000000000000000112 = {isa = PBXBuildFile; fileRef = 000000000000000000000212; };
+		000000000000000000000113 = {isa = PBXBuildFile; fileRef = 000000000000000000000213; };
+		000000000000000000000114 = {isa = PBXBuildFile; fileRef = 000000000000000000000214; };
+		000000000000000000000115 = {isa = PBXBuildFile; fileRef = 000000000000000000000215; };
+		000000000000000000000116 = {isa = PBXBuildFile; fileRef = 000000000000000000000216; };
+		000000000000000000000117 = {isa = PBXBuildFile; fileRef = 000000000000000000000217; };
+		000000000000000000000118 = {isa = PBXBuildFile; fileRef = 000000000000000000000218; };
+		000000000000000000000119 = {isa = PBXBuildFile; fileRef = 000000000000000000000219; };
+		000000000000000000000120 = {isa = PBXBuildFile; fileRef = 000000000000000000000220; };
+		000000000000000000000121 = {isa = PBXBuildFile; fileRef = 000000000000000000000221; };
+		000000000000000000000122 = {isa = PBXBuildFile; fileRef = 000000000000000000000222; };
+		000000000000000000000123 = {isa = PBXBuildFile; fileRef = 000000000000000000000223; };
+		000000000000000000000124 = {isa = PBXBuildFile; fileRef = 000000000000000000000224; };
+		000000000000000000000125 = {isa = PBXBuildFile; fileRef = 000000000000000000000225; };
+		000000000000000000000126 = {isa = PBXBuildFile; fileRef = 000000000000000000000226; };
+		000000000000000000000127 = {isa = PBXBuildFile; fileRef = 000000000000000000000227; };
+		000000000000000000000128 = {isa = PBXBuildFile; fileRef = 000000000000000000000228; };
+		000000000000000000000129 = {isa = PBXBuildFile; fileRef = 000000000000000000000229; };
+		000000000000000000000130 = {isa = PBXBuildFile; fileRef = 000000000000000000000230; };
+		000000000000000000000131 = {isa = PBXBuildFile; fileRef = 000000000000000000000231; };
+		000000000000000000000132 = {isa = PBXBuildFile; fileRef = 000000000000000000000232; };
+		000000000000000000000133 = {isa = PBXBuildFile; fileRef = 000000000000000000000233; };
+		000000000000000000000134 = {isa = PBXBuildFile; fileRef = 000000000000000000000234; };
+		000000000000000000000135 = {isa = PBXBuildFile; fileRef = 000000000000000000000235; };
+		000000000000000000000136 = {isa = PBXBuildFile; fileRef = 000000000000000000000236; };
+		000000000000000000000137 = {isa = PBXBuildFile; fileRef = 000000000000000000000237; };
+		000000000000000000000138 = {isa = PBXBuildFile; fileRef = 000000000000000000000238; };
+		000000000000000000000139 = {isa = PBXBuildFile; fileRef = 000000000000000000000239; };
+		000000000000000000000140 = {isa = PBXBuildFile; fileRef = 000000000000000000000240; };
+		000000000000000000000141 = {isa = PBXBuildFile; fileRef = 000000000000000000000241; };
+		000000000000000000000142 = {isa = PBXBuildFile; fileRef = 000000000000000000000242; };
+		000000000000000000000143 = {isa = PBXBuildFile; fileRef = 000000000000000000000243; };
+		000000000000000000000144 = {isa = PBXBuildFile; fileRef = 000000000000000000000244; };
+		000000000000000000000145 = {isa = PBXBuildFile; fileRef = 000000000000000000000245; };
+		000000000000000000000146 = {isa = PBXBuildFile; fileRef = 000000000000000000000246; };
+		000000000000000000000147 = {isa = PBXBuildFile; fileRef = 000000000000000000000247; };
+		000000000000000000000160 = {isa = PBXBuildFile; fileRef = 000000000000000000000263; };
+		000000000000000000000161 = {isa = PBXBuildFile; fileRef = 000000000000000000000266; };
+		000000000000000000000171 = {isa = PBXBuildFile; fileRef = 000000000000000000000271; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		000000000000000000000751 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000000000000000000000700;
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000701;
+			remoteInfo = NobetimPlus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000201 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppRouter.swift; sourceTree = "<group>"; };
+		000000000000000000000202 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppState.swift; sourceTree = "<group>"; };
+		000000000000000000000203 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/NobetimPlusApp.swift; sourceTree = "<group>"; };
+		000000000000000000000204 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/PreviewRoot.swift; sourceTree = "<group>"; };
+		000000000000000000000205 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/AppIntents/NobetimAppIntents.swift; sourceTree = "<group>"; };
+		000000000000000000000206 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Authentication/AppleSignInManager.swift; sourceTree = "<group>"; };
+		000000000000000000000207 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Components/PremiumComponents.swift; sourceTree = "<group>"; };
+		000000000000000000000208 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Colors.swift; sourceTree = "<group>"; };
+		000000000000000000000209 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Spacing.swift; sourceTree = "<group>"; };
+		000000000000000000000210 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/DesignSystem/Typography.swift; sourceTree = "<group>"; };
+		000000000000000000000211 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/EventKit/CalendarExportService.swift; sourceTree = "<group>"; };
+		000000000000000000000212 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Extensions/Date+Nobetim.swift; sourceTree = "<group>"; };
+		000000000000000000000213 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Localization/L10n.swift; sourceTree = "<group>"; };
+		000000000000000000000214 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Notifications/NotificationService.swift; sourceTree = "<group>"; };
+		000000000000000000000215 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Security/KeychainService.swift; sourceTree = "<group>"; };
+		000000000000000000000216 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core/Utilities/Haptics/HapticService.swift; sourceTree = "<group>"; };
+		000000000000000000000217 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/DTOs/ShiftDTO.swift; sourceTree = "<group>"; };
+		000000000000000000000218 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/SwiftDataModels/LocalShiftEntity.swift; sourceTree = "<group>"; };
+		000000000000000000000219 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/SwiftDataModels/LocalShiftRepository.swift; sourceTree = "<group>"; };
+		000000000000000000000220 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/LocalSettingsRepository.swift; sourceTree = "<group>"; };
+		000000000000000000000221 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Local/LocalTeamRepository.swift; sourceTree = "<group>"; };
+		000000000000000000000222 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Mock/MockData.swift; sourceTree = "<group>"; };
+		000000000000000000000223 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/Remote/APIClient.swift; sourceTree = "<group>"; };
+		000000000000000000000224 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/PremiumPlan.swift; sourceTree = "<group>"; };
+		000000000000000000000225 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/Shift.swift; sourceTree = "<group>"; };
+		000000000000000000000226 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/SwapRequest.swift; sourceTree = "<group>"; };
+		000000000000000000000227 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/Team.swift; sourceTree = "<group>"; };
+		000000000000000000000228 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/TeamMember.swift; sourceTree = "<group>"; };
+		000000000000000000000229 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/UserProfile.swift; sourceTree = "<group>"; };
+		000000000000000000000230 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Models/WorkSummary.swift; sourceTree = "<group>"; };
+		000000000000000000000231 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/SettingsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		000000000000000000000232 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/ShiftRepositoryProtocol.swift; sourceTree = "<group>"; };
+		000000000000000000000233 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories/TeamRepositoryProtocol.swift; sourceTree = "<group>"; };
+		000000000000000000000234 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/CreateShiftUseCase.swift; sourceTree = "<group>"; };
+		000000000000000000000235 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/ExportReportUseCase.swift; sourceTree = "<group>"; };
+		000000000000000000000236 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/SmartInsightEngine.swift; sourceTree = "<group>"; };
+		000000000000000000000237 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/UseCases/WorkCalculationEngine.swift; sourceTree = "<group>"; };
+		000000000000000000000238 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/AddShift/AddShiftView.swift; sourceTree = "<group>"; };
+		000000000000000000000239 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Analytics/AnalyticsView.swift; sourceTree = "<group>"; };
+		000000000000000000000240 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Calendar/CalendarView.swift; sourceTree = "<group>"; };
+		000000000000000000000241 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Dashboard/DashboardView.swift; sourceTree = "<group>"; };
+		000000000000000000000242 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Dashboard/RootTabView.swift; sourceTree = "<group>"; };
+		000000000000000000000243 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Onboarding/OnboardingView.swift; sourceTree = "<group>"; };
+		000000000000000000000244 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Premium/PremiumPaywallView.swift; sourceTree = "<group>"; };
+		000000000000000000000245 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Profile/ProfileView.swift; sourceTree = "<group>"; };
+		000000000000000000000246 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Settings/SettingsView.swift; sourceTree = "<group>"; };
+		000000000000000000000247 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Team/TeamView.swift; sourceTree = "<group>"; };
+		000000000000000000000261 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Resources/tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		000000000000000000000262 = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		000000000000000000000264 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		000000000000000000000265 = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NobetimPlus.entitlements; sourceTree = "<group>"; };
+		000000000000000000000266 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		000000000000000000000271 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCalculationEngineTests.swift; sourceTree = "<group>"; };
+		000000000000000000000900 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NobetimPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000901 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NobetimPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000712 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		000000000000000000000722 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000800 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000801,
+				000000000000000000000802,
+				000000000000000000000803,
+			);
+			sourceTree = "<group>";
+		};
+		000000000000000000000801 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000201,
+				000000000000000000000202,
+				000000000000000000000203,
+				000000000000000000000204,
+				000000000000000000000205,
+				000000000000000000000206,
+				000000000000000000000207,
+				000000000000000000000208,
+				000000000000000000000209,
+				000000000000000000000210,
+				000000000000000000000211,
+				000000000000000000000212,
+				000000000000000000000213,
+				000000000000000000000214,
+				000000000000000000000215,
+				000000000000000000000216,
+				000000000000000000000217,
+				000000000000000000000218,
+				000000000000000000000219,
+				000000000000000000000220,
+				000000000000000000000221,
+				000000000000000000000222,
+				000000000000000000000223,
+				000000000000000000000224,
+				000000000000000000000225,
+				000000000000000000000226,
+				000000000000000000000227,
+				000000000000000000000228,
+				000000000000000000000229,
+				000000000000000000000230,
+				000000000000000000000231,
+				000000000000000000000232,
+				000000000000000000000233,
+				000000000000000000000234,
+				000000000000000000000235,
+				000000000000000000000236,
+				000000000000000000000237,
+				000000000000000000000238,
+				000000000000000000000239,
+				000000000000000000000240,
+				000000000000000000000241,
+				000000000000000000000242,
+				000000000000000000000243,
+				000000000000000000000244,
+				000000000000000000000245,
+				000000000000000000000246,
+				000000000000000000000247,
+				000000000000000000000263,
+				000000000000000000000264,
+				000000000000000000000265,
+				000000000000000000000266,
+			);
+			name = NobetimPlus;
+			path = NobetimPlus;
+			sourceTree = "<group>";
+		};
+		000000000000000000000802 = {isa = PBXGroup; children = (000000000000000000000271,); path = NobetimPlusTests; sourceTree = "<group>"; };
+		000000000000000000000803 = {isa = PBXGroup; children = (000000000000000000000900, 000000000000000000000901,); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000701 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000731;
+			buildPhases = (000000000000000000000711, 000000000000000000000712, 000000000000000000000713);
+			buildRules = ();
+			dependencies = ();
+			name = NobetimPlus;
+			productName = NobetimPlus;
+			productReference = 000000000000000000000900;
+			productType = "com.apple.product-type.application";
+		};
+		000000000000000000000702 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000732;
+			buildPhases = (000000000000000000000721, 000000000000000000000722, 000000000000000000000723);
+			buildRules = ();
+			dependencies = (000000000000000000000750,);
+			name = NobetimPlusTests;
+			productName = NobetimPlusTests;
+			productReference = 000000000000000000000901;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000700 = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					000000000000000000000701 = {CreatedOnToolsVersion = 16.0; };
+					000000000000000000000702 = {CreatedOnToolsVersion = 16.0; TestTargetID = 000000000000000000000701; };
+				};
+			};
+			buildConfigurationList = 000000000000000000000730;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = tr;
+			hasScannedForEncodings = 0;
+			knownRegions = (tr, en, Base);
+			mainGroup = 000000000000000000000800;
+			productRefGroup = 000000000000000000000803;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (000000000000000000000701, 000000000000000000000702);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000000000000000000000713 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000160, 000000000000000000000161); runOnlyForDeploymentPostprocessing = 0; };
+		000000000000000000000723 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000711 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000101,
+				000000000000000000000102,
+				000000000000000000000103,
+				000000000000000000000104,
+				000000000000000000000105,
+				000000000000000000000106,
+				000000000000000000000107,
+				000000000000000000000108,
+				000000000000000000000109,
+				000000000000000000000110,
+				000000000000000000000111,
+				000000000000000000000112,
+				000000000000000000000113,
+				000000000000000000000114,
+				000000000000000000000115,
+				000000000000000000000116,
+				000000000000000000000117,
+				000000000000000000000118,
+				000000000000000000000119,
+				000000000000000000000120,
+				000000000000000000000121,
+				000000000000000000000122,
+				000000000000000000000123,
+				000000000000000000000124,
+				000000000000000000000125,
+				000000000000000000000126,
+				000000000000000000000127,
+				000000000000000000000128,
+				000000000000000000000129,
+				000000000000000000000130,
+				000000000000000000000131,
+				000000000000000000000132,
+				000000000000000000000133,
+				000000000000000000000134,
+				000000000000000000000135,
+				000000000000000000000136,
+				000000000000000000000137,
+				000000000000000000000138,
+				000000000000000000000139,
+				000000000000000000000140,
+				000000000000000000000141,
+				000000000000000000000142,
+				000000000000000000000143,
+				000000000000000000000144,
+				000000000000000000000145,
+				000000000000000000000146,
+				000000000000000000000147,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000721 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000171,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		000000000000000000000750 = {isa = PBXTargetDependency; target = 000000000000000000000701; targetProxy = 000000000000000000000751; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		000000000000000000000263 = {isa = PBXVariantGroup; children = (000000000000000000000261, 000000000000000000000262); name = Localizable.strings; sourceTree = "<group>"; };
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000740 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_STRICT_OBJC_MSGSEND = YES; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_DYNAMIC_NO_PIC = NO; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		000000000000000000000741 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; ENABLE_STRICT_OBJC_MSGSEND = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; MTL_ENABLE_DEBUG_INFO = NO; MTL_FAST_MATH = YES; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES; }; name = Release; };
+		000000000000000000000742 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = NobetimPlus/NobetimPlus.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_ASSET_PATHS = ""; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = NobetimPlus/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+		000000000000000000000743 = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor; CODE_SIGN_ENTITLEMENTS = NobetimPlus/NobetimPlus.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; ENABLE_PREVIEWS = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = NobetimPlus/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+		000000000000000000000744 = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NobetimPlus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NobetimPlus"; }; name = Debug; };
+		000000000000000000000745 = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.nobetimplus.app.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.9; TARGETED_DEVICE_FAMILY = 1; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NobetimPlus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NobetimPlus"; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000730 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000740, 000000000000000000000741); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		000000000000000000000731 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000742, 000000000000000000000743); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		000000000000000000000732 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000744, 000000000000000000000745); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 000000000000000000000700;
+}

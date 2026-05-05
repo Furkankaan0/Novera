@@ -1,0 +1,36 @@
+# Xcode
+gitmeta/
+DerivedData/
+build/
+*.xcuserstate
+*.xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods / Carthage
+Pods/
+Carthage/Build/
+
+# Code signing and secrets
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+*.pem
+*.key
+.env
+.env.*
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
