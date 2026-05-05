@@ -1,10 +1,9 @@
 import SwiftUI
 
 enum CalendarMode: String, CaseIterable, Identifiable {
-    case month = "Aylık"
-    case week = "Haftalık"
+    case month = "Ay"
+    case week = "Hafta"
     case list = "Liste"
-    case timeline = "Timeline"
 
     var id: String { rawValue }
 }
@@ -19,23 +18,24 @@ struct CalendarView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: Spacing.large) {
-                    Picker("Takvim görünümü", selection: $mode) {
-                        ForEach(CalendarMode.allCases) { Text($0.rawValue).tag($0) }
+            ZStack {
+                CinematicBackground()
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: Spacing.large) {
+                        topBar
+                        modePicker
+                        if mode == .list {
+                            listView
+                        } else {
+                            calendarGrid
+                        }
                     }
-                    .pickerStyle(.segmented)
-                    .padding(.top, Spacing.medium)
-
-                    if mode == .month || mode == .week {
-                        calendarGrid
-                    } else {
-                        listView
-                    }
+                    .padding(Spacing.large)
+                    .padding(.bottom, 110)
                 }
-                .padding(Spacing.large)
             }
             .navigationTitle("Takvim")
+            .toolbarBackground(.hidden, for: .navigationBar)
             .sheet(item: Binding(
                 get: { detailDate.map(DateSelection.init(date:)) },
                 set: { detailDate = $0?.date }
@@ -46,24 +46,53 @@ struct CalendarView: View {
         }
     }
 
+    private var topBar: some View {
+        PremiumGlassPanel(cornerRadius: 30) {
+            HStack(spacing: Spacing.medium) {
+                VStack(alignment: .leading, spacing: 8) {
+                    ShiftStatusCapsule(title: selectedDate.formatted(.dateTime.month(.wide).year()), color: DesignColors.primary, systemImage: "calendar")
+                    Text("Nöbet takvimi")
+                        .font(.system(.title, design: .rounded, weight: .black))
+                    Text("Aynı güne birden fazla mesai eklenebilir; renkler mesai türünü gösterir.")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Image("BrandLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 72, height: 72)
+                    .opacity(0.88)
+                    .accessibilityHidden(true)
+            }
+        }
+    }
+
+    private var modePicker: some View {
+        Picker("Takvim görünümü", selection: $mode) {
+            ForEach(CalendarMode.allCases) { Text($0.rawValue).tag($0) }
+        }
+        .pickerStyle(.segmented)
+    }
+
     private var calendarGrid: some View {
         let days = visibleDays
-        return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 7), spacing: 10) {
-            ForEach(days, id: \.self) { day in
-                CalendarDayCell(date: day, shifts: appState.shifts.shifts(on: day), isSelected: calendar.isDate(day, inSameDayAs: selectedDate)) {
-                    selectedDate = day
-                    detailDate = day
+        return PremiumGlassPanel(cornerRadius: 28) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 7), spacing: 10) {
+                ForEach(days, id: \.self) { day in
+                    CalendarDayCell(date: day, shifts: appState.shifts.shifts(on: day), isSelected: calendar.isDate(day, inSameDayAs: selectedDate)) {
+                        selectedDate = day
+                        detailDate = day
+                    }
                 }
             }
         }
-        .padding(Spacing.medium)
-        .glassCard()
     }
 
     private var listView: some View {
         LazyVStack(spacing: Spacing.medium) {
             if appState.shifts.isEmpty {
-                EmptyStateView(title: "Henüz nöbet yok", message: "Yeni nöbet ekleyerek takvimi oluşturmaya başlayabilirsin.", systemImage: "calendar.badge.plus")
+                EmptyStateView(title: "Henüz nöbet yok", message: "Yeni nöbet ekleyerek çalışma takvimini oluşturmaya başlayabilirsin.", systemImage: "calendar.badge.plus")
             }
             ForEach(appState.shifts.sorted { $0.startDate < $1.startDate }) { shift in
                 ShiftTimelineCard(shift: shift, duration: appState.calculator.calculateShiftDuration(shift), estimatedIncome: estimatedIncome(for: shift))
@@ -110,24 +139,36 @@ struct CalendarDayCell: View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 7) {
                 Text(date.formatted(.dateTime.day()))
-                    .font(.subheadline.weight(isSelected ? .bold : .semibold))
+                    .font(.subheadline.weight(.black))
                     .foregroundStyle(isSelected ? .white : .primary)
                 VStack(alignment: .leading, spacing: 4) {
                     ForEach(shifts.prefix(3)) { shift in
                         HStack(spacing: 4) {
-                            Circle().fill(shift.colorTag.color).frame(width: 6, height: 6)
+                            RoundedRectangle(cornerRadius: 3, style: .continuous)
+                                .fill(shift.colorTag.color)
+                                .frame(width: 6, height: 14)
                             Text(shortLabel(for: shift))
-                                .font(.caption2.weight(.semibold))
+                                .font(.caption2.weight(.bold))
                                 .lineLimit(1)
+                                .minimumScaleFactor(0.72)
                         }
                     }
                 }
                 Spacer(minLength: 0)
             }
             .padding(8)
-            .frame(minHeight: 86, alignment: .topLeading)
+            .frame(minHeight: 88, alignment: .topLeading)
             .frame(maxWidth: .infinity)
-            .background(isSelected ? DesignColors.primary : .white.opacity(0.08), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .background(
+                isSelected
+                    ? AnyShapeStyle(LinearGradient(colors: [DesignColors.primary, DesignColors.accent], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    : AnyShapeStyle(Color.white.opacity(0.08)),
+                in: RoundedRectangle(cornerRadius: 17, style: .continuous)
+            )
+            .overlay {
+                RoundedRectangle(cornerRadius: 17, style: .continuous)
+                    .stroke(Color.white.opacity(isSelected ? 0.28 : 0.10), lineWidth: 1)
+            }
         }
         .buttonStyle(.plain)
         .accessibilityLabel("\(date.formatted(date: .abbreviated, time: .omitted)), \(shifts.count) mesai")
@@ -148,17 +189,20 @@ struct DayDetailSheet: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: Spacing.medium) {
-                    if shifts.isEmpty {
-                        EmptyStateView(title: "Bu gün boş", message: "Aynı güne birden fazla mesai ekleyebilirsin.", systemImage: "calendar")
+            ZStack {
+                CinematicBackground()
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: Spacing.medium) {
+                        if shifts.isEmpty {
+                            EmptyStateView(title: "Bu gün boş", message: "Aynı güne birden fazla mesai ekleyebilirsin.", systemImage: "calendar")
+                        }
+                        ForEach(shifts) { shift in
+                            ShiftTimelineCard(shift: shift, duration: appState.calculator.calculateShiftDuration(shift), estimatedIncome: estimatedIncome(for: shift))
+                        }
+                        CinematicMetricCard(title: "Günlük toplam", value: String(format: "%.1fs", totalHours), footnote: "Aynı gündeki tüm mesailer", color: DesignColors.primary, systemImage: "sum")
                     }
-                    ForEach(shifts) { shift in
-                        ShiftTimelineCard(shift: shift, duration: appState.calculator.calculateShiftDuration(shift), estimatedIncome: nil)
-                    }
-                    PremiumMetricCard(title: "Günlük toplam çalışma", value: String(format: "%.1fs", totalHours), footnote: "Aynı gündeki tüm mesailer", color: DesignColors.primary, systemImage: "sum")
+                    .padding(Spacing.large)
                 }
-                .padding(Spacing.large)
             }
             .navigationTitle(date.formatted(date: .abbreviated, time: .omitted))
             .toolbar {
@@ -169,5 +213,17 @@ struct DayDetailSheet: View {
 
     private var totalHours: Double {
         shifts.reduce(0) { $0 + appState.calculator.calculateShiftDuration($1) }
+    }
+
+    private func estimatedIncome(for shift: Shift) -> Double? {
+        let hours = appState.calculator.calculateShiftDuration(shift)
+        switch shift.workKind {
+        case .overtime, .shortExtra:
+            return hours * appState.profile.overtimeHourlyRate
+        case .officialHoliday:
+            return hours * appState.profile.holidayHourlyRate
+        default:
+            return nil
+        }
     }
 }
