@@ -539,6 +539,7 @@ struct AwardDepthBadge: View {
     var systemImage: String
     var color: Color
     var size: CGFloat = 86
+    var isAnimated = false
 
     var body: some View {
         VStack(spacing: 8) {
@@ -569,10 +570,10 @@ struct AwardDepthBadge: View {
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.18), radius: 10, y: 5)
             }
-            .rotation3DEffect(.degrees(reduceMotion ? 0 : (float ? 7 : -5)), axis: (x: 0.7, y: -0.55, z: 0))
-            .scaleEffect(reduceMotion ? 1 : (float ? 1.035 : 0.985))
+            .rotation3DEffect(.degrees(reduceMotion || !isAnimated ? -3 : (float ? 7 : -5)), axis: (x: 0.7, y: -0.55, z: 0))
+            .scaleEffect(reduceMotion || !isAnimated ? 1 : (float ? 1.035 : 0.985))
             .onAppear {
-                guard !reduceMotion else { return }
+                guard isAnimated, !reduceMotion else { return }
                 withAnimation(.easeInOut(duration: 3.8).repeatForever(autoreverses: true)) {
                     float = true
                 }
@@ -630,6 +631,7 @@ struct AwardSectionHeader: View {
 
 struct GlassDockTabBar: View {
     @Binding var selection: AppTab
+    var hapticsEnabled = true
     var action: () -> Void
 
     var body: some View {
@@ -664,7 +666,7 @@ struct GlassDockTabBar: View {
 
     private func dockItem(_ tab: AppTab) -> some View {
         Button {
-            HapticService.selection(enabled: true)
+            HapticService.selection(enabled: hapticsEnabled)
             withAnimation(.spring(response: 0.32, dampingFraction: 0.82)) {
                 selection = tab
             }

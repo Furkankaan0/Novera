@@ -21,6 +21,7 @@ final class AppState: ObservableObject {
     private let shiftRepository: ShiftRepositoryProtocol
     private let teamRepository: TeamRepositoryProtocol
     private let settingsRepository: SettingsRepositoryProtocol
+    private var hasBootstrapped = false
 
     init(
         shiftRepository: ShiftRepositoryProtocol,
@@ -34,7 +35,9 @@ final class AppState: ObservableObject {
         self.hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "nobetimplus.hasCompletedOnboarding")
     }
 
-    func bootstrap() {
+    func bootstrap(force: Bool = false) {
+        guard force || !hasBootstrapped else { return }
+        hasBootstrapped = true
         isLoading = true
         do {
             shifts = try shiftRepository.fetchShifts()

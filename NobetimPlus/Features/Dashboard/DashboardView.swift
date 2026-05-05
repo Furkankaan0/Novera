@@ -69,7 +69,7 @@ struct DashboardView: View {
                     .minimumScaleFactor(0.74)
             }
             Spacer()
-            AwardDepthBadge(title: "Bugün", subtitle: "Hazır", systemImage: "waveform.path.ecg", color: DesignColors.secondary, size: 58)
+            AwardDepthBadge(title: "Bugün", subtitle: "Hazır", systemImage: "waveform.path.ecg", color: DesignColors.secondary, size: 58, isAnimated: true)
         }
     }
 

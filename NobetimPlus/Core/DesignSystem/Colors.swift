@@ -38,6 +38,7 @@ struct CinematicBackground: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var animate = false
+    var isAnimated = false
 
     var body: some View {
         ZStack {
@@ -47,7 +48,7 @@ struct CinematicBackground: View {
         }
         .ignoresSafeArea()
         .onAppear {
-            guard !reduceMotion else { return }
+            guard isAnimated, !reduceMotion else { return }
             withAnimation(.easeInOut(duration: 8).repeatForever(autoreverses: true)) {
                 animate = true
             }
@@ -113,7 +114,7 @@ private struct CinematicGlow: View {
 
 struct AppBackground: View {
     var body: some View {
-        CinematicBackground()
+        CinematicBackground(isAnimated: false)
     }
 }
 

@@ -7,8 +7,6 @@ struct RootTabView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            CinematicBackground()
-
             if appState.hasCompletedOnboarding {
                 selectedContent
                     .transition(.opacity.combined(with: .scale(scale: reduceMotion ? 1 : 0.985)))
@@ -19,7 +17,7 @@ struct RootTabView: View {
                         fabMenu
                             .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
-                    GlassDockTabBar(selection: $appState.selectedTab) {
+                    GlassDockTabBar(selection: $appState.selectedTab, hapticsEnabled: appState.profile.hapticsEnabled) {
                         HapticService.selection(enabled: appState.profile.hapticsEnabled)
                         withAnimation(reduceMotion ? .default : .spring(response: 0.32, dampingFraction: 0.76)) {
                             isFabExpanded.toggle()

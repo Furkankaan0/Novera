@@ -17,7 +17,7 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
-            CinematicBackground()
+            CinematicBackground(isAnimated: true)
 
             VStack(spacing: Spacing.large) {
                 TabView(selection: $page) {
